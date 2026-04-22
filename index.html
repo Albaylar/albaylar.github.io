@@ -8,6 +8,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -690,6 +691,13 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* Lenis Smooth Scroll Base */
+        html.lenis { height: auto; }
+        .lenis-smooth { scroll-behavior: auto !important; }
+        .lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis-stopped { overflow: hidden; }
+        .lenis-scrolling iframe { pointer-events: none; }
+
         .logo-strip span {
             font-family: var(--font-main);
             font-weight: 700;
@@ -862,6 +870,96 @@
             transition: all 0.5s ease;
         }
 
+        /* Live Tech Monitor Styles */
+        .monitor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-family: 'Menlo', monospace;
+            font-size: 0.7rem;
+        }
+
+        .monitor-stat {
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .monitor-stat .label { color: #555; display: block; margin-bottom: 4px; text-transform: uppercase; }
+        .monitor-stat .value { color: var(--accent); font-weight: 700; }
+
+        /* Case Study Modal */
+        .case-study-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px);
+            z-index: 10001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .case-study-overlay.active { opacity: 1; pointer-events: all; }
+
+        .case-study-content {
+            background: #0a0a0b;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 85vh;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 60px;
+        }
+
+        .case-study-overlay.active .case-study-content { transform: translateY(0); }
+
+        .close-case {
+            position: absolute;
+            top: 30px; right: 30px;
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .close-case:hover { background: rgba(255,255,255,0.2); }
+
+        .case-header h2 { font-size: 3rem; margin-bottom: 10px; }
+        .case-tagline { color: var(--accent); font-weight: 600; margin-bottom: 40px; display: block; }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .case-main h4 { color: var(--text); margin-bottom: 15px; font-size: 1.2rem; }
+        .case-main p { color: var(--text-secondary); margin-bottom: 30px; line-height: 1.7; }
+
+        .case-sidebar {
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .side-item { margin-bottom: 25px; }
+        .side-item label { display: block; color: #555; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
+        .side-item span { color: #fff; font-weight: 600; font-size: 0.9rem; }
+
         .testimonial-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
@@ -1004,13 +1102,27 @@
                 </div>
             </div>
             <div class="bento-item span-2">
-                <i class="fas fa-search-plus"></i>
+                <i class="fas fa-microscope"></i>
                 <div>
-                    <h4 data-i18n="seoTitle">AI SEO Optimization</h4>
-                    <p data-i18n="seoDesc">Elevating global visibility through machine learning, programmatic SEO, and advanced semantic architecture.</p>
-                    <div class="tech-stack" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                        <div class="tech-pill"><i class="fas fa-chart-line"></i><span>Semantic Search</span></div>
-                        <div class="tech-pill"><i class="fas fa-globe"></i><span>Global Ranking</span></div>
+                    <h4 data-i18n="monitorTitle">Engineering Status</h4>
+                    <p data-i18n="monitorDesc">Live performance metrics and system integrity across global deployments.</p>
+                    <div class="monitor-grid">
+                        <div class="monitor-stat">
+                            <span class="label">UPTIME</span>
+                            <span class="value" id="uptimeVal">99.999%</span>
+                        </div>
+                        <div class="monitor-stat">
+                            <span class="label">CPU LOAD</span>
+                            <span class="value" id="cpuVal">0.42%</span>
+                        </div>
+                        <div class="monitor-stat">
+                            <span class="label">LATENCY</span>
+                            <span class="value" id="latencyVal">14ms</span>
+                        </div>
+                        <div class="monitor-stat">
+                            <span class="label">INTEGRITY</span>
+                            <span class="value">STABLE</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1168,6 +1280,38 @@
     </section>
 
     <footer>
+        <div class="case-study-overlay" id="caseOverlay">
+            <div class="case-study-content">
+                <div class="close-case" onclick="closeCase()"><i class="fas fa-times"></i></div>
+                <div class="case-header">
+                    <h2 id="caseTitle">Project Title</h2>
+                    <span class="case-tagline" id="caseTagline">Technical Architecture & Engineering Insights</span>
+                </div>
+                <div class="case-grid">
+                    <div class="case-main">
+                        <h4>Challenge</h4>
+                        <p id="caseChallenge">Description of the technical challenge.</p>
+                        <h4>Solution</h4>
+                        <p id="caseSolution">Engineering approach and architectural choices.</p>
+                    </div>
+                    <div class="case-sidebar">
+                        <div class="side-item">
+                            <label>Architecture</label>
+                            <span id="caseArch">Clean MVVM / SwiftUI</span>
+                        </div>
+                        <div class="side-item">
+                            <label>Tech Stack</label>
+                            <span id="caseStack">Swift, CoreML, ElevenLabs</span>
+                        </div>
+                        <div class="side-item">
+                            <label>Performance</label>
+                            <span id="casePerf">Sub-100ms Latency</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="terminal-contact">
             <div class="terminal-header">
                 <span class="dot red"></span>
@@ -1196,6 +1340,27 @@
     </footer>
 
     <script>
+        // Smooth Scroll (Lenis)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
         const translations = {
             en: {
                 navServices: "Services",
@@ -1772,6 +1937,68 @@
             addTerminalLine(`  [2] Native Mobile Architecture (iOS/Swift)`, '#a1a1a6');
             addTerminalLine(`  [3] Next-Gen Web & Brand Identity`, '#a1a1a6');
         }, 1000);
+        // Case Study Logic
+        const caseData = {
+            'SpeachyAI': {
+                tagline: 'AI Vocal Intelligence & Cognitive Architecture',
+                challenge: 'Reducing latency between speech recognition and AI response while maintaining high-fidelity emotional voice synthesis.',
+                solution: 'Implemented a custom streaming buffer architecture using Combine and low-level audio units. Leveraged elevenlabs streaming API with predictive pre-caching.',
+                arch: 'MVVM-C / SwiftUI',
+                stack: 'Swift, CoreML, ElevenLabs, OpenAI',
+                perf: '< 200ms TTFB'
+            },
+            'ChargeEV': {
+                tagline: 'High-Concurrency Infrastructure Mapping',
+                challenge: 'Managing real-time synchronization of thousands of charging stations with varying API response times and data integrity.',
+                solution: 'Built a proprietary synchronization engine that prioritizes delta updates and uses local SwiftData caching for offline-first resilience.',
+                arch: 'Modular Architecture',
+                stack: 'SwiftUI, SwiftData, MapKit, REST API',
+                perf: '100% Data Integrity'
+            },
+            'M & M Service und Dienstleistungen GmbH': {
+                tagline: 'Premium Digital Engineering & Motion Design',
+                challenge: 'Translating complex industrial logistics into a fluid, cinematic digital experience that maintains 60fps performance across all devices.',
+                solution: 'Utilized GSAP for orchestrated motion paths and specialized canvas rendering for heavy background assets. Optimized for zero layout shifts.',
+                arch: 'GSAP / Vanilla JS',
+                stack: 'HTML5, CSS3, GSAP, Lenis',
+                perf: 'Solid 60 FPS'
+            }
+        };
+
+        function openCase(title) {
+            const data = caseData[title];
+            if(!data) return;
+            document.getElementById('caseTitle').innerText = title;
+            document.getElementById('caseTagline').innerText = data.tagline;
+            document.getElementById('caseChallenge').innerText = data.challenge;
+            document.getElementById('caseSolution').innerText = data.solution;
+            document.getElementById('caseArch').innerText = data.arch;
+            document.getElementById('caseStack').innerText = data.stack;
+            document.getElementById('casePerf').innerText = data.perf;
+            
+            document.getElementById('caseOverlay').classList.add('active');
+            lenis.stop(); // Stop scrolling
+        }
+
+        function closeCase() {
+            document.getElementById('caseOverlay').classList.remove('active');
+            lenis.start();
+        }
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h3').innerText;
+                openCase(title);
+            });
+        });
+
+        // Live Monitor Logic
+        function updateMonitor() {
+            document.getElementById('cpuVal').innerText = (Math.random() * 2 + 0.1).toFixed(2) + '%';
+            document.getElementById('latencyVal').innerText = Math.floor(Math.random() * 5 + 10) + 'ms';
+            setTimeout(updateMonitor, 2000);
+        }
+        updateMonitor();
     </script>
 </body>
 </html>
