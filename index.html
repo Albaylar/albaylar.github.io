@@ -482,11 +482,28 @@
             .projects-grid { grid-template-columns: 1fr; }
         }
 
+        @media (max-width: 768px) {
+            nav {
+                width: 95%;
+                min-width: auto;
+                padding: 10px 20px;
+                top: 10px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .logo { margin-right: 0; font-size: 0.9rem; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: 0.7rem; }
+            .lang-switcher { margin-left: 0; transform: scale(0.9); }
+        }
+
         @media (max-width: 640px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .bento-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-            .project-card { padding: 40px; }
+            .bento-item { grid-column: span 1 !important; grid-row: span 1 !important; padding: 24px; }
+            .project-card { padding: 30px; border-radius: 32px; }
             .project-info h3 { font-size: 2rem; }
+            .hero h1 { font-size: 3rem; }
+            .project-gallery img { height: 280px; }
         }
 
         /* Language Switcher */
@@ -577,12 +594,17 @@
             <div class="bento-item row-2">
                 <i class="fas fa-microchip"></i>
                 <div>
-                    <h4 data-i18n="skill3Title">Systems</h4>
-                    <p data-i18n="skill3Desc">Deep understanding of hardware-software interplay and optimization.</p>
+                    <h4 data-i18n="skill3Title">Native Excellence</h4>
+                    <p data-i18n="skill3Desc">Everything is engineered natively. No middleware, no compromises. Building for maximum performance using the core power of Swift and Vanilla JS.</p>
+                    <div class="tech-stack" style="grid-template-columns: 1fr; gap: 8px;">
+                        <div class="tech-pill"><i class="fab fa-swift"></i><span>Swift / SwiftUI</span></div>
+                        <div class="tech-pill"><i class="fab fa-js"></i><span>Vanilla JS / HTML5</span></div>
+                        <div class="tech-pill"><i class="fas fa-bolt"></i><span>Direct Memory Access</span></div>
+                    </div>
                 </div>
             </div>
             <div class="bento-item">
-                <i class="fas fa-bolt"></i>
+                <i class="fas fa-tachometer-alt"></i>
                 <div>
                     <h4 data-i18n="skill4Title">Performance</h4>
                     <p data-i18n="skill4Desc">Sub-16ms frame timing and efficient memory management.</p>
@@ -726,8 +748,8 @@
                 skill1Desc: "Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.",
                 skill2Title: "AI Synthesis",
                 skill2Desc: "Large Language Model integration and real-time voice processing.",
-                skill3Title: "Systems",
-                skill3Desc: "Deep understanding of hardware-software interplay and optimization.",
+                skill3Title: "Native Excellence",
+                skill3Desc: "Everything is engineered natively. No middleware, no compromises. Building for maximum performance using the core power of Swift and Vanilla JS.",
                 skill4Title: "Performance",
                 skill4Desc: "Sub-16ms frame timing and efficient memory management.",
                 skill5Title: "Modular Design",
@@ -765,8 +787,8 @@
                 skill1Desc: "Expertise in SwiftUI, CoreData und Hochleistungs-Systemarchitektur. Verbindung von elektroingenieurstechnischer Strenge mit mobiler Fluidität.",
                 skill2Title: "KI-Synthese",
                 skill2Desc: "Integration von Large Language Models und Echtzeit-Sprachverarbeitung.",
-                skill3Title: "Systeme",
-                skill3Desc: "Tiefes Verständnis des Zusammenspiels von Hard- und Software sowie Optimierung.",
+                skill3Title: "Native Excellence",
+                skill3Desc: "Alles wird nativ entwickelt. Keine Middleware, keine Kompromisse. Maximale Leistung durch die Nutzung der Kernkraft von Swift und Vanilla JS.",
                 skill4Title: "Performance",
                 skill4Desc: "Sub-16ms Frame-Timing und effizientes Speichermanagement.",
                 skill5Title: "Modulares Design",
@@ -804,8 +826,8 @@
                 skill1Desc: "SwiftUI, CoreData ve yüksek performanslı sistem mimarisi uzmanlığı. Elektrik Mühendisliği disiplinini mobil akıcılıkla birleştiriyorum.",
                 skill2Title: "YZ Sentezi",
                 skill2Desc: "Büyük Dil Modeli entegrasyonu ve gerçek zamanlı ses işleme.",
-                skill3Title: "Sistemler",
-                skill3Desc: "Donanım-yazılım etkileşimi ve optimizasyon konusunda derin anlayış.",
+                skill3Title: "Native Mükemmellik",
+                skill3Desc: "Her şey yerel dillerde (Native) geliştirilir. Ara yazılım yok, taviz yok. Swift ve Vanilla JS'in ham gücünü kullanarak maksimum performans.",
                 skill4Title: "Performans",
                 skill4Desc: "16ms altı kare hızı ve verimli bellek yönetimi.",
                 skill5Title: "Modüler Tasarım",
