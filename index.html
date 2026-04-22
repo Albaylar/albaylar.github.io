@@ -114,13 +114,14 @@
             font-family: var(--font-main);
             font-size: clamp(3.5rem, 12vw, 8.5rem);
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: -0.05em;
             margin-bottom: 32px;
-            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            background: linear-gradient(180deg, #fff 0%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
+            padding: 0 20px;
         }
 
         .hero p {
@@ -1007,12 +1008,11 @@
             scrollTrigger: {
                 trigger: ".hero",
                 start: "top top",
-                end: "bottom 20%",
+                end: "bottom top",
                 scrub: true
             },
-            y: 80,
-            opacity: 0.1,
-            scale: 0.98
+            y: 50,
+            opacity: 0.5
         });
     </script>
 </body>
