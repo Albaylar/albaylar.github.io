@@ -1834,7 +1834,7 @@
         const termInput = document.getElementById('termInput');
         const termBody = termInput.closest('.terminal-body');
         let currentStep = 0;
-        let projectData = { type: '', vision: '', timeline: '' };
+        let projectData = { type: '', vision: '', timeline: '', contact: '' };
 
         function addTerminalLine(text, color = '#a1a1a6', delay = 0) {
             const line = document.createElement('div');
@@ -1857,7 +1857,7 @@
                             const types = { '1': 'AI Integration', '2': 'Native Mobile', '3': 'Premium Web' };
                             projectData.type = types[val];
                             addTerminalLine(`> Selected: ${projectData.type}`, '#27c93f');
-                            addTerminalLine(`> [STEP 2/3] Describe your core vision/goal for this project:`, '#fff');
+                            addTerminalLine(`> [STEP 2/4] Describe your core vision/goal for this project:`, '#fff');
                             currentStep = 1;
                         } else {
                             addTerminalLine(`> Invalid input. Please select [1], [2], or [3].`, '#ff5f56');
@@ -1866,26 +1866,34 @@
                     case 1: // Vision
                         projectData.vision = val;
                         addTerminalLine(`> Vision captured.`, '#27c93f');
-                        addTerminalLine(`> [STEP 3/3] What is your target timeline or budget range?`, '#fff');
+                        addTerminalLine(`> [STEP 3/4] What is your target timeline or budget range?`, '#fff');
                         currentStep = 2;
                         break;
-                    case 2: // Timeline & Finalize
+                    case 2: // Timeline
                         projectData.timeline = val;
-                        addTerminalLine(`> Data synthesis complete.`, '#27c93f');
+                        addTerminalLine(`> Timeline stored.`, '#27c93f');
+                        addTerminalLine(`> [STEP 4/4] Please enter your Email or Phone for the reply:`, '#fff');
+                        currentStep = 3;
+                        break;
+                    case 3: // Contact & Finalize
+                        projectData.contact = val;
+                        addTerminalLine(`> Contact info synchronized.`, '#27c93f');
                         addTerminalLine(`> Compiling Project Manifest...`, '#888');
+                        
+                        const payload = {
+                            _subject: `New Project: ${projectData.type}`,
+                            type: projectData.type,
+                            vision: projectData.vision,
+                            timeline_budget: projectData.timeline,
+                            client_contact: projectData.contact,
+                            _replyto: projectData.contact,
+                            source: "Albaylar Portfolio Terminal"
+                        };
                         
                         setTimeout(() => {
                             addTerminalLine(`[####################] 100%`, '#27c93f');
-                            addTerminalLine(`> Manifest Ready. Initializing background transport...`, '#fff');
+                            addTerminalLine(`> Initializing background transport...`, '#fff');
                             
-                            const payload = {
-                                _subject: `New Project Manifest: ${projectData.type}`,
-                                type: projectData.type,
-                                vision: projectData.vision,
-                                timeline_budget: projectData.timeline,
-                                source: "Albaylar Portfolio Terminal"
-                            };
-
                             fetch("https://formsubmit.co/ajax/furkandenizalbaylar@gmail.com", {
                                 method: "POST",
                                 headers: { 
@@ -1900,16 +1908,16 @@
                                 addTerminalLine(`> PROJECT PROTOCOL INITIATED.`, '#27c93f');
                                 addTerminalLine(`> I will reach out to you shortly.`, '#fff');
                                 addTerminalLine(`> Type 'restart' to build another manifest.`, '#888');
-                                currentStep = 3;
+                                currentStep = 4;
                             })
                             .catch(error => {
                                 addTerminalLine(`> ERROR: Transport failed.`, '#ff5f56');
                                 addTerminalLine(`> Please use the direct link below.`, '#fff');
-                                currentStep = 3;
+                                currentStep = 4;
                             });
                         }, 1500);
                         break;
-                    case 3:
+                    case 4:
                         if(val.toLowerCase() === 'restart') {
                             location.reload();
                         }
@@ -1920,7 +1928,7 @@
 
         // Initialize Terminal
         setTimeout(() => {
-            addTerminalLine(`> [STEP 1/3] Select Project Type:`, '#fff');
+            addTerminalLine(`> [STEP 1/4] Select Project Type:`, '#fff');
             addTerminalLine(`  [1] AI Integration & Automation`, '#a1a1a6');
             addTerminalLine(`  [2] Native Mobile Architecture (iOS/Swift)`, '#a1a1a6');
             addTerminalLine(`  [3] Next-Gen Web & Brand Identity`, '#a1a1a6');
