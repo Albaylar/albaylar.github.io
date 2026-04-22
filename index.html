@@ -83,6 +83,27 @@
             background-size: 80px 80px;
             mask-image: radial-gradient(circle at center, black, transparent 95%);
             opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Film Grain & Scanlines */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.02;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
         }
 
         .ambient-glow {
@@ -965,6 +986,8 @@
     </style>
 </head>
 <body>
+    <div class="noise-overlay"></div>
+    <div class="scanlines"></div>
 
     <div class="bg-layer">
         <div class="mesh-orb orb-1"></div>
@@ -1932,6 +1955,40 @@
             document.getElementById('latencyVal').innerText = Math.floor(Math.random() * 5 + 10) + 'ms';
             setTimeout(updateMonitor, 2000);
         }
+        // 3D Tilt Effect
+        const tiltElements = document.querySelectorAll('.bento-item, .project-card, .testimonial-card');
+        
+        tiltElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Limit to 5deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+                
+                gsap.to(el, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    transformPerspective: 1000,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                gsap.to(el, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
         updateMonitor();
     </script>
 </body>
