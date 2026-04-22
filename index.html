@@ -306,6 +306,40 @@
             color: var(--bg);
         }
 
+        /* Project Image Gallery */
+        .project-gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .project-gallery::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .project-gallery::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .project-gallery img {
+            height: 350px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
+
         .tags {
             display: flex;
             gap: 10px;
@@ -500,6 +534,15 @@
                     </div>
                     <h3>ChargeEV</h3>
                     <p>Revolutionizing EV infrastructure navigation. Optimized station routing with real-time API synchronization and intelligent distance mapping.</p>
+                    
+                    <div class="project-gallery">
+                        <img src="assets/images/chargeev/chargeev_1.png" alt="ChargeEV Calculator">
+                        <img src="assets/images/chargeev/chargeev_2.png" alt="ChargeEV History">
+                        <img src="assets/images/chargeev/chargeev_3.png" alt="ChargeEV Trip Planner">
+                        <img src="assets/images/chargeev/chargeev_4.png" alt="ChargeEV Point Details">
+                        <img src="assets/images/chargeev/chargeev_5.png" alt="ChargeEV Map View">
+                    </div>
+
                     <div class="project-links">
                         <a href="https://apps.apple.com/app/chargeev/id6475704141" class="app-store-btn" target="_blank">
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1675209600" alt="Download on the App Store">
