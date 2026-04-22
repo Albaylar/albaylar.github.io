@@ -1876,16 +1876,37 @@
                         
                         setTimeout(() => {
                             addTerminalLine(`[####################] 100%`, '#27c93f');
-                            addTerminalLine(`> Manifest Ready. Initializing secure mail transport...`, '#fff');
+                            addTerminalLine(`> Manifest Ready. Initializing background transport...`, '#fff');
                             
-                            const mailBody = `Project Manifest:\n----------------\nType: ${projectData.type}\nVision: ${projectData.vision}\nTimeline/Budget: ${projectData.timeline}\n\nGenerated via Albaylar Terminal.`;
-                            
-                            setTimeout(() => {
-                                window.location.href = `mailto:furkandenizalbaylar@gmail.com?subject=New Project Manifest: ${projectData.type}&body=${encodeURIComponent(mailBody)}`;
-                                addTerminalLine(`> Mail client opened. Awaiting final submission.`, '#ffbd2e');
+                            const payload = {
+                                _subject: `New Project Manifest: ${projectData.type}`,
+                                type: projectData.type,
+                                vision: projectData.vision,
+                                timeline_budget: projectData.timeline,
+                                source: "Albaylar Portfolio Terminal"
+                            };
+
+                            fetch("https://formsubmit.co/ajax/furkandenizalbaylar@gmail.com", {
+                                method: "POST",
+                                headers: { 
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify(payload)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                addTerminalLine(`> MANIFEST TRANSMITTED SUCCESSFULLY.`, '#27c93f');
+                                addTerminalLine(`> PROJECT PROTOCOL INITIATED.`, '#27c93f');
+                                addTerminalLine(`> I will reach out to you shortly.`, '#fff');
                                 addTerminalLine(`> Type 'restart' to build another manifest.`, '#888');
                                 currentStep = 3;
-                            }, 1000);
+                            })
+                            .catch(error => {
+                                addTerminalLine(`> ERROR: Transport failed.`, '#ff5f56');
+                                addTerminalLine(`> Please use the direct link below.`, '#fff');
+                                currentStep = 3;
+                            });
                         }, 1500);
                         break;
                     case 3:
