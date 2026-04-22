@@ -529,11 +529,83 @@
             transition: all 0.3s ease;
         }
 
-        .lang-btn.active {
-            background: var(--text);
-            color: var(--bg);
+        /* Trust & Testimonials */
+        .trust-section {
+            padding: 80px 0;
+            background: #000;
         }
-    </style>
+
+        .logo-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            opacity: 0.5;
+            filter: grayscale(1);
+            flex-wrap: wrap;
+            padding: 40px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-strip span {
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--text);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #111112;
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: #161617;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-meta .author {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-meta .company {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo-strip { gap: 30px; }
+            .testimonials-grid { grid-template-columns: 1fr; padding: 60px 8%; }
+        }
 </head>
 <body>
 
@@ -620,7 +692,35 @@
         </div>
     </div>
 
-    <section class="projects-section" id="projects">
+    <section class="trust-section">
+        <div class="logo-strip">
+            <span data-i18n="partner1">M & M SERVICE</span>
+            <span data-i18n="partner2">ENGINEERING CO.</span>
+            <span data-i18n="partner3">DIGITAL SOLUTIONS</span>
+            <span data-i18n="partner4">VISIONARY LABS</span>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p data-i18n="testi1Text">"The precision in iOS architecture and the seamless AI integration redefined our digital product standards. A true master of Native development."</p>
+                <div class="testimonial-meta">
+                    <div class="author-info">
+                        <div class="author">M. Müller</div>
+                        <div class="company">CEO, M&M Service GmbH</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p data-i18n="testi2Text">"Not just an engineer, but a product visionary. The ability to bridge complex hardware logic with fluid mobile experiences is unmatched."</p>
+                <div class="testimonial-meta">
+                    <div class="author-info">
+                        <div class="author">Sarah Jenkins</div>
+                        <div class="company">Lead Architect, TechVision</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <h2 class="section-title" data-i18n="projectsTitle">Selected Works</h2>
         <div class="projects-grid">
             
@@ -754,6 +854,9 @@
                 skill4Desc: "Sub-16ms frame timing and efficient memory management.",
                 skill5Title: "Modular Design",
                 skill5Desc: "Scalable MVVM patterns and robust dependency management.",
+                partner1: "M & M SERVICE",
+                testi1Text: '"The precision in iOS architecture and the seamless AI integration redefined our digital product standards. A true master of Native development."',
+                testi2Text: '"Not just an engineer, but a product visionary. The ability to bridge complex hardware logic with fluid mobile experiences is unmatched."',
                 projectsTitle: "Selected Works",
                 tagFlagship: "Flagship",
                 tagAI: "AI",
@@ -793,6 +896,9 @@
                 skill4Desc: "Sub-16ms Frame-Timing und effizientes Speichermanagement.",
                 skill5Title: "Modulares Design",
                 skill5Desc: "Skalierbare MVVM-Muster und robustes Dependency Management.",
+                partner1: "M & M SERVICE",
+                testi1Text: '"Präzision in der iOS-Architektur ve nahtlose KI-Integration haben unsere digitalen Standards neu definiert. Ein wahrer Meister der nativen Entwicklung."',
+                testi2Text: '"Nicht nur ein Ingenieur, sondern bir Produktvisionär. Die Fähigkeit, komplexe Hardware-Logik mit flüssigen mobilen Erlebnissen zu verbinden, ist unübertroffen."',
                 projectsTitle: "Ausgewählte Arbeiten",
                 tagFlagship: "Flaggschiff",
                 tagAI: "KI",
@@ -832,6 +938,9 @@
                 skill4Desc: "16ms altı kare hızı ve verimli bellek yönetimi.",
                 skill5Title: "Modüler Tasarım",
                 skill5Desc: "Ölçeklenebilir MVVM yapıları ve güçlü bağımlılık yönetimi.",
+                partner1: "M & M SERVICE",
+                testi1Text: '"iOS mimarisindeki hassasiyet ve kusursuz yapay zeka entegrasyonu, dijital ürün standartlarımızı yeniden tanımladı. Native geliştirmenin gerçek ustası."',
+                testi2Text: '"Sadece bir mühendis değil, bir ürün vizyoneri. Karmaşık donanım mantığını akıcı mobil deneyimlerle birleştirme yeteneği eşsiz."',
                 projectsTitle: "Seçilmiş Çalışmalar",
                 tagFlagship: "Amiral Gemisi",
                 tagAI: "YZ",
