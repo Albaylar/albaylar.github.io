@@ -1,1 +1,140 @@
+import google.ds_python_interpreter as ds_python_interpreter
 
+# Web sitesi içeriğini ve HTML dosyasını oluşturuyorum.
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furkan Deniz Albaylar | iOS Developer & Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #f5f5f7;
+            --accent: #2997ff;
+            --secondary: #86868b;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        h1 { font-size: 4rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; color: var(--secondary); max-width: 600px; }
+        
+        .section-title { padding-left: 10%; font-size: 2.5rem; margin-top: 100px; }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 10%;
+        }
+        .project-card {
+            background: #1c1c1e;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .project-card h3 { color: var(--accent); margin-top: 0; }
+        .tag { font-size: 0.8rem; background: #333; padding: 4px 10px; border-radius: 5px; margin-right: 5px; }
+        
+        footer { padding: 50px; text-align: center; color: var(--secondary); border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div style="font-weight: bold; font-size: 1.2rem;">F.D.A</div>
+    <div>
+        <a href="#projects" style="color: var(--text); text-decoration: none; margin-left: 20px;">Projects</a>
+        <a href="mailto:furkandenizalbaylar@gmail.com" style="color: var(--accent); text-decoration: none; margin-left: 20px;">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1 id="hero-title">Furkan Deniz Albaylar</h1>
+    <p id="hero-sub">Electrical Engineer & iOS Expert building the future of mobile AI.</p>
+</section>
+
+<h2 class="section-title" id="projects">Featured Work</h2>
+<div class="projects-grid">
+    <div class="project-card">
+        <h3>SpeachyAI</h3>
+        <p>AI-driven chat application using GPT-4 and Whisper for real-time processing.</p>
+        <div><span class="tag">SwiftUI</span><span class="tag">OpenAI API</span><span class="tag">ElevenLabs</span></div>
+    </div>
+    <div class="project-card">
+        <h3>Mining Town</h3>
+        <p>Strategic simulation game built with SpriteKit engine.</p>
+        <div><span class="tag">SpriteKit</span><span class="tag">GameplayKit</span><span class="tag">iOS Game</span></div>
+    </div>
+    <div class="project-card">
+        <h3>ChargeEV</h3>
+        <p>Real-time EV charging station locator with MapKit integration.</p>
+        <div><span class="tag">MapKit</span><span class="tag">CoreLocation</span><span class="tag">Firebase</span></div>
+    </div>
+    <div class="project-card">
+        <h3>M&M Website</h3>
+        <p>High-end corporate website with advanced scroll animations.</p>
+        <div><span class="tag">Web Design</span><span class="tag">GSAP</span><span class="tag">UX/UI</span></div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Furkan Deniz Albaylar | Built with Swift & Web Magic</p>
+</footer>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#hero-title", { duration: 1.5, opacity: 0, y: 50, ease: "power4.out" });
+    gsap.from("#hero-sub", { duration: 1.5, opacity: 0, y: 30, delay: 0.3, ease: "power4.out" });
+    
+    gsap.from(".project-card", {
+        scrollTrigger: {
+            trigger: ".projects-grid",
+            start: "top 80%"
+        },
+        duration: 1,
+        opacity: 0,
+        y: 100,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+</script>
+
+</body>
+</html>
+"""
+
+# HTML dosyasını kaydedelim
+with open("index.html", "w") as f:
+    f.write(html_content)
