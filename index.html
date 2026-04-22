@@ -113,6 +113,52 @@
 
         .nav-links a:hover { color: var(--text); }
 
+        /* Workflow Section */
+        .workflow-section {
+            padding: 100px 8%;
+            background: #000;
+            text-align: center;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .workflow-step {
+            position: relative;
+            padding: 30px;
+        }
+
+        .step-number {
+            font-family: var(--font-main);
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.1;
+            margin-bottom: -20px;
+            display: block;
+        }
+
+        .workflow-step h4 {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .workflow-step p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .workflow-grid { grid-template-columns: 1fr; gap: 60px; }
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -617,7 +663,7 @@
     <nav>
         <div class="logo">ALBAYLAR</div>
         <div class="nav-links" style="display: flex; align-items: center;">
-            <a href="#about" data-i18n="navAbout">About</a>
+            <a href="#about" data-i18n="navServices">Services</a>
             <a href="#projects" data-i18n="navWork">Work</a>
             <a href="mailto:furkandenizalbaylar@gmail.com" data-i18n="navContact">Contact</a>
             <div class="lang-switcher">
@@ -736,6 +782,28 @@
             </div>
         </div>
     </section>
+    <section class="workflow-section">
+        <h2 class="section-title" data-i18n="workflowTitle">The Process</h2>
+        <div class="workflow-grid">
+            <div class="workflow-step">
+                <span class="step-number">01</span>
+                <h4 data-i18n="step1Title">Discovery</h4>
+                <p data-i18n="step1Desc">We analyze your global market needs and technical requirements to build a bulletproof roadmap.</p>
+            </div>
+            <div class="workflow-step">
+                <span class="step-number">02</span>
+                <h4 data-i18n="step2Title">Engineering</h4>
+                <p data-i18n="step2Desc">Native development begins with focus on sub-16ms performance and robust AI integration.</p>
+            </div>
+            <div class="workflow-step">
+                <span class="step-number">03</span>
+                <h4 data-i18n="step3Title">Success</h4>
+                <p data-i18n="step3Desc">Deployment to global markets with continuous optimization and technical support.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
         <h2 class="section-title" data-i18n="projectsTitle">Selected Works</h2>
         <div class="projects-grid">
             
@@ -852,9 +920,16 @@
     <script>
         const translations = {
             en: {
-                navAbout: "About",
+                navServices: "Services",
                 navWork: "Work",
                 navContact: "Contact",
+                workflowTitle: "The Engineering Process",
+                step1Title: "Discovery",
+                step1Desc: "Deep technical analysis and global market roadmap development.",
+                step2Title: "Engineering",
+                step2Desc: "Native high-performance development and AI architecture integration.",
+                step3Title: "Success",
+                step3Desc: "Global deployment, continuous scaling, and expert technical support.",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "iOS Architect & Electrical Engineer. Building the next generation of AI-native mobile ecosystems with uncompromising precision.",
                 heroScroll: "Discover",
@@ -898,9 +973,16 @@
                 copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin."
             },
             de: {
-                navAbout: "Über mich",
+                navServices: "Leistungen",
                 navWork: "Projekte",
                 navContact: "Kontakt",
+                workflowTitle: "Der Engineering-Prozess",
+                step1Title: "Analyse",
+                step1Desc: "Tiefe technische Analyse und Entwicklung einer globalen Roadmap.",
+                step2Title: "Engineering",
+                step2Desc: "Native Hochleistungsentwicklung und KI-Architektur-Integration.",
+                step3Title: "Erfolg",
+                step3Desc: "Globaler Rollout, kontinuierliche Skalierung und technischer Support.",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "iOS Architect & Elektroingenieur. Entwicklung der nächsten Generation von KI-nativen mobilen Ökosystemen mit kompromissloser Präzision.",
                 heroScroll: "Entdecken",
@@ -944,9 +1026,16 @@
                 copyright: "© 2026 Furkan Deniz Albaylar. Erstellt in Berlin."
             },
             tr: {
-                navAbout: "Hakkımda",
+                navServices: "Hizmetler",
                 navWork: "Projeler",
                 navContact: "İletişim",
+                workflowTitle: "Mühendislik Süreci",
+                step1Title: "Keşif",
+                step1Desc: "Derin teknik analiz ve küresel pazar yol haritası geliştirme.",
+                step2Title: "Mühendislik",
+                step2Desc: "Native yüksek performanslı geliştirme ve YZ mimarisi entegrasyonu.",
+                step3Title: "Başarı",
+                step3Desc: "Küresel ölçekte yayın, sürekli ölçeklendirme ve uzman teknik destek.",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "iOS Mimarı ve Elektrik Mühendisi. Tavizsiz hassasiyetle yeni nesil yapay zeka tabanlı mobil ekosistemler inşa ediyorum.",
                 heroScroll: "Keşfet",
