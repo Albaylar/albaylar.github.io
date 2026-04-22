@@ -1,39 +1,59 @@
-import google.ds_python_interpreter as ds_python_interpreter
-
-html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furkan Deniz Albaylar | iOS Developer & Engineer</title>
+    <title>Furkan Deniz Albaylar | iOS Engineer & Product Manager</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
-            --bg: #0a0a0a;
+            --bg: #000000;
+            --card-bg: rgba(28, 28, 30, 0.7);
             --text: #f5f5f7;
             --accent: #2997ff;
             --secondary: #86868b;
+            --glass: rgba(255, 255, 255, 0.05);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            line-height: 1.5;
             overflow-x: hidden;
         }
+
+        /* Engineering Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(41, 151, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(41, 151, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+
         nav {
-            padding: 2rem;
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid var(--glass);
         }
+
         .hero {
             height: 100vh;
             display: flex;
@@ -41,95 +61,225 @@ html_content = """
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 10%;
         }
-        h1 { font-size: 4rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.5rem; color: var(--secondary); max-width: 600px; }
-        
-        .section-title { padding-left: 10%; font-size: 2.5rem; margin-top: 100px; }
-        
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, #fff 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--secondary);
+            max-width: 700px;
+            margin-top: 20px;
+        }
+
+        /* Projects Section */
+        .section-container {
+            padding: 100px 10%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 50px 10%;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
         }
+
         .project-card {
-            background: #1c1c1e;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #333;
-            transition: transform 0.3s ease;
+            background: var(--card-bg);
+            border: 1px solid var(--glass);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(10px);
         }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .project-card h3 { color: var(--accent); margin-top: 0; }
-        .tag { font-size: 0.8rem; background: #333; padding: 4px 10px; border-radius: 5px; margin-right: 5px; }
-        
-        footer { padding: 50px; text-align: center; color: var(--secondary); border-top: 1px solid #333; }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(41, 151, 255, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .project-card p {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--glass);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer {
+            padding: 100px 10% 50px;
+            text-align: center;
+            border-top: 1px solid var(--glass);
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover { color: var(--accent); }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
     </style>
 </head>
 <body>
 
-<nav>
-    <div style="font-weight: bold; font-size: 1.2rem;">F.D.A</div>
-    <div>
-        <a href="#projects" style="color: var(--text); text-decoration: none; margin-left: 20px;">Projects</a>
-        <a href="mailto:furkandenizalbaylar@gmail.com" style="color: var(--accent); text-decoration: none; margin-left: 20px;">Contact</a>
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div style="font-weight: 700; font-size: 1.4rem; letter-spacing: 2px;">FURKAN DENİZ</div>
+        <div class="social-links">
+            <a href="https://github.com/albaylar" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:furkandenizalbaylar@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 id="hero-title">Engineering<br>Mobile Experiences</h1>
+        <p id="hero-sub">Electrical Engineer & iOS Specialist based in Berlin. Focused on high-performance applications, AI integration, and seamless product design.</p>
+    </section>
+
+    <div class="section-container" id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p style="color: var(--secondary);">App Store releases and technical case studies.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>SpeachyAI</h3>
+                <p>Advanced AI-driven chat application. Integrated GPT-4, Whisper, and ElevenLabs APIs for a complete real-time speech experience.</p>
+                <div class="tags">
+                    <span class="tag">SwiftUI</span>
+                    <span class="tag">OpenAI</span>
+                    <span class="tag">AVFoundation</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Mining Town</h3>
+                <p>A strategic simulation game exploring complex logic and physics engines. Built from scratch using SpriteKit.</p>
+                <div class="tags">
+                    <span class="tag">SpriteKit</span>
+                    <span class="tag">Game Design</span>
+                    <span class="tag">Logic</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>ChargeEV</h3>
+                <p>Location-based utility for the EV ecosystem. Real-time station tracking and route optimization.</p>
+                <div class="tags">
+                    <span class="tag">MapKit</span>
+                    <span class="tag">CoreLocation</span>
+                    <span class="tag">Firebase</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>M&M Corporate</h3>
+                <p>High-end web presence with performance-optimized animations and modern UI storytelling.</p>
+                <div class="tags">
+                    <span class="tag">GSAP</span>
+                    <span class="tag">Web Design</span>
+                    <span class="tag">Performance</span>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
 
-<section class="hero">
-    <h1 id="hero-title">Furkan Deniz Albaylar</h1>
-    <p id="hero-sub">Electrical Engineer & iOS Expert building the future of mobile AI.</p>
-</section>
+    <footer>
+        <p style="margin-bottom: 20px;">Designed with precision in Berlin.</p>
+        <p style="color: var(--secondary); font-size: 0.9rem;">© 2026 Furkan Deniz Albaylar. All rights reserved.</p>
+    </footer>
 
-<h2 class="section-title" id="projects">Featured Work</h2>
-<div class="projects-grid">
-    <div class="project-card">
-        <h3>SpeachyAI</h3>
-        <p>AI-driven chat application using GPT-4 and Whisper for real-time processing.</p>
-        <div><span class="tag">SwiftUI</span><span class="tag">OpenAI API</span><span class="tag">ElevenLabs</span></div>
-    </div>
-    <div class="project-card">
-        <h3>Mining Town</h3>
-        <p>Strategic simulation game built with SpriteKit engine.</p>
-        <div><span class="tag">SpriteKit</span><span class="tag">GameplayKit</span><span class="tag">iOS Game</span></div>
-    </div>
-    <div class="project-card">
-        <h3>ChargeEV</h3>
-        <p>Real-time EV charging station locator with MapKit integration.</p>
-        <div><span class="tag">MapKit</span><span class="tag">CoreLocation</span><span class="tag">Firebase</span></div>
-    </div>
-    <div class="project-card">
-        <h3>M&M Website</h3>
-        <p>High-end corporate website with advanced scroll animations.</p>
-        <div><span class="tag">Web Design</span><span class="tag">GSAP</span><span class="tag">UX/UI</span></div>
-    </div>
-</div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-<footer>
-    <p>© 2026 Furkan Deniz Albaylar | Built with Swift & Web Magic</p>
-</footer>
+        // Hero Animations
+        gsap.from("#hero-title", {
+            duration: 2,
+            opacity: 0,
+            y: 100,
+            ease: "expo.out"
+        });
 
-<script>
-    gsap.registerPlugin(ScrollTrigger);
+        gsap.from("#hero-sub", {
+            duration: 2,
+            opacity: 0,
+            y: 50,
+            delay: 0.5,
+            ease: "expo.out"
+        });
 
-    gsap.from("#hero-title", { duration: 1.5, opacity: 0, y: 50, ease: "power4.out" });
-    gsap.from("#hero-sub", { duration: 1.5, opacity: 0, y: 30, delay: 0.3, ease: "power4.out" });
-    
-    gsap.from(".project-card", {
-        scrollTrigger: {
-            trigger: ".projects-grid",
-            start: "top 80%"
-        },
-        duration: 1,
-        opacity: 0,
-        y: 100,
-        stagger: 0.2,
-        ease: "power3.out"
-    });
-</script>
+        // Project Cards Reveal
+        gsap.utils.toArray(".project-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1.5,
+                opacity: 0,
+                y: 60,
+                delay: i * 0.1,
+                ease: "power4.out"
+            });
+        });
 
+        // Background Parallax
+        gsap.to(".grid-bg", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1
+            },
+            backgroundPositionY: "-200px"
+        });
+    </script>
 </body>
 </html>
-"""
