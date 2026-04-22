@@ -530,17 +530,27 @@
 
         @media (max-width: 768px) {
             nav {
-                width: 95%;
+                width: 90%;
                 min-width: auto;
-                padding: 10px 20px;
-                top: 10px;
-                flex-wrap: wrap;
-                gap: 10px;
+                padding: 15px;
+                top: 15px;
+                flex-direction: column;
+                gap: 12px;
+                border-radius: 24px;
             }
-            .logo { margin-right: 0; font-size: 0.9rem; }
-            .nav-links { gap: 15px; }
-            .nav-links a { font-size: 0.7rem; }
-            .lang-switcher { margin-left: 0; transform: scale(0.9); }
+            .logo { margin-right: 0; font-size: 1.1rem; }
+            .nav-links { 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 15px; 
+            }
+            .nav-links a { font-size: 0.8rem; }
+            .lang-switcher { 
+                margin-left: 0; 
+                width: 100%;
+                justify-content: center;
+                margin-top: 5px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -663,7 +673,7 @@
 
     <nav>
         <div class="logo">ALBAYLAR</div>
-        <div class="nav-links" style="display: flex; align-items: center;">
+        <div class="nav-links">
             <a href="#about" data-i18n="navServices">Services</a>
             <a href="#projects" data-i18n="navWork">Work</a>
             <a href="mailto:furkandenizalbaylar@gmail.com" data-i18n="navContact">Contact</a>
