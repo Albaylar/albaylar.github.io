@@ -66,33 +66,48 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0; width: 100%;
-            padding: 24px 8%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 32px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            width: auto;
+            min-width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .logo {
             font-family: var(--font-main);
             font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: -0.02em;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
             background: linear-gradient(to bottom, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-right: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
         }
 
@@ -270,21 +285,23 @@
         }
 
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 40px;
+            background: #111112;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 48px;
             padding: 60px;
             position: relative;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 32px;
+            overflow: hidden;
         }
 
         .project-card:hover {
             transform: scale(1.02);
-            border-color: rgba(41, 151, 255, 0.5);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            background: #161617;
+            border-color: rgba(41, 151, 255, 0.3);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
         }
 
         .project-header {
@@ -671,8 +688,8 @@
                     <h3>M&M Corporate</h3>
                     <p data-i18n="corporateDesc">Premium digital presence for industrial leadership. High-performance layouts with orchestrated motion and cinematic storytelling.</p>
                     <div class="project-links">
-                        <a href="#" class="web-link">
-                            <i class="fas fa-lock"></i> <span data-i18n="clientConf">Client Confidential</span>
+                        <a href="https://mm-leistungen.de/" class="web-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSite">Visit mm-leistungen.de</span>
                         </a>
                     </div>
                 </div>
@@ -726,6 +743,7 @@
                 tagBranding: "Branding",
                 speachyDesc: "The ultimate AI vocal assistant. Integrating GPT-4's cognitive intelligence with ElevenLabs' expressive realism for seamless, human-like interaction.",
                 visitSpeachy: "Visit speachyai.com",
+                visitSite: "Visit mm-leistungen.de",
                 chargeDesc: "Revolutionizing EV infrastructure navigation. Optimized station routing with real-time API synchronization and intelligent distance mapping.",
                 miningDesc: "A sophisticated simulation engine featuring custom physics and ecosystem logic. Engineered for maximum efficiency on Apple Silicon.",
                 internalRelease: "Internal Release",
@@ -764,6 +782,7 @@
                 tagBranding: "Branding",
                 speachyDesc: "Der ultimative KI-Sprachassistent. Kombiniert die kognitive Intelligenz von GPT-4 mit dem expressiven Realismus von ElevenLabs für nahtlose Interaktion.",
                 visitSpeachy: "speachyai.com besuchen",
+                visitSite: "mm-leistungen.de besuchen",
                 chargeDesc: "Revolutionierung der EV-Infrastruktur-Navigation. Optimiertes Stations-Routing mit Echtzeit-API-Synchronisation.",
                 miningDesc: "Eine anspruchsvolle Simulations-Engine mit benutzerdefinierter Physik. Entwickelt für maximale Effizienz auf Apple Silicon.",
                 internalRelease: "Interner Release",
@@ -802,6 +821,7 @@
                 tagBranding: "Markalaşma",
                 speachyDesc: "Nihai yapay zeka sesli asistanı. GPT-4'ün bilişsel zekasını ElevenLabs'in etkileyici gerçekçiliğiyle birleştirir.",
                 visitSpeachy: "speachyai.com'u ziyaret et",
+                visitSite: "mm-leistungen.de'yi ziyaret et",
                 chargeDesc: "EV altyapı navigasyonunda devrim. Gerçek zamanlı API senkronizasyonu ile optimize edilmiş istasyon rotalama.",
                 miningDesc: "Özel fizik ve ekosistem mantığına sahip sofistike bir simülasyon motoru. Apple Silicon üzerinde maksimum verimlilik için tasarlandı.",
                 internalRelease: "Dahili Yayın",
