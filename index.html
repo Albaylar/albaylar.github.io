@@ -35,53 +35,6 @@
             line-height: 1.5;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            cursor: none; /* Hide default cursor for custom cursor */
-        }
-
-        /* Custom Magnetic Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.5rem;
-            font-family: var(--font-main);
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
-        }
-
-        .cursor-outline.hover-active {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            mix-blend-mode: normal;
-            border: none;
-        }
-        
-        /* Mobile overrides for cursor */
-        @media (max-width: 768px) {
-            .cursor-dot, .cursor-outline { display: none; }
-            body { cursor: auto; }
         }
 
         /* Engineering Grid & Dynamic Background */
@@ -1013,10 +966,6 @@
 </head>
 <body>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <div class="bg-layer">
         <div class="mesh-orb orb-1"></div>
         <div class="mesh-orb orb-2"></div>
@@ -1697,54 +1646,12 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-        // Interactive Mouse Glow & Custom Cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        let mouseX = 0; let mouseY = 0;
-        let outlineX = 0; let outlineY = 0;
-
+        // Interactive Mouse Glow
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Ambient glow
-            const x = (mouseX / window.innerWidth) * 100;
-            const y = (mouseY / window.innerHeight) * 100;
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
             document.body.style.setProperty('--mouse-x', x + '%');
             document.body.style.setProperty('--mouse-y', y + '%');
-
-            // Dot follows instantly
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
-
-        // Smooth outline animation
-        function animateCursor() {
-            let distX = mouseX - outlineX;
-            let distY = mouseY - outlineY;
-            
-            outlineX = outlineX + (distX * 0.15);
-            outlineY = outlineY + (distY * 0.15);
-            
-            cursorOutline.style.left = outlineX + 'px';
-            cursorOutline.style.top = outlineY + 'px';
-            
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Cursor Hover Effects
-        document.querySelectorAll('a, button, .project-card, .bento-item').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('hover-active');
-                if(el.classList.contains('project-card')) {
-                    cursorOutline.innerText = "View";
-                }
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('hover-active');
-                cursorOutline.innerText = "";
-            });
         });
 
         // Kinetic Typography (Scramble Effect)
