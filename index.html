@@ -1176,12 +1176,12 @@
                 <span class="title">albaylar-ai — zsh</span>
             </div>
             <div class="terminal-body">
-                <div class="terminal-line"><span class="prompt">~ %</span> ./init_protocol.sh</div>
-                <div class="terminal-line" data-i18n="termLine1">Booting communication protocol... OK.</div>
-                <div class="terminal-line" data-i18n="termLine2">Awaiting your command. Press Enter to send.</div>
+                <div class="terminal-line"><span class="prompt">~ %</span> ./init_manifest_builder.sh</div>
+                <div class="terminal-line" data-i18n="termLine1">Project Manifest System v2.6.4... Online.</div>
+                <div class="terminal-line" data-i18n="termLine2">Awaiting engineering parameters.</div>
                 <div class="terminal-input-row">
                     <span class="prompt">guest@albaylar ~ %</span>
-                    <input type="text" class="terminal-input" id="termInput" placeholder="Type 'hello' to begin..." />
+                    <input type="text" class="terminal-input" id="termInput" placeholder="Select [1, 2, or 3] to begin..." />
                 </div>
             </div>
         </div>
@@ -1248,7 +1248,9 @@
                 clientConf: "Client Confidential",
                 footerTitle: "Let's build the future.",
                 getInTouch: "Get In Touch",
-                copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin."
+                copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin.",
+                termLine1: "Project Manifest System v2.6.4... Online.",
+                termLine2: "Awaiting engineering parameters."
             },
             de: {
                 navServices: "Leistungen",
@@ -1301,7 +1303,9 @@
                 clientConf: "Vertraulich",
                 footerTitle: "Lass uns die Zukunft bauen.",
                 getInTouch: "Kontaktieren",
-                copyright: "© 2026 Furkan Deniz Albaylar. Erstellt in Berlin."
+                copyright: "© 2026 Furkan Deniz Albaylar. Erstellt in Berlin.",
+                termLine1: "Projekt-Manifest-System v2.6.4... Online.",
+                termLine2: "Warte auf Engineering-Parameter."
             },
             tr: {
                 navServices: "Hizmetler",
@@ -1354,7 +1358,9 @@
                 clientConf: "Müşteri Gizliliği",
                 footerTitle: "Geleceği birlikte inşa edelim.",
                 getInTouch: "İletişime Geç",
-                copyright: "© 2026 Furkan Deniz Albaylar. Berlin'de tasarlandı."
+                copyright: "© 2026 Furkan Deniz Albaylar. Berlin'de tasarlandı.",
+                termLine1: "Proje Manifest Sistemi v2.6.4... Çevrimiçi.",
+                termLine2: "Mühendislik parametreleri bekleniyor."
             },
             fr: {
                 navAbout: "À propos",
@@ -1392,7 +1398,9 @@
                 clientConf: "Confidentiel Client",
                 footerTitle: "Bâtissons l'avenir ensemble.",
                 getInTouch: "Contactez-nous",
-                copyright: "© 2026 Furkan Deniz Albaylar. Créé à Berlin."
+                copyright: "© 2026 Furkan Deniz Albaylar. Créé à Berlin.",
+                termLine1: "Système de Manifeste de Projet v2.6.4... En ligne.",
+                termLine2: "En attente des paramètres d'ingénierie."
             },
             es: {
                 navAbout: "Sobre mí",
@@ -1430,7 +1438,9 @@
                 clientConf: "Confidencial del Cliente",
                 footerTitle: "Construyamos el futuro juntos.",
                 getInTouch: "Contactar",
-                copyright: "© 2026 Furkan Deniz Albaylar. Creado en Berlín."
+                copyright: "© 2026 Furkan Deniz Albaylar. Creado en Berlín.",
+                termLine1: "Sistema de Manifiesto de Proyecto v2.6.4... En línea.",
+                termLine2: "Esperando parámetros de ingeniería."
             },
             it: {
                 navAbout: "Su di me",
@@ -1468,7 +1478,9 @@
                 clientConf: "Riservato",
                 footerTitle: "Costruiamo il futuro insieme.",
                 getInTouch: "Contattami",
-                copyright: "© 2026 Furkan Deniz Albaylar. Creato a Berlino."
+                copyright: "© 2026 Furkan Deniz Albaylar. Creato a Berlino.",
+                termLine1: "Sistema di Manifesto del Progetto v2.6.4... Online.",
+                termLine2: "In attesa di parametri di ingegneria."
             }
         };
 
@@ -1686,36 +1698,80 @@
             }
         }
 
-        // Terminal Contact Logic
+        // Smart Project Builder Terminal Logic
         const termInput = document.getElementById('termInput');
+        const termBody = termInput.closest('.terminal-body');
+        let currentStep = 0;
+        let projectData = { type: '', vision: '', timeline: '' };
+
+        function addTerminalLine(text, color = '#a1a1a6', delay = 0) {
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.style.color = color;
+            line.innerHTML = text;
+            termBody.insertBefore(line, termInput.parentElement);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
         termInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && termInput.value.trim() !== '') {
-                const msg = termInput.value;
+                const val = termInput.value.trim();
+                addTerminalLine(`<span class="prompt">guest@albaylar ~ %</span> ${val}`, '#fff');
                 termInput.value = '';
-                
-                // Create a div for user input
-                const userLine = document.createElement('div');
-                userLine.className = 'terminal-line';
-                userLine.innerHTML = `<span class="prompt">guest@albaylar ~ %</span> ${msg}`;
-                
-                // Create a div for system response
-                const sysLine = document.createElement('div');
-                sysLine.className = 'terminal-line';
-                sysLine.style.color = '#fff';
-                sysLine.innerHTML = `> Initiating email protocol...`;
-                
-                const parent = termInput.closest('.terminal-body');
-                parent.insertBefore(userLine, termInput.parentElement);
-                parent.insertBefore(sysLine, termInput.parentElement);
 
-                setTimeout(() => {
-                    sysLine.innerHTML = `> Redirecting to secure channel. Please wait.`;
-                    setTimeout(() => {
-                        window.location.href = `mailto:furkandenizalbaylar@gmail.com?subject=Incoming Project Request&body=${encodeURIComponent(msg)}`;
-                    }, 1000);
-                }, 800);
+                switch(currentStep) {
+                    case 0: // Welcome & Type
+                        if(['1','2','3'].includes(val)) {
+                            const types = { '1': 'AI Integration', '2': 'Native Mobile', '3': 'Premium Web' };
+                            projectData.type = types[val];
+                            addTerminalLine(`> Selected: ${projectData.type}`, '#27c93f');
+                            addTerminalLine(`> [STEP 2/3] Describe your core vision/goal for this project:`, '#fff');
+                            currentStep = 1;
+                        } else {
+                            addTerminalLine(`> Invalid input. Please select [1], [2], or [3].`, '#ff5f56');
+                        }
+                        break;
+                    case 1: // Vision
+                        projectData.vision = val;
+                        addTerminalLine(`> Vision captured.`, '#27c93f');
+                        addTerminalLine(`> [STEP 3/3] What is your target timeline or budget range?`, '#fff');
+                        currentStep = 2;
+                        break;
+                    case 2: // Timeline & Finalize
+                        projectData.timeline = val;
+                        addTerminalLine(`> Data synthesis complete.`, '#27c93f');
+                        addTerminalLine(`> Compiling Project Manifest...`, '#888');
+                        
+                        setTimeout(() => {
+                            addTerminalLine(`[####################] 100%`, '#27c93f');
+                            addTerminalLine(`> Manifest Ready. Initializing secure mail transport...`, '#fff');
+                            
+                            const mailBody = `Project Manifest:\n----------------\nType: ${projectData.type}\nVision: ${projectData.vision}\nTimeline/Budget: ${projectData.timeline}\n\nGenerated via Albaylar Terminal.`;
+                            
+                            setTimeout(() => {
+                                window.location.href = `mailto:furkandenizalbaylar@gmail.com?subject=New Project Manifest: ${projectData.type}&body=${encodeURIComponent(mailBody)}`;
+                                addTerminalLine(`> Mail client opened. Awaiting final submission.`, '#ffbd2e');
+                                addTerminalLine(`> Type 'restart' to build another manifest.`, '#888');
+                                currentStep = 3;
+                            }, 1000);
+                        }, 1500);
+                        break;
+                    case 3:
+                        if(val.toLowerCase() === 'restart') {
+                            location.reload();
+                        }
+                        break;
+                }
             }
         });
+
+        // Initialize Terminal
+        setTimeout(() => {
+            addTerminalLine(`> [STEP 1/3] Select Project Type:`, '#fff');
+            addTerminalLine(`  [1] AI Integration & Automation`, '#a1a1a6');
+            addTerminalLine(`  [2] Native Mobile Architecture (iOS/Swift)`, '#a1a1a6');
+            addTerminalLine(`  [3] Next-Gen Web & Brand Identity`, '#a1a1a6');
+        }, 1000);
     </script>
 </body>
 </html>
