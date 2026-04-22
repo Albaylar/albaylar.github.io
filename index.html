@@ -50,9 +50,9 @@
             background-image: 
                 linear-gradient(var(--glass) 1px, transparent 1px),
                 linear-gradient(90deg, var(--glass) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(circle at center, black, transparent 80%);
-            opacity: 0.4;
+            background-size: 80px 80px;
+            mask-image: radial-gradient(circle at center, black, transparent 95%);
+            opacity: 0.3;
         }
 
         .ambient-glow {
@@ -112,22 +112,24 @@
 
         .hero h1 {
             font-family: var(--font-main);
-            font-size: clamp(3rem, 12vw, 8rem);
+            font-size: clamp(3.5rem, 12vw, 8.5rem);
             font-weight: 700;
-            line-height: 0.95;
+            line-height: 1.1;
             letter-spacing: -0.05em;
-            margin-bottom: 24px;
-            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.5) 100%);
+            margin-bottom: 32px;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: center;
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 850px;
             font-weight: 400;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            line-height: 1.4;
         }
 
         .scroll-indicator {
@@ -983,10 +985,23 @@
                 trigger: "body",
                 start: "top top",
                 end: "bottom bottom",
+                scrub: 1
+            },
+            y: -250,
+            ease: "none"
+        });
+
+        // Parallax for Hero Text
+        gsap.to(".hero h1, .hero p", {
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
                 scrub: true
             },
-            y: -150,
-            ease: "none"
+            y: 150,
+            opacity: 0,
+            scale: 0.95
         });
     </script>
 </body>
