@@ -216,6 +216,41 @@
             color: var(--text-secondary);
         }
 
+        /* Tech Stack Grid inside Bento */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tech-pill i {
+            font-size: 1.2rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        .tech-pill:hover {
+            background: rgba(41, 151, 255, 0.1);
+            border-color: var(--accent);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
         .span-2 { grid-column: span 2; }
         .row-2 { grid-row: span 2; }
 
@@ -466,6 +501,15 @@
                 <div>
                     <h4>iOS Specialist</h4>
                     <p>Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.</p>
+                    
+                    <div class="tech-stack">
+                        <div class="tech-pill"><i class="fab fa-swift"></i><span>SwiftUI</span></div>
+                        <div class="tech-pill"><i class="fas fa-layer-group"></i><span>SwiftData</span></div>
+                        <div class="tech-pill"><i class="fas fa-sync"></i><span>Concurrency</span></div>
+                        <div class="tech-pill"><i class="fas fa-network-wired"></i><span>Combine</span></div>
+                        <div class="tech-pill"><i class="fas fa-cube"></i><span>UIKit</span></div>
+                        <div class="tech-pill"><i class="fas fa-vial"></i><span>Unit Testing</span></div>
+                    </div>
                 </div>
             </div>
             <div class="bento-item">
