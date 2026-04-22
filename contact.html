@@ -105,8 +105,8 @@
     </div>
 
     <div class="contact-container">
-        <h1>Direct Inquiry</h1>
-        <p>Fill out the form below and I'll get back to you shortly.</p>
+        <h1 data-i18n="contactTitle">Direct Inquiry</h1>
+        <p data-i18n="contactSub">Fill out the form below and I'll get back to you shortly.</p>
         
         <form action="https://formsubmit.co/furkandenizalbaylar@gmail.com" method="POST">
             <!-- FormSubmit Configurations -->
@@ -114,22 +114,67 @@
             <input type="hidden" name="_subject" value="New Classic Contact Inquiry">
             
             <div class="form-group">
-                <label>Your Name</label>
+                <label data-i18n="labelName">Your Name</label>
                 <input type="text" name="name" placeholder="John Doe" required>
             </div>
             <div class="form-group">
-                <label>Your Email</label>
+                <label data-i18n="labelEmail">Your Email</label>
                 <input type="email" name="email" placeholder="john@example.com" required>
             </div>
             <div class="form-group">
-                <label>Message</label>
+                <label data-i18n="labelMsg">Message</label>
                 <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
             </div>
             
-            <button type="submit">Send Message</button>
+            <button type="submit" data-i18n="btnSend">Send Message</button>
         </form>
 
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="btnBack">Back to Home</span></a>
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                contactTitle: "Direct Inquiry",
+                contactSub: "Fill out the form below and I'll get back to you shortly.",
+                labelName: "Your Name",
+                labelEmail: "Your Email",
+                labelMsg: "Message",
+                btnSend: "Send Message",
+                btnBack: "Back to Home"
+            },
+            de: {
+                contactTitle: "Direktanfrage",
+                contactSub: "Füllen Sie das Formular aus und ich melde mich in Kürze bei Ihnen.",
+                labelName: "Ihr Name",
+                labelEmail: "Ihre E-Mail",
+                labelMsg: "Nachricht",
+                btnSend: "Nachricht senden",
+                btnBack: "Zurück zur Startseite"
+            },
+            tr: {
+                contactTitle: "Doğrudan Talep",
+                contactSub: "Aşağıdaki formu doldurun, en kısa sürede size dönüş yapacağım.",
+                labelName: "Adınız",
+                labelEmail: "E-posta Adresiniz",
+                labelMsg: "Mesajınız",
+                btnSend: "Mesaj Gönder",
+                btnBack: "Ana Sayfaya Dön"
+            }
+            // ... (Other languages could be added similarly)
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        setLanguage(savedLang);
+    </script>
 </body>
 </html>
