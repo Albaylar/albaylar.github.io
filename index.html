@@ -960,6 +960,21 @@
         .side-item label { display: block; color: #555; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
         .side-item span { color: #fff; font-weight: 600; font-size: 0.9rem; }
 
+        @media (max-width: 768px) {
+            .case-study-content {
+                padding: 40px 20px;
+                border-radius: 30px;
+            }
+            .case-header h2 { font-size: 2rem; }
+            .case-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .case-sidebar {
+                padding: 20px;
+            }
+        }
+
         .testimonial-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
