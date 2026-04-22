@@ -34,6 +34,53 @@
             line-height: 1.5;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            cursor: none; /* Hide default cursor for custom cursor */
+        }
+
+        /* Custom Magnetic Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.5rem;
+            font-family: var(--font-main);
+            font-weight: 700;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .cursor-outline.hover-active {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            mix-blend-mode: normal;
+            border: none;
+        }
+        
+        /* Mobile overrides for cursor */
+        @media (max-width: 768px) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
         }
 
         /* Engineering Grid & Dynamic Background */
@@ -42,23 +89,52 @@
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             overflow: hidden;
+            background: #000;
+        }
+
+        /* Mesh Gradient Orbs */
+        .mesh-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: floatOrb 20s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(41, 151, 255, 0.3) 0%, transparent 70%);
+            top: -10%; left: -10%;
+        }
+
+        .orb-2 {
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(0, 85, 255, 0.2) 0%, transparent 70%);
+            bottom: -20%; right: -10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(5%, 10%) scale(1.1); }
+            100% { transform: translate(-5%, -5%) scale(0.9); }
         }
 
         .grid-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(var(--glass) 1px, transparent 1px),
-                linear-gradient(90deg, var(--glass) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 80px 80px;
             mask-image: radial-gradient(circle at center, black, transparent 95%);
-            opacity: 0.3;
+            opacity: 0.6;
         }
 
         .ambient-glow {
             position: absolute;
             top: -20%; left: -20%; width: 140%; height: 140%;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(41, 151, 255, 0.12), transparent 40%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.05), transparent 30%);
             pointer-events: none;
             transition: background 0.1s ease;
         }
@@ -183,6 +259,11 @@
             -webkit-text-fill-color: transparent;
             text-align: center;
             padding: 0 20px;
+        }
+
+        .dud {
+            color: #555;
+            opacity: 0.7;
         }
 
         .hero p {
@@ -611,6 +692,153 @@
             color: var(--text);
         }
 
+        /* Next-Gen Contact Terminal */
+        .terminal-contact {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            background: #0a0a0c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            text-align: left;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .terminal-contact::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(41, 151, 255, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .terminal-header {
+            background: #161618;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .terminal-header .dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .terminal-header .title {
+            color: #888;
+            font-size: 0.8rem;
+            margin-left: 15px;
+        }
+
+        .terminal-body {
+            padding: 30px;
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .terminal-line { margin-bottom: 10px; color: #a1a1a6; }
+        .terminal-line .prompt { color: var(--accent); margin-right: 10px; }
+        
+        .terminal-input-row {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%;
+            margin-left: 10px;
+            outline: none;
+            caret-color: var(--accent);
+        }
+
+        .terminal-input::placeholder { color: #555; }
+
+        /* Command Palette */
+        .cmd-palette {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 15vh;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cmd-palette.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cmd-modal {
+            background: #111112;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+            transform: translateY(20px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cmd-palette.active .cmd-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .cmd-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 24px;
+            font-size: 1.2rem;
+            color: #fff;
+            font-family: var(--font-sub);
+            outline: none;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cmd-list {
+            list-style: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .cmd-list li {
+            padding: 16px 24px;
+            color: #a1a1a6;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .cmd-list li:hover {
+            background: rgba(41, 151, 255, 0.1);
+            color: #fff;
+        }
+
+        .cmd-list li i { color: var(--accent); }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -666,9 +894,28 @@
 </head>
 <body>
 
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <div class="bg-layer">
+        <div class="mesh-orb orb-1"></div>
+        <div class="mesh-orb orb-2"></div>
         <div class="grid-bg"></div>
         <div class="ambient-glow"></div>
+    </div>
+
+    <!-- Command Palette -->
+    <div class="cmd-palette" id="cmdPalette">
+        <div class="cmd-modal">
+            <input type="text" class="cmd-input" placeholder="Search capabilities, projects, or type 'contact'..." id="cmdInput">
+            <ul class="cmd-list">
+                <li onclick="navigateTo('#projects')"><i class="fas fa-briefcase"></i> View Selected Works</li>
+                <li onclick="navigateTo('#about')"><i class="fas fa-brain"></i> Explore AI Capabilities</li>
+                <li onclick="navigateTo('mailto:furkandenizalbaylar@gmail.com')"><i class="fas fa-envelope"></i> Contact Me</li>
+                <li onclick="document.querySelector('.lang-btn:nth-child(2)').click(); closeCmd()"><i class="fas fa-globe"></i> Switch Language (DE)</li>
+            </ul>
+        </div>
     </div>
 
     <nav>
@@ -915,9 +1162,22 @@
     </section>
 
     <footer>
-        <div class="cta-container">
-            <h2 data-i18n="footerTitle">Let's build the future.</h2>
-            <a href="mailto:furkandenizalbaylar@gmail.com" class="primary-btn" data-i18n="getInTouch">Get In Touch</a>
+        <div class="terminal-contact">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">albaylar-ai — zsh</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line"><span class="prompt">~ %</span> ./init_protocol.sh</div>
+                <div class="terminal-line" data-i18n="termLine1">Booting communication protocol... OK.</div>
+                <div class="terminal-line" data-i18n="termLine2">Awaiting your command. Press Enter to send.</div>
+                <div class="terminal-input-row">
+                    <span class="prompt">guest@albaylar ~ %</span>
+                    <input type="text" class="terminal-input" id="termInput" placeholder="Type 'hello' to begin..." />
+                </div>
+            </div>
         </div>
         
         <div class="social-icons">
@@ -926,6 +1186,7 @@
             <a href="mailto:furkandenizalbaylar@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 60px;" data-i18n="copyright">© 2026 Furkan Deniz Albaylar. Crafted in Berlin.</p>
+        <p style="color: #444; font-size: 0.7rem; margin-top: 10px;">Press Cmd + K to open Command Palette</p>
     </footer>
 
     <script>
@@ -1226,13 +1487,116 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-        // Interactive Mouse Glow
+        // Interactive Mouse Glow & Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        let mouseX = 0; let mouseY = 0;
+        let outlineX = 0; let outlineY = 0;
+
         document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Ambient glow
+            const x = (mouseX / window.innerWidth) * 100;
+            const y = (mouseY / window.innerHeight) * 100;
             document.body.style.setProperty('--mouse-x', x + '%');
             document.body.style.setProperty('--mouse-y', y + '%');
+
+            // Dot follows instantly
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
         });
+
+        // Smooth outline animation
+        function animateCursor() {
+            let distX = mouseX - outlineX;
+            let distY = mouseY - outlineY;
+            
+            outlineX = outlineX + (distX * 0.15);
+            outlineY = outlineY + (distY * 0.15);
+            
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor Hover Effects
+        document.querySelectorAll('a, button, .project-card, .bento-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('hover-active');
+                if(el.classList.contains('project-card')) {
+                    cursorOutline.innerText = "View";
+                }
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('hover-active');
+                cursorOutline.innerText = "";
+            });
+        });
+
+        // Kinetic Typography (Scramble Effect)
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="dud">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
+        }
+
+        const heroTitle = document.querySelector('.hero h1');
+        // Store original text
+        const originalText = heroTitle.innerHTML.replace(/<br>/g, '\\n');
+        // We will animate it after GSAP reveal
+        const fx = new TextScramble(heroTitle);
 
         // Hero Animations
         const tl = gsap.timeline();
@@ -1241,7 +1605,10 @@
             opacity: 0,
             y: 100,
             ease: "expo.out",
-            stagger: 0.2
+            onComplete: () => {
+                // Run scramble effect when animation completes
+                fx.setText(originalText.replace(/\\n/g, '<br>'));
+            }
         })
         .from(".hero p", {
             duration: 1.2,
@@ -1279,6 +1646,69 @@
             },
             y: -250,
             ease: "none"
+        });
+        // Cmd+K Logic
+        const cmdPalette = document.getElementById('cmdPalette');
+        const cmdInput = document.getElementById('cmdInput');
+        
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                cmdPalette.classList.add('active');
+                cmdInput.focus();
+            }
+            if (e.key === 'Escape') {
+                closeCmd();
+            }
+        });
+
+        cmdPalette.addEventListener('click', (e) => {
+            if (e.target === cmdPalette) closeCmd();
+        });
+
+        function closeCmd() {
+            cmdPalette.classList.remove('active');
+            cmdInput.value = '';
+        }
+
+        function navigateTo(url) {
+            closeCmd();
+            if (url.startsWith('#')) {
+                document.querySelector(url).scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.location.href = url;
+            }
+        }
+
+        // Terminal Contact Logic
+        const termInput = document.getElementById('termInput');
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && termInput.value.trim() !== '') {
+                const msg = termInput.value;
+                termInput.value = '';
+                
+                // Create a div for user input
+                const userLine = document.createElement('div');
+                userLine.className = 'terminal-line';
+                userLine.innerHTML = `<span class="prompt">guest@albaylar ~ %</span> ${msg}`;
+                
+                // Create a div for system response
+                const sysLine = document.createElement('div');
+                sysLine.className = 'terminal-line';
+                sysLine.style.color = '#fff';
+                sysLine.innerHTML = `> Initiating email protocol...`;
+                
+                const parent = termInput.closest('.terminal-body');
+                parent.insertBefore(userLine, termInput.parentElement);
+                parent.insertBefore(sysLine, termInput.parentElement);
+
+                setTimeout(() => {
+                    sysLine.innerHTML = `> Redirecting to secure channel. Please wait.`;
+                    setTimeout(() => {
+                        window.location.href = `mailto:furkandenizalbaylar@gmail.com?subject=Incoming Project Request&body=${encodeURIComponent(msg)}`;
+                    }, 1000);
+                }, 800);
+            }
         });
     </script>
 </body>
