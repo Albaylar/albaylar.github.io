@@ -164,7 +164,7 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px;
+            grid-auto-rows: minmax(220px, auto);
             gap: 20px;
         }
 
@@ -172,7 +172,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 32px;
-            padding: 40px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
