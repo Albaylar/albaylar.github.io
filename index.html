@@ -469,6 +469,33 @@
             .project-info h3 { font-size: 2rem; }
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            margin-left: 30px;
+            background: var(--glass);
+            padding: 5px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--text);
+            color: var(--bg);
+        }
     </style>
 </head>
 <body>
@@ -480,27 +507,32 @@
 
     <nav>
         <div class="logo">ALBAYLAR</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Work</a>
-            <a href="mailto:furkandenizalbaylar@gmail.com">Contact</a>
+        <div class="nav-links" style="display: flex; align-items: center;">
+            <a href="#about" data-i18n="navAbout">About</a>
+            <a href="#projects" data-i18n="navWork">Work</a>
+            <a href="mailto:furkandenizalbaylar@gmail.com" data-i18n="navContact">Contact</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+                <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Engineering<br>Digital Craft</h1>
-        <p>iOS Architect & Electrical Engineer. Building the next generation of AI-native mobile ecosystems with uncompromising precision.</p>
-        <div class="scroll-indicator">Discover</div>
+        <h1 data-i18n="heroTitle">Engineering<br>Digital Craft</h1>
+        <p data-i18n="heroSub">iOS Architect & Electrical Engineer. Building the next generation of AI-native mobile ecosystems with uncompromising precision.</p>
+        <div class="scroll-indicator" data-i18n="heroScroll">Discover</div>
     </section>
 
     <div class="bento-container" id="about">
-        <h2 class="section-title">Foundation & Mastery</h2>
+        <h2 class="section-title" data-i18n="aboutTitle">Foundation & Mastery</h2>
         <div class="bento-grid">
             <div class="bento-item span-2 row-2">
                 <i class="fab fa-swift"></i>
                 <div>
-                    <h4>iOS Specialist</h4>
-                    <p>Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.</p>
+                    <h4 data-i18n="skill1Title">iOS Specialist</h4>
+                    <p data-i18n="skill1Desc">Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.</p>
                     
                     <div class="tech-stack">
                         <div class="tech-pill"><i class="fab fa-swift"></i><span>SwiftUI</span></div>
@@ -515,54 +547,54 @@
             <div class="bento-item">
                 <i class="fas fa-brain"></i>
                 <div>
-                    <h4>AI Synthesis</h4>
-                    <p>Large Language Model integration and real-time voice processing.</p>
+                    <h4 data-i18n="skill2Title">AI Synthesis</h4>
+                    <p data-i18n="skill2Desc">Large Language Model integration and real-time voice processing.</p>
                 </div>
             </div>
             <div class="bento-item row-2">
                 <i class="fas fa-microchip"></i>
                 <div>
-                    <h4>Systems</h4>
-                    <p>Deep understanding of hardware-software interplay and optimization.</p>
+                    <h4 data-i18n="skill3Title">Systems</h4>
+                    <p data-i18n="skill3Desc">Deep understanding of hardware-software interplay and optimization.</p>
                 </div>
             </div>
             <div class="bento-item">
                 <i class="fas fa-bolt"></i>
                 <div>
-                    <h4>Performance</h4>
-                    <p>Sub-16ms frame timing and efficient memory management.</p>
+                    <h4 data-i18n="skill4Title">Performance</h4>
+                    <p data-i18n="skill4Desc">Sub-16ms frame timing and efficient memory management.</p>
                 </div>
             </div>
             <div class="bento-item span-2">
                 <i class="fas fa-layer-group"></i>
                 <div>
-                    <h4>Modular Design</h4>
-                    <p>Scalable MVVM patterns and robust dependency management.</p>
+                    <h4 data-i18n="skill5Title">Modular Design</h4>
+                    <p data-i18n="skill5Desc">Scalable MVVM patterns and robust dependency management.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <section class="projects-section" id="projects">
-        <h2 class="section-title">Selected Works</h2>
+        <h2 class="section-title" data-i18n="projectsTitle">Selected Works</h2>
         <div class="projects-grid">
             
             <!-- SpeachyAI -->
             <div class="project-card flagship">
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">Flagship</span>
-                        <span class="tag">AI</span>
+                        <span class="tag" data-i18n="tagFlagship">Flagship</span>
+                        <span class="tag" data-i18n="tagAI">AI</span>
                         <span class="tag">SwiftUI</span>
                     </div>
                     <h3>SpeachyAI</h3>
-                    <p>The ultimate AI vocal assistant. Integrating GPT-4's cognitive intelligence with ElevenLabs' expressive realism for seamless, human-like interaction.</p>
+                    <p data-i18n="speachyDesc">The ultimate AI vocal assistant. Integrating GPT-4's cognitive intelligence with ElevenLabs' expressive realism for seamless, human-like interaction.</p>
                     <div class="project-links">
                         <a href="https://apps.apple.com/app/speachyai/id6502640243" class="app-store-btn" target="_blank">
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1718841600" alt="Download on the App Store">
                         </a>
                         <a href="https://speachyai.com" class="web-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Visit speachyai.com
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSpeachy">Visit speachyai.com</span>
                         </a>
                     </div>
                 </div>
@@ -572,12 +604,12 @@
             <div class="project-card">
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">Utility</span>
+                        <span class="tag" data-i18n="tagUtility">Utility</span>
                         <span class="tag">MapKit</span>
-                        <span class="tag">Infrastructure</span>
+                        <span class="tag" data-i18n="tagInfra">Infrastructure</span>
                     </div>
                     <h3>ChargeEV</h3>
-                    <p>Revolutionizing EV infrastructure navigation. Optimized station routing with real-time API synchronization and intelligent distance mapping.</p>
+                    <p data-i18n="chargeDesc">Revolutionizing EV infrastructure navigation. Optimized station routing with real-time API synchronization and intelligent distance mapping.</p>
                     
                     <div class="project-gallery">
                         <img src="assets/images/chargeev/chargeev_1.png" alt="ChargeEV Calculator">
@@ -599,14 +631,14 @@
             <div class="project-card">
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">Engine</span>
+                        <span class="tag" data-i18n="tagEngine">Engine</span>
                         <span class="tag">SpriteKit</span>
-                        <span class="tag">Physics</span>
+                        <span class="tag" data-i18n="tagPhysics">Physics</span>
                     </div>
                     <h3>Mining Town</h3>
-                    <p>A sophisticated simulation engine featuring custom physics and ecosystem logic. Engineered for maximum efficiency on Apple Silicon.</p>
+                    <p data-i18n="miningDesc">A sophisticated simulation engine featuring custom physics and ecosystem logic. Engineered for maximum efficiency on Apple Silicon.</p>
                     <div class="project-links">
-                        <span class="tag" style="background: var(--accent); color: white; border: none;">Internal Release</span>
+                        <span class="tag" style="background: var(--accent); color: white; border: none;" data-i18n="internalRelease">Internal Release</span>
                     </div>
                 </div>
             </div>
@@ -615,15 +647,15 @@
             <div class="project-card">
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">Web</span>
+                        <span class="tag" data-i18n="tagWeb">Web</span>
                         <span class="tag">GSAP</span>
-                        <span class="tag">Branding</span>
+                        <span class="tag" data-i18n="tagBranding">Branding</span>
                     </div>
                     <h3>M&M Corporate</h3>
-                    <p>Premium digital presence for industrial leadership. High-performance layouts with orchestrated motion and cinematic storytelling.</p>
+                    <p data-i18n="corporateDesc">Premium digital presence for industrial leadership. High-performance layouts with orchestrated motion and cinematic storytelling.</p>
                     <div class="project-links">
                         <a href="#" class="web-link">
-                            <i class="fas fa-lock"></i> Client Confidential
+                            <i class="fas fa-lock"></i> <span data-i18n="clientConf">Client Confidential</span>
                         </a>
                     </div>
                 </div>
@@ -634,8 +666,8 @@
 
     <footer>
         <div class="cta-container">
-            <h2>Let's build the future.</h2>
-            <a href="mailto:furkandenizalbaylar@gmail.com" class="primary-btn">Get In Touch</a>
+            <h2 data-i18n="footerTitle">Let's build the future.</h2>
+            <a href="mailto:furkandenizalbaylar@gmail.com" class="primary-btn" data-i18n="getInTouch">Get In Touch</a>
         </div>
         
         <div class="social-icons">
@@ -643,10 +675,146 @@
             <a href="https://www.linkedin.com/in/furkandenizalbaylar/" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:furkandenizalbaylar@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 60px;">© 2026 Furkan Deniz Albaylar. Crafted in Berlin.</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 60px;" data-i18n="copyright">© 2026 Furkan Deniz Albaylar. Crafted in Berlin.</p>
     </footer>
 
     <script>
+        const translations = {
+            en: {
+                navAbout: "About",
+                navWork: "Work",
+                navContact: "Contact",
+                heroTitle: "Engineering<br>Digital Craft",
+                heroSub: "iOS Architect & Electrical Engineer. Building the next generation of AI-native mobile ecosystems with uncompromising precision.",
+                heroScroll: "Discover",
+                aboutTitle: "Foundation & Mastery",
+                skill1Title: "iOS Specialist",
+                skill1Desc: "Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.",
+                skill2Title: "AI Synthesis",
+                skill2Desc: "Large Language Model integration and real-time voice processing.",
+                skill3Title: "Systems",
+                skill3Desc: "Deep understanding of hardware-software interplay and optimization.",
+                skill4Title: "Performance",
+                skill4Desc: "Sub-16ms frame timing and efficient memory management.",
+                skill5Title: "Modular Design",
+                skill5Desc: "Scalable MVVM patterns and robust dependency management.",
+                projectsTitle: "Selected Works",
+                tagFlagship: "Flagship",
+                tagAI: "AI",
+                tagUtility: "Utility",
+                tagInfra: "Infrastructure",
+                tagEngine: "Engine",
+                tagPhysics: "Physics",
+                tagWeb: "Web",
+                tagBranding: "Branding",
+                speachyDesc: "The ultimate AI vocal assistant. Integrating GPT-4's cognitive intelligence with ElevenLabs' expressive realism for seamless, human-like interaction.",
+                visitSpeachy: "Visit speachyai.com",
+                chargeDesc: "Revolutionizing EV infrastructure navigation. Optimized station routing with real-time API synchronization and intelligent distance mapping.",
+                miningDesc: "A sophisticated simulation engine featuring custom physics and ecosystem logic. Engineered for maximum efficiency on Apple Silicon.",
+                internalRelease: "Internal Release",
+                corporateDesc: "Premium digital presence for industrial leadership. High-performance layouts with orchestrated motion and cinematic storytelling.",
+                clientConf: "Client Confidential",
+                footerTitle: "Let's build the future.",
+                getInTouch: "Get In Touch",
+                copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin."
+            },
+            de: {
+                navAbout: "Über mich",
+                navWork: "Projekte",
+                navContact: "Kontakt",
+                heroTitle: "Engineering<br>Digital Craft",
+                heroSub: "iOS Architect & Elektroingenieur. Entwicklung der nächsten Generation von KI-nativen mobilen Ökosystemen mit kompromissloser Präzision.",
+                heroScroll: "Entdecken",
+                aboutTitle: "Fundament & Meisterschaft",
+                skill1Title: "iOS-Spezialist",
+                skill1Desc: "Expertise in SwiftUI, CoreData und Hochleistungs-Systemarchitektur. Verbindung von elektroingenieurstechnischer Strenge mit mobiler Fluidität.",
+                skill2Title: "KI-Synthese",
+                skill2Desc: "Integration von Large Language Models und Echtzeit-Sprachverarbeitung.",
+                skill3Title: "Systeme",
+                skill3Desc: "Tiefes Verständnis des Zusammenspiels von Hard- und Software sowie Optimierung.",
+                skill4Title: "Performance",
+                skill4Desc: "Sub-16ms Frame-Timing und effizientes Speichermanagement.",
+                skill5Title: "Modulares Design",
+                skill5Desc: "Skalierbare MVVM-Muster und robustes Dependency Management.",
+                projectsTitle: "Ausgewählte Arbeiten",
+                tagFlagship: "Flaggschiff",
+                tagAI: "KI",
+                tagUtility: "Nützlichkeit",
+                tagInfra: "Infrastruktur",
+                tagEngine: "Engine",
+                tagPhysics: "Physik",
+                tagWeb: "Web",
+                tagBranding: "Branding",
+                speachyDesc: "Der ultimative KI-Sprachassistent. Kombiniert die kognitive Intelligenz von GPT-4 mit dem expressiven Realismus von ElevenLabs für nahtlose Interaktion.",
+                visitSpeachy: "speachyai.com besuchen",
+                chargeDesc: "Revolutionierung der EV-Infrastruktur-Navigation. Optimiertes Stations-Routing mit Echtzeit-API-Synchronisation.",
+                miningDesc: "Eine anspruchsvolle Simulations-Engine mit benutzerdefinierter Physik. Entwickelt für maximale Effizienz auf Apple Silicon.",
+                internalRelease: "Interner Release",
+                corporateDesc: "Premium digitale Präsenz für industrielle Marktführer. Hochleistungs-Layouts mit orchestrierter Bewegung.",
+                clientConf: "Vertraulich",
+                footerTitle: "Lass uns die Zukunft bauen.",
+                getInTouch: "Kontaktieren",
+                copyright: "© 2026 Furkan Deniz Albaylar. Erstellt in Berlin."
+            },
+            tr: {
+                navAbout: "Hakkımda",
+                navWork: "Projeler",
+                navContact: "İletişim",
+                heroTitle: "Engineering<br>Digital Craft",
+                heroSub: "iOS Mimarı ve Elektrik Mühendisi. Tavizsiz hassasiyetle yeni nesil yapay zeka tabanlı mobil ekosistemler inşa ediyorum.",
+                heroScroll: "Keşfet",
+                aboutTitle: "Temel ve Uzmanlık",
+                skill1Title: "iOS Uzmanı",
+                skill1Desc: "SwiftUI, CoreData ve yüksek performanslı sistem mimarisi uzmanlığı. Elektrik Mühendisliği disiplinini mobil akıcılıkla birleştiriyorum.",
+                skill2Title: "YZ Sentezi",
+                skill2Desc: "Büyük Dil Modeli entegrasyonu ve gerçek zamanlı ses işleme.",
+                skill3Title: "Sistemler",
+                skill3Desc: "Donanım-yazılım etkileşimi ve optimizasyon konusunda derin anlayış.",
+                skill4Title: "Performans",
+                skill4Desc: "16ms altı kare hızı ve verimli bellek yönetimi.",
+                skill5Title: "Modüler Tasarım",
+                skill5Desc: "Ölçeklenebilir MVVM yapıları ve güçlü bağımlılık yönetimi.",
+                projectsTitle: "Seçilmiş Çalışmalar",
+                tagFlagship: "Amiral Gemisi",
+                tagAI: "YZ",
+                tagUtility: "Araç",
+                tagInfra: "Altyapı",
+                tagEngine: "Motor",
+                tagPhysics: "Fizik",
+                tagWeb: "Web",
+                tagBranding: "Markalaşma",
+                speachyDesc: "Nihai yapay zeka sesli asistanı. GPT-4'ün bilişsel zekasını ElevenLabs'in etkileyici gerçekçiliğiyle birleştirir.",
+                visitSpeachy: "speachyai.com'u ziyaret et",
+                chargeDesc: "EV altyapı navigasyonunda devrim. Gerçek zamanlı API senkronizasyonu ile optimize edilmiş istasyon rotalama.",
+                miningDesc: "Özel fizik ve ekosistem mantığına sahip sofistike bir simülasyon motoru. Apple Silicon üzerinde maksimum verimlilik için tasarlandı.",
+                internalRelease: "Dahili Yayın",
+                corporateDesc: "Endüstriyel liderlik için premium dijital varlık. Orkestra edilmiş hareketli yüksek performanslı düzenler.",
+                clientConf: "Müşteri Gizliliği",
+                footerTitle: "Geleceği birlikte inşa edelim.",
+                getInTouch: "İletişime Geç",
+                copyright: "© 2026 Furkan Deniz Albaylar. Berlin'de tasarlandı."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+            });
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Initialize language
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        setLanguage(savedLang);
+
         gsap.registerPlugin(ScrollTrigger);
 
         // Interactive Mouse Glow
