@@ -6,6 +6,16 @@
     <title>Furkan Deniz Albaylar | iOS Architect & Product Visionary</title>
     <meta name="description" content="Portfolio of Furkan Deniz Albaylar, a Berlin-based iOS Engineer specializing in AI integration, high-performance Swift systems, and premium digital experiences.">
     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://albaylar.github.io/">
+    <meta property="og:title" content="Furkan Deniz Albaylar | iOS Architect & Product Visionary">
+    <meta property="og:description" content="Berlin-based iOS Engineer specializing in AI integration, high-performance Swift systems, and premium digital experiences.">
+    <meta property="og:image" content="https://albaylar.github.io/assets/images/speachyai/speachyai_1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Furkan Deniz Albaylar | iOS Architect & Product Visionary">
+    <meta name="twitter:description" content="Berlin-based iOS Engineer specializing in AI integration, high-performance Swift systems, and premium digital experiences.">
+    <meta name="twitter:image" content="https://albaylar.github.io/assets/images/speachyai/speachyai_1.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -264,6 +274,7 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             animation: bounce 2s infinite;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -1029,7 +1040,7 @@
     <section class="hero">
         <h1 data-i18n="heroTitle">Engineering<br>Digital Craft</h1>
         <p data-i18n="heroSub">Engineering the Future of AI-Native Platforms. We bridge the gap between complex hardware logic and fluid mobile experiences with uncompromising precision.</p>
-        <div class="scroll-indicator" data-i18n="heroScroll">Discover</div>
+        <a href="#about" class="scroll-indicator" data-i18n="heroScroll" style="text-decoration:none;">Discover</a>
     </section>
 
     <div class="bento-container" id="about">
@@ -1243,7 +1254,7 @@
 
             <!-- Mining Town -->
             <a href="/miningtown" style="text-decoration: none; color: inherit; display: block;">
-            <div class="project-card" style="cursor: pointer;" onclick="event.stopPropagation()">
+            <div class="project-card" style="cursor: pointer;">
                 <div class="project-info">
                     <div class="tags">
                         <span class="tag" data-i18n="tagEngine">Engine</span>
@@ -1291,39 +1302,39 @@
         </div>
     </section>
 
-    <footer>
-        <div class="case-study-overlay" id="caseOverlay">
-            <div class="case-study-content">
-                <div class="close-case" onclick="closeCase()"><i class="fas fa-times"></i></div>
-                <div class="case-header">
-                    <h2 id="caseTitle">Project Title</h2>
-                    <span class="case-tagline" id="caseTagline">Technical Architecture & Engineering Insights</span>
+    <div class="case-study-overlay" id="caseOverlay">
+        <div class="case-study-content">
+            <div class="close-case" onclick="closeCase()"><i class="fas fa-times"></i></div>
+            <div class="case-header">
+                <h2 id="caseTitle">Project Title</h2>
+                <span class="case-tagline" id="caseTagline">Technical Architecture & Engineering Insights</span>
+            </div>
+            <div class="case-grid">
+                <div class="case-main">
+                    <h4>Challenge</h4>
+                    <p id="caseChallenge">Description of the technical challenge.</p>
+                    <h4>Solution</h4>
+                    <p id="caseSolution">Engineering approach and architectural choices.</p>
                 </div>
-                <div class="case-grid">
-                    <div class="case-main">
-                        <h4>Challenge</h4>
-                        <p id="caseChallenge">Description of the technical challenge.</p>
-                        <h4>Solution</h4>
-                        <p id="caseSolution">Engineering approach and architectural choices.</p>
+                <div class="case-sidebar">
+                    <div class="side-item">
+                        <label>Architecture</label>
+                        <span id="caseArch">Clean MVVM / SwiftUI</span>
                     </div>
-                    <div class="case-sidebar">
-                        <div class="side-item">
-                            <label>Architecture</label>
-                            <span id="caseArch">Clean MVVM / SwiftUI</span>
-                        </div>
-                        <div class="side-item">
-                            <label>Tech Stack</label>
-                            <span id="caseStack">Swift, CoreML, ElevenLabs</span>
-                        </div>
-                        <div class="side-item">
-                            <label>Performance</label>
-                            <span id="casePerf">Sub-100ms Latency</span>
-                        </div>
+                    <div class="side-item">
+                        <label>Tech Stack</label>
+                        <span id="caseStack">Swift, CoreML, ElevenLabs</span>
+                    </div>
+                    <div class="side-item">
+                        <label>Performance</label>
+                        <span id="casePerf">Sub-100ms Latency</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <footer>
         <div class="terminal-contact">
             <div class="terminal-header">
                 <span class="dot red"></span>
@@ -1624,8 +1635,26 @@
             },
             fr: {
                 navAbout: "À propos",
+                navServices: "Services",
                 navWork: "Projets",
                 navContact: "Contact",
+                workflowTitle: "Le Processus",
+                step1Title: "Découverte",
+                step1Desc: "Analyse technique approfondie et livraison d'une Feuille de Route PDF complète. Les propositions formelles ne sont émises qu'après un alignement stratégique total.",
+                step2Title: "Ingénierie",
+                step2Desc: "Développement natif haute performance et intégration d'architecture IA, exécutés selon la Feuille de Route PDF établie.",
+                step3Title: "Succès",
+                step3Desc: "Déploiement mondial, mise à l'échelle continue et support technique expert pour des actifs conçus pour durer.",
+                ethosTitle: "Notre Philosophie",
+                ethosText: "Notre objectif dépasse la simple satisfaction client. Nous concevons des actifs numériques dont nous sommes fiers de revendiquer l'héritage. Chaque projet est une quête de maîtrise technique, élargissant notre portfolio avec des travaux qui défient le statu quo.",
+                partner1: "M & M SERVICE",
+                partner2: "ENGINEERING CO.",
+                partner3: "DIGITAL SOLUTIONS",
+                partner4: "VISIONARY LABS",
+                testi1Text: '"La précision architecturale et le motion design cinématique ont élevé notre identité d\'entreprise à un tout nouveau niveau. Un véritable visionnaire en présence digitale."',
+                testi2Text: '"Pas seulement un ingénieur, mais un visionnaire produit. La capacité à relier la logique matérielle complexe aux expériences mobiles fluides est incomparable."',
+                chatTitle: "Systèmes Chatbot IA",
+                chatDesc: "Agents conversationnels propulsés par GPT-4 conçus pour révolutionner les interactions clients et les flux de travail internes.",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "Concevoir l'avenir des plateformes natives de l'IA. Nous comblons le fossé entre la logique matérielle complexe et les expériences mobiles fluides avec une précision sans compromis.",
                 heroScroll: "Découvrir",
@@ -1688,8 +1717,27 @@
             },
             es: {
                 navAbout: "Sobre mí",
+                navServices: "Servicios",
                 navWork: "Proyectos",
                 navContact: "Contacto",
+                workflowTitle: "El Proceso",
+                step1Title: "Descubrimiento",
+                step1Desc: "Análisis técnico profundo y entrega de una Hoja de Ruta PDF completa. Las propuestas formales solo se emiten tras un alineamiento estratégico total.",
+                step2Title: "Ingeniería",
+                step2Desc: "Desarrollo nativo de alto rendimiento e integración de arquitectura IA, ejecutados según la Hoja de Ruta PDF establecida.",
+                step3Title: "Éxito",
+                step3Desc: "Despliegue global, escalabilidad continua y soporte técnico experto para activos construidos para durar.",
+                ethosTitle: "Nuestra Filosofía",
+                ethosText: "Nuestro objetivo va más allá de la simple satisfacción del cliente. Diseñamos activos digitales de los que estamos orgullosos de reclamar como parte de nuestro legado. Cada proyecto es una búsqueda de maestría técnica.",
+                partner1: "M & M SERVICE",
+                partner2: "ENGINEERING CO.",
+                partner3: "DIGITAL SOLUTIONS",
+                partner4: "VISIONARY LABS",
+                testi1Text: '"La precisión arquitectónica y el diseño de movimiento cinematográfico elevaron nuestra identidad corporativa a un nivel completamente nuevo. Un verdadero visionario en presencia digital."',
+                testi2Text: '"No solo un ingeniero, sino un visionario de producto. La capacidad de unir la lógica de hardware compleja con experiencias móviles fluidas es incomparable."',
+                chatTitle: "Sistemas Chatbot IA",
+                chatDesc: "Agentes conversacionales impulsados por GPT-4 diseñados para revolucionar la interacción con clientes y los flujos de trabajo internos.",
+                visitSite: "Visitar mm-leistungen.de",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "Diseñando el futuro de las plataformas nativas de IA. Cerramos la brecha entre la lógica de hardware compleja y las experiencias móviles fluidas con una precisión inquebrantable.",
                 heroScroll: "Descubrir",
@@ -1752,8 +1800,27 @@
             },
             it: {
                 navAbout: "Su di me",
+                navServices: "Servizi",
                 navWork: "Progetti",
                 navContact: "Contatti",
+                workflowTitle: "Il Processo",
+                step1Title: "Scoperta",
+                step1Desc: "Analisi tecnica approfondita e consegna di una Roadmap PDF completa. Le proposte formali vengono emesse solo dopo un allineamento strategico totale.",
+                step2Title: "Ingegneria",
+                step2Desc: "Sviluppo nativo ad alte prestazioni e integrazione dell'architettura IA, eseguiti secondo la Roadmap PDF stabilita.",
+                step3Title: "Successo",
+                step3Desc: "Distribuzione globale, scalabilità continua e supporto tecnico esperto per asset costruiti per durare.",
+                ethosTitle: "La Nostra Filosofia",
+                ethosText: "Il nostro obiettivo va oltre la semplice soddisfazione del cliente. Progettiamo asset digitali di cui siamo orgogliosi di rivendicare come parte del nostro patrimonio. Ogni progetto è una ricerca di maestria tecnica.",
+                partner1: "M & M SERVICE",
+                partner2: "ENGINEERING CO.",
+                partner3: "DIGITAL SOLUTIONS",
+                partner4: "VISIONARY LABS",
+                testi1Text: '"La precisione architettonica e il motion design cinematografico hanno elevato la nostra identità aziendale a un livello completamente nuovo. Un vero visionario nella presenza digitale."',
+                testi2Text: '"Non solo un ingegnere, ma un visionario del prodotto. La capacità di collegare la logica hardware complessa con esperienze mobili fluide è impareggiabile."',
+                chatTitle: "Sistemi Chatbot IA",
+                chatDesc: "Agenti conversazionali alimentati da GPT-4 progettati per rivoluzionare l'interazione con i clienti e i flussi di lavoro interni.",
+                visitSite: "Visita mm-leistungen.de",
                 heroTitle: "Engineering<br>Digital Craft",
                 heroSub: "Ingegnerizzare il futuro delle piattaforme native AI. Colmiamo il divario tra la complessa logica hardware e le esperienze mobili fluide con una precisione assoluta.",
                 heroScroll: "Scopri",
@@ -2138,17 +2205,31 @@
         }
 
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                if (card.closest('a')) return;
                 const title = card.querySelector('h3').innerText;
                 openCase(title);
             });
         });
 
         // Live Monitor Logic
+        let monitorInterval = null;
         function updateMonitor() {
             document.getElementById('cpuVal').innerText = (Math.random() * 2 + 0.1).toFixed(2) + '%';
             document.getElementById('latencyVal').innerText = Math.floor(Math.random() * 5 + 10) + 'ms';
-            setTimeout(updateMonitor, 2000);
+        }
+        const monitorEl = document.querySelector('.monitor-grid');
+        if (monitorEl) {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        updateMonitor();
+                        monitorInterval = setInterval(updateMonitor, 2000);
+                    } else {
+                        clearInterval(monitorInterval);
+                    }
+                });
+            }, { threshold: 0.1 }).observe(monitorEl);
         }
         // 3D Tilt Effect
         const tiltElements = document.querySelectorAll('.bento-item, .project-card, .testimonial-card');
@@ -2184,7 +2265,6 @@
             });
         });
 
-        updateMonitor();
     </script>
 </body>
 </html>
