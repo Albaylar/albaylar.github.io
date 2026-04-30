@@ -16,8 +16,8 @@
             --green-light: #6effa5;
             --blue: #0ea5e9;
             --bg: #030d08;
-            --card: rgba(0,20,10,0.85);
-            --text-sub: #3d6b50;
+            --card: rgba(0,22,12,0.9);
+            --text-sub: #7ab892;
             --font: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -30,9 +30,9 @@
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
             background:
-                radial-gradient(ellipse 70% 55% at 50% -5%, rgba(0,212,106,0.14), transparent),
-                radial-gradient(ellipse 50% 40% at 90% 85%, rgba(14,165,233,0.12), transparent),
-                radial-gradient(ellipse 40% 30% at 10% 60%, rgba(0,212,106,0.06), transparent);
+                radial-gradient(ellipse 70% 55% at 50% -5%, rgba(0,212,106,0.15), transparent),
+                radial-gradient(ellipse 50% 40% at 90% 85%, rgba(14,165,233,0.1), transparent),
+                radial-gradient(ellipse 40% 30% at 5% 60%, rgba(0,212,106,0.06), transparent);
         }
 
         /* NAV */
@@ -40,13 +40,12 @@
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             display: flex; justify-content: space-between; align-items: center;
             padding: 18px 8%;
-            background: rgba(3,13,8,0.65);
+            background: rgba(3,13,8,0.7);
             backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(0,212,106,0.08);
-            transition: background 0.3s;
         }
         .nav-back {
-            color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem;
+            color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem;
             display: flex; align-items: center; gap: 6px; transition: color 0.3s;
         }
         .nav-back:hover { color: var(--green); }
@@ -61,7 +60,7 @@
             text-decoration: none; font-family: var(--font);
             transition: all 0.3s; white-space: nowrap;
         }
-        .nav-cta:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,106,0.35); }
+        .nav-cta:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,106,0.4); }
 
         /* HERO */
         .hero {
@@ -107,26 +106,26 @@
         }
         .ghost-btn:hover { background: rgba(0,212,106,0.08); border-color: var(--green); transform: translateY(-2px); }
 
-        /* RATING CALLOUT */
-        .rating-callout {
+        /* TRUST BAR */
+        .trust-bar {
             display: flex; align-items: center; justify-content: center;
-            gap: 28px; padding: 22px 8%; flex-wrap: wrap;
+            gap: 28px; padding: 20px 8%; flex-wrap: wrap;
             background: rgba(0,212,106,0.025);
             border-top: 1px solid rgba(0,212,106,0.07);
             border-bottom: 1px solid rgba(0,212,106,0.07);
             position: relative; z-index: 1;
         }
-        .rating-block { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .rating-stars { color: var(--green); font-size: 1.1rem; letter-spacing: 3px; line-height: 1; }
-        .rating-label { color: var(--text-sub); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; }
-        .rating-sep { width: 1px; height: 36px; background: rgba(0,212,106,0.12); }
-        .rating-pill {
+        .trust-sep { width: 1px; height: 32px; background: rgba(0,212,106,0.12); }
+        .trust-pill {
             background: rgba(0,212,106,0.06);
             border: 1px solid rgba(0,212,106,0.18);
             border-radius: 100px; padding: 7px 18px;
             color: var(--green); font-size: 0.75rem; font-weight: 700;
             letter-spacing: 0.08em; font-family: var(--font);
         }
+        .trust-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .trust-value { font-family: var(--font); font-size: 1.4rem; font-weight: 900; color: #fff; line-height: 1; }
+        .trust-label { color: var(--text-sub); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; }
 
         /* SCREENSHOTS */
         .screenshots-strip {
@@ -135,10 +134,7 @@
             -webkit-overflow-scrolling: touch; position: relative; z-index: 1;
         }
         .screenshots-strip::-webkit-scrollbar { display: none; }
-        .screenshot-wrap {
-            flex-shrink: 0; cursor: grab;
-            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-        }
+        .screenshot-wrap { flex-shrink: 0; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
         .screenshot-wrap:hover { transform: translateY(-20px); }
         .screenshot-wrap img {
             height: 540px; border-radius: 40px; display: block;
@@ -186,14 +182,16 @@
         }
         .sect-divider span { font-size: 1.3rem; opacity: 0.35; }
 
-        /* HOW TO USE */
-        .how-to-use { padding: 120px 8%; position: relative; z-index: 1; }
+        /* SHARED SECTION STYLES */
         .section-eye { text-align: center; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
         .section-title {
             text-align: center; font-family: var(--font); font-weight: 900;
             font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.04em;
             margin-bottom: 70px; color: #fff;
         }
+
+        /* HOW TO USE */
+        .how-to-use { padding: 120px 8%; position: relative; z-index: 1; }
         .steps-grid {
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 16px; max-width: 1100px; margin: 0 auto;
@@ -227,10 +225,8 @@
         }
         .feature-card {
             background: var(--card); border: 1px solid rgba(0,212,106,0.08);
-            border-radius: 28px; padding: 44px 40px;
-            backdrop-filter: blur(20px);
-            transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-            position: relative; overflow: hidden;
+            border-radius: 28px; padding: 44px 40px; backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden;
         }
         .feature-card::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
@@ -243,6 +239,51 @@
         .feature-card h3 { font-family: var(--font); font-size: 1.35rem; font-weight: 700; margin-bottom: 12px; color: var(--green); }
         .feature-card p { color: var(--text-sub); line-height: 1.75; font-size: 0.95rem; }
 
+        /* CONNECTOR TYPES */
+        .connectors { padding: 120px 8%; position: relative; z-index: 1; }
+        .connectors-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 16px; max-width: 1100px; margin: 0 auto;
+        }
+        .connector-card {
+            border-radius: 24px; padding: 40px 32px; position: relative;
+            overflow: hidden; min-height: 190px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
+        }
+        .connector-card:hover { transform: scale(1.04); box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+        .connector-bg {
+            position: absolute; inset: 0; border-radius: 24px; transition: opacity 0.4s;
+        }
+        .connector-card:hover .connector-bg { opacity: 0.9; }
+        .conn-type2 .connector-bg   { background: linear-gradient(135deg, #041a2e 0%, #0a3d6b 60%, #1565b0 100%); opacity: 0.8; }
+        .conn-ccs .connector-bg     { background: linear-gradient(135deg, #052010 0%, #0d5225 60%, #1a8a3d 100%); opacity: 0.8; }
+        .conn-chademo .connector-bg { background: linear-gradient(135deg, #1a0e00 0%, #5a3200 60%, #9a5a00 100%); opacity: 0.8; }
+        .conn-tesla .connector-bg   { background: linear-gradient(135deg, #1a0005 0%, #6b0010 60%, #b0001e 100%); opacity: 0.8; }
+        .conn-j1772 .connector-bg   { background: linear-gradient(135deg, #100020 0%, #3a0068 60%, #6600b0 100%); opacity: 0.8; }
+        .conn-gbt .connector-bg     { background: linear-gradient(135deg, #1a1400 0%, #5a4a00 60%, #9a8000 100%); opacity: 0.8; }
+        .connector-overlay {
+            position: absolute; inset: 0; border-radius: 24px;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+        }
+        .connector-icon {
+            font-size: 2.5rem; position: absolute; top: 22px; right: 22px;
+            opacity: 0.55; transition: all 0.4s; z-index: 1;
+        }
+        .connector-card:hover .connector-icon { opacity: 1; transform: scale(1.2) rotate(-8deg); }
+        .connector-region {
+            font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: rgba(255,255,255,0.45); margin-bottom: 5px; position: relative; z-index: 1;
+        }
+        .connector-name {
+            font-family: var(--font); font-size: 1.35rem; font-weight: 900;
+            color: #fff; position: relative; z-index: 1; letter-spacing: -0.02em;
+        }
+        .connector-desc {
+            font-size: 0.78rem; color: rgba(255,255,255,0.45);
+            margin-top: 5px; position: relative; z-index: 1; line-height: 1.5;
+        }
+
         /* PLATFORMS */
         .platforms { padding: 120px 8%; position: relative; z-index: 1; }
         .platforms-grid {
@@ -252,8 +293,7 @@
         .platform-card {
             background: var(--card); border: 1px solid rgba(0,212,106,0.08);
             border-radius: 24px; padding: 40px 28px; text-align: center;
-            transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-            position: relative; overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden;
         }
         .platform-card::before {
             content: ''; position: absolute; inset: 0;
@@ -269,8 +309,7 @@
             display: inline-block; margin-top: 14px;
             background: rgba(0,212,106,0.07); border: 1px solid rgba(0,212,106,0.15);
             border-radius: 100px; padding: 4px 12px;
-            font-size: 0.68rem; font-weight: 700; color: var(--green); font-family: var(--font);
-            letter-spacing: 0.1em;
+            font-size: 0.68rem; font-weight: 700; color: var(--green); font-family: var(--font); letter-spacing: 0.1em;
         }
 
         /* FOOTER CTA */
@@ -308,30 +347,28 @@
             .screenshot-wrap img { height: 360px; }
             .stat-item { padding: 40px 30px; }
             .steps-grid { grid-template-columns: 1fr; gap: 14px; }
-            .how-to-use { padding: 80px 5%; }
-            .features { padding: 80px 5%; }
-            .platforms { padding: 80px 5%; }
+            .how-to-use, .features, .connectors, .platforms { padding: 80px 5%; }
+            .connectors-grid { grid-template-columns: repeat(2, 1fr); }
             .platforms-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-cta { padding: 80px 5%; }
-            .rating-sep { display: none; }
+            .trust-sep { display: none; }
         }
 
         /* RESPONSIVE 480px */
         @media (max-width: 480px) {
-            nav { padding: 12px 4%; gap: 8px; }
+            nav { padding: 12px 4%; }
             .nav-cta { padding: 8px 16px; font-size: 0.78rem; }
             .hero { padding: 90px 5% 40px; }
             .hero h1 { font-size: clamp(3rem, 13vw, 4rem); }
             .hero-sub { font-size: 0.95rem; }
-            .rating-callout { gap: 12px; padding: 16px 5%; }
-            .rating-pill { font-size: 0.7rem; padding: 5px 12px; }
+            .trust-bar { gap: 12px; padding: 16px 5%; }
+            .trust-pill { font-size: 0.7rem; padding: 5px 12px; }
             .screenshots-strip { padding: 20px 4% 30px; gap: 16px; }
             .screenshot-wrap img { height: 280px; border-radius: 28px; }
             .stats-bar { flex-wrap: wrap; }
             .stat-item {
                 flex: 0 0 50%; min-width: 0; padding: 30px 20px;
-                border-right: none;
-                border-bottom: 1px solid rgba(0,212,106,0.08);
+                border-right: none; border-bottom: 1px solid rgba(0,212,106,0.08);
             }
             .stat-item:nth-child(odd) { border-right: 1px solid rgba(0,212,106,0.08); }
             .stat-item:nth-last-child(-n+2) { border-bottom: none; }
@@ -340,8 +377,11 @@
             .features { padding: 60px 5%; }
             .features-grid { grid-template-columns: 1fr; }
             .feature-card { padding: 32px 28px; }
+            .connectors { padding: 60px 5%; }
+            .connectors-grid { grid-template-columns: 1fr; }
+            .connector-card { min-height: 160px; padding: 32px 24px; }
             .platforms-grid { grid-template-columns: repeat(2, 1fr); }
-            .platform-card { padding: 30px 20px; }
+            .platform-card { padding: 28px 18px; }
             .footer-cta { padding: 60px 5%; }
             .footer-cta h2 { font-size: clamp(2.4rem, 10vw, 3rem); }
         }
@@ -361,7 +401,7 @@
     <section class="hero">
         <div class="hero-badge">⚡️ Available on iOS · iPhone & iPad</div>
         <h1>Charge Up.<br>Drive Further.</h1>
-        <p class="hero-sub">100,000+ real-time EV charging stations at your fingertips. Live map, smart trip planner, CarPlay support — all completely free.</p>
+        <p class="hero-sub">100,000+ real-time EV charging stations at your fingertips. Live map, smart trip planner, CarPlay support — completely free.</p>
         <div class="hero-btns">
             <a href="https://apps.apple.com/us/app/chargeev/id6505103671" class="app-store-btn" target="_blank">
                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
@@ -370,47 +410,47 @@
         </div>
     </section>
 
-    <!-- RATING CALLOUT -->
-    <div class="rating-callout">
-        <div class="rating-block">
-            <span class="rating-stars">★★★★★</span>
-            <span class="rating-label">App Store</span>
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <div class="trust-item">
+            <span class="trust-value">100k+</span>
+            <span class="trust-label">Charging Points</span>
         </div>
-        <div class="rating-sep"></div>
-        <span class="rating-pill">Free to Download</span>
-        <span class="rating-pill">No Subscription</span>
-        <span class="rating-pill">14 Languages</span>
-        <div class="rating-sep"></div>
-        <div class="rating-block">
-            <span class="rating-stars" style="font-size:0.9rem; letter-spacing:1px;">iPhone · iPad · Mac</span>
-            <span class="rating-label">Universal App</span>
+        <div class="trust-sep"></div>
+        <span class="trust-pill">Free to Download</span>
+        <span class="trust-pill">No Subscription</span>
+        <span class="trust-pill">14 Languages</span>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+            <span class="trust-value">iPhone · iPad · Mac</span>
+            <span class="trust-label">Universal App</span>
         </div>
     </div>
 
     <!-- SCREENSHOTS -->
     <div class="screenshots-strip">
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_hero.png" alt="ChargeEV Map">
+            <img src="../assets/images/chargeev/chargeev_hero.png" alt="ChargeEV Live Map" loading="lazy">
             <p class="screen-caption">Live Charging Map</p>
         </div>
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_3.png" alt="Trip Planner">
+            <img src="../assets/images/chargeev/chargeev_3.png" alt="Trip Planner" loading="lazy">
             <p class="screen-caption">Trip Planner</p>
         </div>
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_1.png" alt="Charging Calculator">
+            <img src="../assets/images/chargeev/chargeev_1.png" alt="Charging Calculator" loading="lazy">
             <p class="screen-caption">Charging Calculator</p>
         </div>
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_4.png" alt="Station Details">
+            <img src="../assets/images/chargeev/chargeev_4.png" alt="Station Details" loading="lazy">
             <p class="screen-caption">Station Details</p>
         </div>
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_2.png" alt="Session History">
+            <img src="../assets/images/chargeev/chargeev_2.png" alt="Session History" loading="lazy">
             <p class="screen-caption">Session History</p>
         </div>
         <div class="screenshot-wrap">
-            <img src="../assets/images/chargeev/chargeev_5.png" alt="Map View">
+            <img src="../assets/images/chargeev/chargeev_5.png" alt="Map View" loading="lazy">
             <p class="screen-caption">Map View</p>
         </div>
     </div>
@@ -452,13 +492,13 @@
                 <span class="step-num">02</span>
                 <span class="step-icon">🔍</span>
                 <h3>Plan</h3>
-                <p>Filter by connector type, power output, and availability. Use the trip planner to get optimised charging stops for your journey.</p>
+                <p>Filter by connector type, power output, and availability. Use the trip planner for optimised multi-stop charging on long journeys.</p>
             </div>
             <div class="step-card reveal" style="transition-delay:0.2s">
                 <span class="step-num">03</span>
                 <span class="step-icon">🔋</span>
                 <h3>Charge</h3>
-                <p>Navigate directly to your station via Apple Maps, Google Maps, or Waze. Track your session and cost live — all in one place.</p>
+                <p>Navigate directly via Apple Maps, Google Maps, or Waze. Track your session and estimated cost live — all in one place.</p>
             </div>
         </div>
     </section>
@@ -478,12 +518,12 @@
             <div class="feature-card reveal" style="transition-delay:0.05s">
                 <span class="feature-icon">🔍</span>
                 <h3>Smart Filters</h3>
-                <p>Filter by power output (7 kW to 150+ kW), connector type (Type 2, CCS, CHAdeMO, Tesla), distance, and live availability.</p>
+                <p>Filter by power output (7 kW to 150+ kW), connector type, distance, and live availability. Find the right station in seconds.</p>
             </div>
             <div class="feature-card reveal" style="transition-delay:0.1s">
                 <span class="feature-icon">🛣️</span>
                 <h3>Trip Planner</h3>
-                <p>Enter your destination and get optimised multi-stop charging recommendations with estimated drive times and session durations.</p>
+                <p>Enter your destination and get optimised multi-stop charging recommendations with drive times and session duration estimates.</p>
             </div>
             <div class="feature-card reveal" style="transition-delay:0.15s">
                 <span class="feature-icon">⚡️</span>
@@ -493,12 +533,70 @@
             <div class="feature-card reveal" style="transition-delay:0.2s">
                 <span class="feature-icon">🚗</span>
                 <h3>CarPlay Integration</h3>
-                <p>Deep CarPlay support for a seamless in-car experience. Find and navigate to stations with eyes on the road and hands on the wheel.</p>
+                <p>Deep CarPlay support for a seamless in-car experience. Find and navigate to stations with eyes on the road, hands on the wheel.</p>
             </div>
             <div class="feature-card reveal" style="transition-delay:0.25s">
-                <span class="feature-icon">🔒</span>
-                <h3>Privacy First</h3>
-                <p>Sign in with Apple or Google. No account required to browse. Zero user data collected — your location stays on your device.</p>
+                <span class="feature-icon">⌚</span>
+                <h3>Apple Watch & Widgets</h3>
+                <p>Glanceable station info from your wrist or Home Screen. Your nearest charger is always one glance away.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sect-divider"><span>🔌</span></div>
+
+    <!-- CONNECTOR TYPES -->
+    <section class="connectors">
+        <p class="section-eye">Standards</p>
+        <h2 class="section-title reveal">All Connector Types Supported</h2>
+        <div class="connectors-grid">
+            <div class="connector-card conn-type2 reveal">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🔵</span>
+                <span class="connector-region">Europe · Most Common</span>
+                <span class="connector-name">Type 2 / Mennekes</span>
+                <span class="connector-desc">Standard AC charging across Europe. Up to 22 kW.</span>
+            </div>
+            <div class="connector-card conn-ccs reveal" style="transition-delay:0.07s">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🟢</span>
+                <span class="connector-region">Global · DC Fast</span>
+                <span class="connector-name">CCS / Combo</span>
+                <span class="connector-desc">Combined Charging System. DC fast charging up to 350 kW.</span>
+            </div>
+            <div class="connector-card conn-chademo reveal" style="transition-delay:0.14s">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🟠</span>
+                <span class="connector-region">Japan · Asia</span>
+                <span class="connector-name">CHAdeMO</span>
+                <span class="connector-desc">Japanese DC fast charging standard. Up to 400 kW.</span>
+            </div>
+            <div class="connector-card conn-tesla reveal" style="transition-delay:0.21s">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🔴</span>
+                <span class="connector-region">Global · Supercharger</span>
+                <span class="connector-name">Tesla / NACS</span>
+                <span class="connector-desc">Tesla Supercharger network. DC fast charging up to 250 kW.</span>
+            </div>
+            <div class="connector-card conn-j1772 reveal" style="transition-delay:0.28s">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🟣</span>
+                <span class="connector-region">North America · AC</span>
+                <span class="connector-name">SAE J1772</span>
+                <span class="connector-desc">Standard AC Level 1 & 2 charging in North America.</span>
+            </div>
+            <div class="connector-card conn-gbt reveal" style="transition-delay:0.35s">
+                <div class="connector-bg"></div>
+                <div class="connector-overlay"></div>
+                <span class="connector-icon">🟡</span>
+                <span class="connector-region">China · National</span>
+                <span class="connector-name">GB/T</span>
+                <span class="connector-desc">China's national EV charging standard. AC and DC variants.</span>
             </div>
         </div>
     </section>
@@ -531,7 +629,7 @@
             <div class="platform-card reveal" style="transition-delay:0.24s">
                 <span class="platform-icon">💻</span>
                 <h3>Mac</h3>
-                <p>Full app experience on Apple Silicon Macs. Plan your trips on a bigger screen.</p>
+                <p>Full app experience on Apple Silicon Macs. Plan trips on a bigger screen.</p>
                 <span class="platform-tag">macOS 13.5+</span>
             </div>
         </div>
@@ -555,7 +653,6 @@
     </footer>
 
     <script>
-        // Particle System
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -563,31 +660,32 @@
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize); resize();
 
-        const EMOJIS = ['⚡', '🔋', '✦', '·', '⭐'];
         class Particle {
             constructor() { this.reset(); }
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = canvas.height + 20;
-                this.size = Math.random() * 12 + 6;
-                this.speed = Math.random() * 0.7 + 0.2;
-                this.opacity = Math.random() * 0.25 + 0.04;
-                this.drift = (Math.random() - 0.5) * 0.6;
-                this.emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+                this.size = Math.random() * 3 + 1;
+                this.speed = Math.random() * 0.8 + 0.3;
+                this.opacity = Math.random() * 0.4 + 0.05;
+                this.drift = (Math.random() - 0.5) * 0.5;
+                this.isGreen = Math.random() > 0.4;
             }
             update() {
                 this.y -= this.speed;
                 this.x += this.drift;
-                if (this.y < -30) this.reset();
+                if (this.y < -10) this.reset();
             }
             draw() {
                 ctx.globalAlpha = this.opacity;
-                ctx.font = `${this.size}px serif`;
-                ctx.fillText(this.emoji, this.x, this.y);
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.isGreen ? '#00d46a' : '#0ea5e9';
+                ctx.fill();
             }
         }
 
-        for (let i = 0; i < 28; i++) {
+        for (let i = 0; i < 50; i++) {
             const p = new Particle();
             p.y = Math.random() * canvas.height;
             particles.push(p);
@@ -601,14 +699,12 @@
         }
         animateParticles();
 
-        // Scroll Reveal
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         reveals.forEach(r => observer.observe(r));
 
-        // Counter Animation
         const counters = document.querySelectorAll('[data-target]');
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -619,8 +715,10 @@
                     const step = target / 60;
                     const timer = setInterval(() => {
                         current += step;
-                        if (current >= target) { el.textContent = target + (target === 100 ? 'k+' : '+'); clearInterval(timer); }
-                        else { el.textContent = Math.floor(current); }
+                        if (current >= target) {
+                            el.textContent = target === 100 ? '100k+' : target + '+';
+                            clearInterval(timer);
+                        } else { el.textContent = Math.floor(current); }
                     }, 16);
                     counterObserver.unobserve(el);
                 }

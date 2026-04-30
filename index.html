@@ -416,6 +416,27 @@
             overflow: hidden;
         }
 
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--card-accent, rgba(41,151,255,0.4));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .project-card:hover::before { opacity: 1; }
+
+        .project-num {
+            position: absolute;
+            top: 28px; right: 36px;
+            font-family: var(--font-main);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: rgba(255,255,255,0.12);
+        }
+
         .project-card:hover {
             transform: scale(1.02);
             background: #161617;
@@ -1217,7 +1238,8 @@
         <div class="projects-grid">
             
             <!-- SpeachyAI -->
-            <div class="project-card flagship">
+            <div class="project-card flagship" style="--card-accent: #2997ff;">
+                <span class="project-num">01</span>
                 <div class="project-info">
                     <div class="tags">
                         <span class="tag" data-i18n="tagFlagship">Flagship</span>
@@ -1248,7 +1270,8 @@
             </div>
 
             <!-- ChargeEV -->
-            <div class="project-card" style="cursor: pointer;" onclick="window.location.href='/chargeev'">
+            <div class="project-card" style="cursor: pointer; --card-accent: #00d46a;" onclick="window.location.href='/chargeev'">
+                <span class="project-num">02</span>
                 <div class="project-info">
                     <div class="tags">
                         <span class="tag" data-i18n="tagUtility">Utility</span>
@@ -1271,13 +1294,14 @@
                         <a href="https://apps.apple.com/us/app/chargeev/id6505103671" class="app-store-btn" target="_blank" onclick="event.stopPropagation()">
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1675209600" alt="Download on the App Store">
                         </a>
-                        <span class="web-link" style="pointer-events: none;"><i class="fas fa-external-link-alt"></i> View Details</span>
+                        <span class="web-link" style="pointer-events: none; border-color: rgba(0,212,106,0.3); color: #00d46a;"><i class="fas fa-external-link-alt"></i> View Details</span>
                     </div>
                 </div>
             </div>
 
             <!-- Mining Town -->
-            <div class="project-card" style="cursor: pointer;" onclick="window.location.href='/miningtown'">
+            <div class="project-card" style="cursor: pointer; --card-accent: #f5a623;" onclick="window.location.href='/miningtown'">
+                <span class="project-num">03</span>
                 <div class="project-info">
                     <div class="tags">
                         <span class="tag" data-i18n="tagEngine">Engine</span>
@@ -1305,7 +1329,8 @@
             </div>
 
             <!-- Corporate -->
-            <div class="project-card">
+            <div class="project-card" style="--card-accent: rgba(255,255,255,0.3);">
+                <span class="project-num">04</span>
                 <div class="project-info">
                     <div class="tags">
                         <span class="tag" data-i18n="tagWeb">Web</span>
