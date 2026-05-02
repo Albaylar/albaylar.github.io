@@ -90,6 +90,44 @@
         }
         button:hover { transform: translateY(-3px); background: #1a85ff; }
 
+        .or-divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0 20px;
+            gap: 15px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .or-divider::before, .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+        .call-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 18px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            color: white;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .call-btn:hover {
+            background: rgba(41,151,255,0.1);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .call-btn i { color: var(--accent); }
+
         .back-link {
             display: inline-block;
             margin-top: 30px;
@@ -99,6 +137,32 @@
         }
         .back-link:hover { color: #fff; }
     </style>
+
+    <!-- Google tag (gtag.js) - Google Ads: AW-18130833656 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18130833656"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18130833656', {'allow_enhanced_conversions': true});
+    </script>
+    <!-- Event snippet for Tıkla ve ara conversion -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18130833656/GGfZCJ7onqYcEPihusVD',
+                'value': 1.0,
+                'currency': 'EUR',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
 </head>
 <body>
     <div class="bg-layer">
@@ -130,6 +194,12 @@
             <button type="submit" data-i18n="btnSend">Send Message</button>
         </form>
 
+        <div class="or-divider"><span data-i18n="orDivider">or</span></div>
+        <a href="tel:+491634773582" class="call-btn" onclick="return gtag_report_conversion('tel:+491634773582')">
+            <i class="fas fa-phone"></i>
+            <span data-i18n="btnCall">Call Directly</span>
+        </a>
+
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="btnBack">Back to Home</span></a>
     </div>
 
@@ -142,7 +212,9 @@
                 labelEmail: "Your Email",
                 labelMsg: "Message",
                 btnSend: "Send Message",
-                btnBack: "Back to Home"
+                btnBack: "Back to Home",
+                orDivider: "or",
+                btnCall: "Call Directly"
             },
             de: {
                 contactTitle: "Direktanfrage",
@@ -151,7 +223,9 @@
                 labelEmail: "Ihre E-Mail",
                 labelMsg: "Nachricht",
                 btnSend: "Nachricht senden",
-                btnBack: "Zurück zur Startseite"
+                btnBack: "Zurück zur Startseite",
+                orDivider: "oder",
+                btnCall: "Direkt anrufen"
             },
             tr: {
                 contactTitle: "Doğrudan Talep",
@@ -160,8 +234,10 @@
                 labelEmail: "E-posta Adresiniz",
                 labelMsg: "Mesajınız",
                 btnSend: "Mesaj Gönder",
-                btnBack: "Ana Sayfaya Dön"
-            }
+                btnBack: "Ana Sayfaya Dön",
+                orDivider: "veya",
+                btnCall: "Doğrudan Ara"
+            },
             fr: {
                 contactTitle: "Demande Directe",
                 contactSub: "Remplissez le formulaire ci-dessous et je vous recontacterai sous peu.",
@@ -169,7 +245,9 @@
                 labelEmail: "Votre Email",
                 labelMsg: "Message",
                 btnSend: "Envoyer le message",
-                btnBack: "Retour à l'accueil"
+                btnBack: "Retour à l'accueil",
+                orDivider: "ou",
+                btnCall: "Appeler directement"
             },
             es: {
                 contactTitle: "Consulta Directa",
@@ -178,7 +256,9 @@
                 labelEmail: "Tu Email",
                 labelMsg: "Mensaje",
                 btnSend: "Enviar Mensaje",
-                btnBack: "Volver al Inicio"
+                btnBack: "Volver al Inicio",
+                orDivider: "o",
+                btnCall: "Llamar directamente"
             },
             it: {
                 contactTitle: "Richiesta Diretta",
@@ -187,7 +267,9 @@
                 labelEmail: "La Tua Email",
                 labelMsg: "Messaggio",
                 btnSend: "Invia Messaggio",
-                btnBack: "Torna alla Home"
+                btnBack: "Torna alla Home",
+                orDivider: "o",
+                btnCall: "Chiama direttamente"
             }
         };
 

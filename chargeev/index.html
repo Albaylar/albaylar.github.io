@@ -386,6 +386,32 @@
             .footer-cta h2 { font-size: clamp(2.4rem, 10vw, 3rem); }
         }
     </style>
+
+    <!-- Google tag (gtag.js) - Google Ads: AW-18130833656 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18130833656"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18130833656', {'allow_enhanced_conversions': true});
+    </script>
+    <!-- Event snippet for Tıkla ve ara conversion -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18130833656/GGfZCJ7onqYcEPihusVD',
+                'value': 1.0,
+                'currency': 'EUR',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
 </head>
 <body>
     <canvas id="particles"></canvas>
