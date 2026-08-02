@@ -620,6 +620,13 @@
         @media (max-width: 768px) { .kbd-hint { display: none; } }
 
         /* Hero CTA */
+        .hero-note {
+            margin-top: 28px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            opacity: 0.75;
+            letter-spacing: 0.01em;
+        }
         .hero-cta {
             display: flex;
             gap: 14px;
@@ -1263,68 +1270,69 @@
     </nav>
 
     <section class="hero">
-        <h1 data-i18n="heroTitle">Engineering<br>Digital Craft</h1>
-        <p data-i18n="heroSub">Engineering the Future of AI-Native Platforms. We bridge the gap between complex hardware logic and fluid mobile experiences with uncompromising precision.</p>
+        <h1 data-i18n="heroTitle">Senior iOS Engineer<br>in Berlin</h1>
+        <p data-i18n="heroSub">Four apps live on the App Store — an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.</p>
         <div class="hero-cta">
             <a href="#projects" class="hero-btn primary" data-i18n="ctaWork">View Selected Works</a>
             <a href="assets/cv/FurkanDenizAlbaylar-CV.pdf" target="_blank" rel="noopener" class="hero-btn" data-i18n="ctaCV">Download CV</a>
         </div>
+        <p class="hero-note" data-i18n="heroNote">Chancenkarte holder · full right to work in Germany, no sponsorship required · available immediately</p>
         <a href="#about" class="scroll-indicator" data-i18n="heroScroll" style="text-decoration:none;">Discover</a>
     </section>
 
     <div class="bento-container" id="about">
-        <h2 class="section-title" data-i18n="aboutTitle">Foundation & Mastery</h2>
+        <h2 class="section-title" data-i18n="aboutTitle">What I Actually Do</h2>
         <div class="bento-grid">
             <div class="bento-item span-2 row-2">
                 <i class="fab fa-swift"></i>
                 <div>
-                    <h4 data-i18n="skill1Title">iOS Specialist</h4>
-                    <p data-i18n="skill1Desc">Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.</p>
-                    
+                    <h4 data-i18n="skill1Title">iOS, end to end</h4>
+                    <p data-i18n="skill1Desc">Four apps taken from empty Xcode project to App Store release and maintained afterwards. Before that, two years on a consumer mobile banking app inside a 20-person team — VIPER, XCTest, 30+ sprints.</p>
+
                     <div class="tech-stack">
                         <div class="tech-pill"><i class="fab fa-swift"></i><span>SwiftUI</span></div>
                         <div class="tech-pill"><i class="fas fa-layer-group"></i><span>SwiftData</span></div>
-                        <div class="tech-pill"><i class="fas fa-sync"></i><span>Concurrency</span></div>
+                        <div class="tech-pill"><i class="fas fa-sync"></i><span>async/await</span></div>
                         <div class="tech-pill"><i class="fas fa-network-wired"></i><span>Combine</span></div>
                         <div class="tech-pill"><i class="fas fa-cube"></i><span>UIKit</span></div>
-                        <div class="tech-pill"><i class="fas fa-vial"></i><span>Unit Testing</span></div>
+                        <div class="tech-pill"><i class="fas fa-vial"></i><span>XCTest / XCUITest</span></div>
                     </div>
                 </div>
             </div>
             <div class="bento-item">
                 <i class="fas fa-brain"></i>
                 <div>
-                    <h4 data-i18n="skill2Title">AI Synthesis</h4>
-                    <p data-i18n="skill2Desc">Large Language Model integration and real-time voice processing.</p>
+                    <h4 data-i18n="skill2Title">On-device AI</h4>
+                    <p data-i18n="skill2Desc">Vision framework capture pipelines and real-time voice synthesis, shipped in production apps.</p>
                 </div>
             </div>
             <div class="bento-item row-2">
                 <i class="fas fa-microchip"></i>
                 <div>
-                    <h4 data-i18n="skill3Title">Native Excellence</h4>
-                    <p data-i18n="skill3Desc">Everything is engineered natively. No middleware, no compromises. Building for maximum performance using the core power of Swift and Vanilla JS.</p>
+                    <h4 data-i18n="skill3Title">Native by default</h4>
+                    <p data-i18n="skill3Desc">Swift and SwiftUI first, no wrapper frameworks. Cross-platform where it earns its place — Flutter on a real-time biomedical signal project, and an active interest in Kotlin Multiplatform for shared logic.</p>
                     <div class="tech-stack" style="grid-template-columns: 1fr; gap: 8px;">
                         <div class="tech-pill"><i class="fab fa-swift"></i><span>Swift / SwiftUI</span></div>
-                        <div class="tech-pill"><i class="fab fa-js"></i><span>Vanilla JS / HTML5</span></div>
-                        <div class="tech-pill"><i class="fas fa-bolt"></i><span>Direct Memory Access</span></div>
+                        <div class="tech-pill"><i class="fas fa-mobile-screen"></i><span>Flutter / Dart</span></div>
+                        <div class="tech-pill"><i class="fas fa-bolt"></i><span>Instruments Profiling</span></div>
                     </div>
                 </div>
             </div>
             <div class="bento-item">
                 <i class="fas fa-tachometer-alt"></i>
                 <div>
-                    <h4 data-i18n="skill4Title">Performance</h4>
-                    <p data-i18n="skill4Desc">Sub-16ms frame timing and efficient memory management.</p>
+                    <h4 data-i18n="skill4Title">Monetisation</h4>
+                    <p data-i18n="skill4Desc">StoreKit 2 subscriptions, IAP, paywalls and App Store Connect — the full ship-to-revenue loop.</p>
                 </div>
             </div>
             <div class="bento-item span-2">
                 <i class="fas fa-comments"></i>
                 <div>
-                    <h4 data-i18n="chatTitle">AI Chatbot Systems</h4>
-                    <p data-i18n="chatDesc">Custom GPT-4 powered conversational agents designed to revolutionize customer interaction and internal workflows.</p>
+                    <h4 data-i18n="chatTitle">LLM Features in Production</h4>
+                    <p data-i18n="chatDesc">Multi-provider routing with fallback across Claude, Gemini and GPT-4o. Persona system prompts, context windows and business-context injection — shipped in SpeachyAI and in a lead-qualification assistant for M&amp;M Service.</p>
                     <div class="tech-stack" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                        <div class="tech-pill"><i class="fas fa-robot"></i><span>GPT-4 Integration</span></div>
-                        <div class="tech-pill"><i class="fas fa-database"></i><span>Custom Knowledge</span></div>
+                        <div class="tech-pill"><i class="fas fa-robot"></i><span>Provider Routing &amp; Fallback</span></div>
+                        <div class="tech-pill"><i class="fas fa-database"></i><span>Context Injection</span></div>
                     </div>
                 </div>
             </div>
@@ -1362,7 +1370,7 @@
             <div class="ethos-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <h2 data-i18n="ethosTitle" style="font-family: var(--font-main); font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.04em;">Engineering Ethos</h2>
                 <p data-i18n="ethosText" style="font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; color: var(--text-secondary); font-weight: 300; font-style: italic; opacity: 0.9;">
-                    Our objective transcends simple client satisfaction. We engineer digital assets that we are proud to claim as part of our legacy. Every project is a pursuit of technical mastery, expanding our portfolio with work that challenges the status quo and pushes the boundaries of what's possible.
+                    I'd rather ship one app that survives contact with real users than ten polished prototypes. Everything on this page went through App Store review, crash reports, and the unglamorous work of maintaining something people already depend on. My background is Electrical &amp; Electronics Engineering — I came to mobile through hardware constraints, and I still think in terms of budgets: frame time, memory, battery, and the user's patience.
                 </p>
             </div>
         </div>
@@ -1386,22 +1394,22 @@
         </div>
     </section>
     <section class="workflow-section">
-        <h2 class="section-title" data-i18n="workflowTitle">The Process</h2>
+        <h2 class="section-title" data-i18n="workflowTitle">How I Work</h2>
         <div class="workflow-grid">
             <div class="workflow-step">
                 <span class="step-number">01</span>
-                <h4 data-i18n="step1Title">Discovery</h4>
-                <p data-i18n="step1Desc">We analyze your global market needs and technical requirements to build a bulletproof roadmap.</p>
+                <h4 data-i18n="step1Title">Spec before code</h4>
+                <p data-i18n="step1Desc">I write the spec first — data model, states, failure paths. It costs a day and saves a rewrite. Architecture follows from it: MVVM, VIPER on the banking app, whatever the problem actually needs.</p>
             </div>
             <div class="workflow-step">
                 <span class="step-number">02</span>
-                <h4 data-i18n="step2Title">Engineering</h4>
-                <p data-i18n="step2Desc">Native development begins with focus on sub-16ms performance and robust AI integration.</p>
+                <h4 data-i18n="step2Title">AI as a multiplier</h4>
+                <p data-i18n="step2Desc">Claude Code and Cursor sit in my daily loop, with custom agentic skills for the repetitive parts. I ship LLM features too — multi-provider routing with fallback across Claude, Gemini and GPT-4o.</p>
             </div>
             <div class="workflow-step">
                 <span class="step-number">03</span>
-                <h4 data-i18n="step3Title">Success</h4>
-                <p data-i18n="step3Desc">Deployment to global markets with continuous optimization and technical support.</p>
+                <h4 data-i18n="step3Title">Ship, then own it</h4>
+                <p data-i18n="step3Desc">XCTest and XCUITest on the critical paths, Instruments when the frame budget slips, crash triage after release. On the banking app that discipline took the crash rate to near zero across 30+ sprints.</p>
             </div>
         </div>
     </section>
@@ -1654,31 +1662,31 @@
                 navServices: "Services",
                 navWork: "Work",
                 navContact: "Contact",
-                workflowTitle: "The Engineering Process",
-                step1Title: "Discovery",
-                step1Desc: "Deep technical analysis and delivery of a comprehensive PDF Technical Roadmap. Formal proposals are issued only after full strategic alignment.",
-                step2Title: "Engineering",
-                step2Desc: "Native high-performance development and AI architecture integration, executed according to the established PDF Roadmap.",
-                step3Title: "Success",
-                step3Desc: "Global deployment, continuous scaling, and expert technical support for assets built to last.",
+                workflowTitle: "How I Work",
+                step1Title: "Spec before code",
+                step1Desc: "I write the spec first — data model, states, failure paths. It costs a day and saves a rewrite. Architecture follows from it: MVVM, VIPER on the banking app, whatever the problem actually needs.",
+                step2Title: "AI as a multiplier",
+                step2Desc: "Claude Code and Cursor sit in my daily loop, with custom agentic skills for the repetitive parts. I ship LLM features too — multi-provider routing with fallback across Claude, Gemini and GPT-4o.",
+                step3Title: "Ship, then own it",
+                step3Desc: "XCTest and XCUITest on the critical paths, Instruments when the frame budget slips, crash triage after release. On the banking app that discipline took the crash rate to near zero across 30+ sprints.",
                 ethosTitle: "Engineering Ethos",
-                ethosText: "Our objective transcends simple client satisfaction. We engineer digital assets that we are proud to claim as part of our legacy. Every project is a pursuit of technical mastery, expanding our portfolio with work that challenges the status quo and pushes the boundaries of what's possible.",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "Engineering the Future of AI-Native Platforms. We bridge the gap between complex hardware logic and fluid mobile experiences with uncompromising precision.",
+                ethosText: "I'd rather ship one app that survives contact with real users than ten polished prototypes. Everything on this page went through App Store review, crash reports, and the unglamorous work of maintaining something people already depend on. My background is Electrical &amp; Electronics Engineering — I came to mobile through hardware constraints, and I still think in terms of budgets: frame time, memory, battery, and the user's patience.",
+                heroTitle: "Senior iOS Engineer<br>in Berlin",
+                heroSub: "Four apps live on the App Store — an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.",
                 heroScroll: "Discover",
-                aboutTitle: "Foundation & Mastery",
-                skill1Title: "iOS Specialist",
-                skill1Desc: "Expertise in SwiftUI, CoreData, and high-performance system architecture. Bridging Electrical Engineering rigor with mobile fluidity.",
-                skill2Title: "AI Synthesis",
-                skill2Desc: "Large Language Model integration and real-time voice processing.",
-                skill3Title: "Native Excellence",
-                skill3Desc: "Everything is engineered natively. No middleware, no compromises. Building for maximum performance using the core power of Swift and Vanilla JS.",
-                skill4Title: "Performance",
-                skill4Desc: "Sub-16ms frame timing and efficient memory management.",
+                aboutTitle: "What I Actually Do",
+                skill1Title: "iOS, end to end",
+                skill1Desc: "Four apps taken from empty Xcode project to App Store release and maintained afterwards. Before that, two years on a consumer mobile banking app inside a 20-person team — VIPER, XCTest, 30+ sprints.",
+                skill2Title: "On-device AI",
+                skill2Desc: "Vision framework capture pipelines and real-time voice synthesis, shipped in production apps.",
+                skill3Title: "Native by default",
+                skill3Desc: "Swift and SwiftUI first, no wrapper frameworks. Cross-platform where it earns its place — Flutter on a real-time biomedical signal project, and an active interest in Kotlin Multiplatform for shared logic.",
+                skill4Title: "Monetisation",
+                skill4Desc: "StoreKit 2 subscriptions, IAP, paywalls and App Store Connect — the full ship-to-revenue loop.",
                 skill5Title: "Modular Design",
                 skill5Desc: "Scalable MVVM patterns and robust dependency management.",
-                chatTitle: "AI Chatbot Systems",
-                chatDesc: "Custom GPT-4 powered conversational agents designed to revolutionize customer interaction and internal workflows.",
+                chatTitle: "LLM Features in Production",
+                chatDesc: "Multi-provider routing with fallback across Claude, Gemini and GPT-4o. Persona system prompts, context windows and business-context injection — shipped in SpeachyAI and in a lead-qualification assistant for M&amp;M Service.",
                 seoTitle: "AI SEO Optimization",
                 seoDesc: "Elevating global visibility through machine learning, programmatic SEO, and advanced semantic architecture.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
@@ -1705,6 +1713,7 @@
                 copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin.",
                 monitorTitle: "Shipped, Not Prototyped",
                 monitorDesc: "Four apps live on the App Store — built, shipped and maintained end to end.",
+                heroNote: "Chancenkarte holder · full right to work in Germany, no sponsorship required · available immediately",
                 navCV: "CV",
                 ctaWork: "View Selected Works",
                 ctaCV: "Download CV",
@@ -1752,31 +1761,31 @@
                 navServices: "Leistungen",
                 navWork: "Projekte",
                 navContact: "Kontakt",
-                workflowTitle: "Der Engineering-Prozess",
-                step1Title: "Analyse",
-                step1Desc: "Tiefgehende technische Analyse und Bereitstellung einer umfassenden PDF-Roadmap. Formelle Angebote werden erst nach vollständiger strategischer Abstimmung erstellt.",
-                step2Title: "Engineering",
-                step2Desc: "Native Hochleistungsentwicklung und KI-Integration, ausgeführt gemäß der erstellten PDF-Roadmap.",
-                step3Title: "Erfolg",
-                step3Desc: "Globaler Rollout, kontinuierliche Skalierung und technischer Support für langlebige Systeme.",
+                workflowTitle: "Wie ich arbeite",
+                step1Title: "Spezifikation vor Code",
+                step1Desc: "Ich schreibe zuerst die Spezifikation — Datenmodell, Zustände, Fehlerpfade. Das kostet einen Tag und spart ein Rewrite. Die Architektur folgt daraus: MVVM, VIPER in der Banking-App, was das Problem eben braucht.",
+                step2Title: "KI als Multiplikator",
+                step2Desc: "Claude Code und Cursor gehören zu meinem Alltag, mit eigenen agentischen Skills für die repetitiven Teile. Ich liefere auch LLM-Features aus — Multi-Provider-Routing mit Fallback über Claude, Gemini und GPT-4o.",
+                step3Title: "Ausliefern und verantworten",
+                step3Desc: "XCTest und XCUITest auf den kritischen Pfaden, Instruments wenn das Frame-Budget kippt, Crash-Triage nach dem Release. In der Banking-App brachte diese Disziplin die Crash-Rate über 30+ Sprints auf nahezu null.",
                 ethosTitle: "Engineering Ethos",
-                ethosText: "Unser Ziel geht über die einfache Kundenzufriedenheit hinaus. Wir entwickeln digitale Assets, auf die wir stolz sind. Jedes Projekt ist ein Streben nach technischer Meisterschaft und erweitert unser Portfolio um Arbeiten, die den Status quo herausfordern.",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "Die Zukunft von KI-nativen Plattformen gestalten. Wir schlagen die Brücke zwischen komplexer Hardware-Logik und flüssigen mobilen Erlebnissen mit kompromissloser Präzision.",
+                ethosText: "Mir ist eine App, die dem Kontakt mit echten Nutzern standhält, lieber als zehn polierte Prototypen. Alles auf dieser Seite hat App-Store-Review, Crash-Reports und die unglamouröse Arbeit durchlaufen, etwas zu pflegen, worauf sich Menschen bereits verlassen. Mein Hintergrund ist Elektrotechnik — ich kam über Hardware-Beschränkungen zu Mobile und denke noch immer in Budgets: Frame-Zeit, Speicher, Akku und die Geduld der Nutzer.",
+                heroTitle: "Senior iOS Engineer<br>in Berlin",
+                heroSub: "Vier Apps live im App Store — eine LLM-Chatplattform, eine Ladekarte für E-Autos mit CarPlay, ein SpriteKit-Spiel und ein KI-Dentalscanner mit Apple-Watch-App. Ich verantworte den gesamten Weg: Architektur, Swift, App-Store-Review und alles, was nach dem Launch kommt.",
                 heroScroll: "Entdecken",
-                aboutTitle: "Fundament & Meisterschaft",
-                skill1Title: "iOS-Spezialist",
-                skill1Desc: "Expertise in SwiftUI, CoreData und Hochleistungs-Systemarchitektur. Verbindung von elektroingenieurstechnischer Strenge mit mobiler Fluidität.",
-                skill2Title: "KI-Synthese",
-                skill2Desc: "Integration von Large Language Models und Echtzeit-Sprachverarbeitung.",
-                skill3Title: "Native Excellence",
-                skill3Desc: "Alles wird nativ entwickelt. Keine Middleware, keine Kompromisse. Maximale Leistung durch die Nutzung der Kernkraft von Swift und Vanilla JS.",
-                skill4Title: "Performance",
-                skill4Desc: "Sub-16ms Frame-Timing und effizientes Speichermanagement.",
+                aboutTitle: "Was ich tatsächlich mache",
+                skill1Title: "iOS von A bis Z",
+                skill1Desc: "Vier Apps vom leeren Xcode-Projekt bis zum App-Store-Release gebracht und danach gepflegt. Davor zwei Jahre an einer Mobile-Banking-App in einem 20-köpfigen Team — VIPER, XCTest, 30+ Sprints.",
+                skill2Title: "KI auf dem Gerät",
+                skill2Desc: "Capture-Pipelines mit dem Vision-Framework und Echtzeit-Sprachsynthese, ausgeliefert in Produktions-Apps.",
+                skill3Title: "Nativ als Standard",
+                skill3Desc: "Swift und SwiftUI zuerst, keine Wrapper-Frameworks. Cross-Platform dort, wo es sich lohnt — Flutter in einem Projekt zur Echtzeit-Verarbeitung biomedizinischer Signale und aktives Interesse an Kotlin Multiplatform für geteilte Logik.",
+                skill4Title: "Monetarisierung",
+                skill4Desc: "StoreKit-2-Abos, In-App-Käufe, Paywalls und App Store Connect — der komplette Weg vom Release zum Umsatz.",
                 skill5Title: "Modulares Design",
                 skill5Desc: "Skalierbare MVVM-Muster und robustes Dependency Management.",
-                chatTitle: "KI-Chatbot-Systeme",
-                chatDesc: "Kundenspezifische GPT-4-gesteuerte Assistenten zur Revolutionierung der Kundeninteraktion.",
+                chatTitle: "LLM-Features in Produktion",
+                chatDesc: "Multi-Provider-Routing mit Fallback über Claude, Gemini und GPT-4o. Persona-System-Prompts, Kontextfenster und Business-Kontext-Injektion — ausgeliefert in SpeachyAI und in einem Assistenten zur Lead-Qualifizierung für M&amp;M Service.",
                 seoTitle: "KI-SEO-Optimierung",
                 seoDesc: "Steigerung der globalen Sichtbarkeit durch maschinelles Lernen und semantische Architektur.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
@@ -1805,6 +1814,7 @@
                 termLine2: "Warte auf Engineering-Parameter.",
                 monitorTitle: "Ausgeliefert, nicht prototypisiert",
                 monitorDesc: "Vier Apps live im App Store — von Grund auf gebaut, veröffentlicht und gepflegt.",
+                heroNote: "Chancenkarte · volle Arbeitserlaubnis in Deutschland, keine Visumsförderung nötig · sofort verfügbar",
                 navCV: "Lebenslauf",
                 ctaWork: "Ausgewählte Arbeiten",
                 ctaCV: "Lebenslauf herunterladen",
@@ -1850,31 +1860,31 @@
                 navServices: "Hizmetler",
                 navWork: "Projeler",
                 navContact: "İletişim",
-                workflowTitle: "Mühendislik Süreci",
-                step1Title: "Keşif",
-                step1Desc: "Derin teknik analiz ve kapsamlı bir PDF Teknik Yol Haritası sunumu. Resmi teklifler ancak tam stratejik uyum sağlandıktan sonra iletilir.",
-                step2Title: "Mühendislik",
-                step2Desc: "Belirlenen PDF Yol Haritası'na göre yürütülen yerel yüksek performanslı geliştirme ve YZ entegrasyonu.",
-                step3Title: "Başarı",
-                step3Desc: "Kalıcı olması için inşa edilen varlıklar için küresel yayın, sürekli ölçeklendirme ve uzman teknik destek.",
+                workflowTitle: "Nasıl Çalışıyorum",
+                step1Title: "Koddan önce spesifikasyon",
+                step1Desc: "Önce spesifikasyonu yazarım — veri modeli, durumlar, hata yolları. Bir gün maliyeti var, bir yeniden yazımı önlüyor. Mimari bundan çıkar: MVVM, bankacılık uygulamasında VIPER, problem hangisini gerektiriyorsa.",
+                step2Title: "Çarpan olarak yapay zekâ",
+                step2Desc: "Claude Code ve Cursor günlük döngümün içinde; tekrarlayan işler için kendi agentic skill'lerimi yazıyorum. LLM özellikleri de yayınlıyorum — Claude, Gemini ve GPT-4o arasında yedeklemeli çok sağlayıcılı yönlendirme.",
+                step3Title: "Yayınla ve sahiplen",
+                step3Desc: "Kritik yollarda XCTest ve XCUITest, kare bütçesi kaydığında Instruments, yayın sonrası çökme analizi. Bankacılık uygulamasında bu disiplin 30'dan fazla sprint boyunca çökme oranını sıfıra yaklaştırdı.",
                 ethosTitle: "Mühendislik İlkeleri",
-                ethosText: "Amacımız sadece müşteri memnuniyeti değildir; kendi mirasımızın bir parçası olarak sahiplenebileceğimiz dijital varlıklar inşa ediyoruz. Her proje, statükoyu sarsan ve sınırları zorlayan işlerle portfolyomuzu genişleten teknik bir ustalık arayışıdır.",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "YZ-Yerel Platformların Geleceğini İnşa Ediyoruz. Karmaşık donanım mantığı ile akıcı mobil deneyimler arasındaki boşluğu tavizsiz bir hassasiyetle kapatıyoruz.",
+                ethosText: "On cilalı prototip yerine gerçek kullanıcıyla temasa dayanan tek bir uygulama yayınlamayı tercih ederim. Bu sayfadaki her şey App Store incelemesinden, çökme raporlarından ve insanların halihazırda bağlı olduğu bir şeyi sürdürmenin gösterişsiz emeğinden geçti. Altyapım Elektrik-Elektronik Mühendisliği — mobile donanım kısıtlarından geldim ve hâlâ bütçelerle düşünüyorum: kare süresi, bellek, pil ve kullanıcının sabrı.",
+                heroTitle: "Berlin'de<br>Senior iOS Mühendisi",
+                heroSub: "App Store'da yayında dört uygulama — bir LLM sohbet platformu, CarPlay destekli elektrikli araç şarj haritası, bir SpriteKit oyunu ve Apple Watch uygulamalı bir yapay zekâ diş tarayıcısı. Yolun tamamı bana ait: mimari, Swift, App Store incelemesi ve lansman sonrası gelen her şey.",
                 heroScroll: "Keşfet",
-                aboutTitle: "Temel ve Uzmanlık",
-                skill1Title: "iOS Uzmanı",
-                skill1Desc: "SwiftUI, CoreData ve yüksek performanslı sistem mimarisi uzmanlığı. Elektrik Mühendisliği disiplinini mobil akıcılıkla birleştiriyorum.",
-                skill2Title: "YZ Sentezi",
-                skill2Desc: "Büyük Dil Modeli entegrasyonu ve gerçek zamanlı ses işleme.",
-                skill3Title: "Native Mükemmellik",
-                skill3Desc: "Her şey yerel dillerde (Native) geliştirilir. Ara yazılım yok, taviz yok. Swift ve Vanilla JS'in ham gücünü kullanarak maksimum performans.",
-                skill4Title: "Performans",
-                skill4Desc: "16ms altı kare hızı ve verimli bellek yönetimi.",
+                aboutTitle: "Gerçekte Ne Yapıyorum",
+                skill1Title: "Baştan sona iOS",
+                skill1Desc: "Boş bir Xcode projesinden App Store yayınına dört uygulama ve sonrasında bakımı. Öncesinde 20 kişilik bir ekipte iki yıl bireysel mobil bankacılık uygulaması — VIPER, XCTest, 30'dan fazla sprint.",
+                skill2Title: "Cihaz üstü yapay zekâ",
+                skill2Desc: "Vision framework ile çekim hatları ve gerçek zamanlı ses sentezi — üretimdeki uygulamalarda yayında.",
+                skill3Title: "Varsayılan olarak native",
+                skill3Desc: "Önce Swift ve SwiftUI, sarmalayıcı framework yok. Hak ettiği yerde cross-platform — gerçek zamanlı biyomedikal sinyal projesinde Flutter ve paylaşılan mantık için Kotlin Multiplatform'a aktif ilgi.",
+                skill4Title: "Gelir modeli",
+                skill4Desc: "StoreKit 2 abonelikleri, uygulama içi satın alma, paywall'lar ve App Store Connect — yayından gelire uzanan döngünün tamamı.",
                 skill5Title: "Modüler Tasarım",
                 skill5Desc: "Ölçeklenebilir MVVM yapıları ve güçlü bağımlılık yönetimi.",
-                chatTitle: "YZ Chatbot Sistemleri",
-                chatDesc: "Müşteri etkileşimini ve dahili iş akışlarını devrimcileştirmek için özel GPT-4 destekli asistanlar.",
+                chatTitle: "Üretimde LLM Özellikleri",
+                chatDesc: "Claude, Gemini ve GPT-4o arasında yedeklemeli çok sağlayıcılı yönlendirme. Persona sistem promptları, bağlam pencereleri ve iş bağlamı enjeksiyonu — SpeachyAI'da ve M&amp;M Service için bir müşteri adayı niteleme asistanında yayında.",
                 seoTitle: "YZ SEO Optimizasyonu",
                 seoDesc: "Makine öğrenimi ve gelişmiş semantik mimari ile küresel görünürlüğü artırma.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
@@ -1903,6 +1913,7 @@
                 termLine2: "Mühendislik parametreleri bekleniyor.",
                 monitorTitle: "Prototip Değil, Yayında",
                 monitorDesc: "App Store'da yayında dört uygulama — baştan sona geliştirildi, yayınlandı ve bakımı yapılıyor.",
+                heroNote: "Chancenkarte sahibi · Almanya'da tam çalışma hakkı, sponsorluk gerekmiyor · hemen başlayabilir",
                 navCV: "CV",
                 ctaWork: "Seçilmiş Çalışmalar",
                 ctaCV: "CV'yi İndir",
@@ -1949,31 +1960,31 @@
                 navServices: "Services",
                 navWork: "Projets",
                 navContact: "Contact",
-                workflowTitle: "Le Processus",
-                step1Title: "Découverte",
-                step1Desc: "Analyse technique approfondie et livraison d'une Feuille de Route PDF complète. Les propositions formelles ne sont émises qu'après un alignement stratégique total.",
-                step2Title: "Ingénierie",
-                step2Desc: "Développement natif haute performance et intégration d'architecture IA, exécutés selon la Feuille de Route PDF établie.",
-                step3Title: "Succès",
-                step3Desc: "Déploiement mondial, mise à l'échelle continue et support technique expert pour des actifs conçus pour durer.",
-                ethosTitle: "Notre Philosophie",
-                ethosText: "Notre objectif dépasse la simple satisfaction client. Nous concevons des actifs numériques dont nous sommes fiers de revendiquer l'héritage. Chaque projet est une quête de maîtrise technique, élargissant notre portfolio avec des travaux qui défient le statu quo.",
+                workflowTitle: "Ma méthode",
+                step1Title: "La spec avant le code",
+                step1Desc: "J'écris d'abord la spécification — modèle de données, états, chemins d'erreur. Cela coûte une journée et évite une réécriture. L'architecture en découle : MVVM, VIPER sur l'app bancaire, selon ce que le problème exige.",
+                step2Title: "L'IA comme multiplicateur",
+                step2Desc: "Claude Code et Cursor font partie de mon quotidien, avec des compétences agentiques sur mesure pour les tâches répétitives. Je livre aussi des fonctionnalités LLM — routage multi-fournisseurs avec repli entre Claude, Gemini et GPT-4o.",
+                step3Title: "Livrer, puis assumer",
+                step3Desc: "XCTest et XCUITest sur les chemins critiques, Instruments quand le budget d'image dérape, triage des crashs après la sortie. Sur l'app bancaire, cette discipline a ramené le taux de crash près de zéro sur plus de 30 sprints.",
+                ethosTitle: "Ma philosophie",
+                ethosText: "Je préfère livrer une application qui survit au contact des vrais utilisateurs plutôt que dix prototypes soignés. Tout ce qui figure sur cette page est passé par la validation App Store, les rapports de crash et le travail ingrat de maintenir ce dont les gens dépendent déjà. Ma formation est en génie électrique et électronique — je suis venu au mobile par les contraintes matérielles, et je raisonne toujours en budgets : temps d'image, mémoire, batterie et patience de l'utilisateur.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
                 testi1Text: '"La précision architecturale et le motion design cinématique ont élevé notre identité d\'entreprise à un tout nouveau niveau. Un véritable visionnaire en présence digitale."',
-                chatTitle: "Systèmes Chatbot IA",
-                chatDesc: "Agents conversationnels propulsés par GPT-4 conçus pour révolutionner les interactions clients et les flux de travail internes.",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "Concevoir l'avenir des plateformes natives de l'IA. Nous comblons le fossé entre la logique matérielle complexe et les expériences mobiles fluides avec une précision sans compromis.",
+                chatTitle: "Fonctionnalités LLM en production",
+                chatDesc: "Routage multi-fournisseurs avec repli entre Claude, Gemini et GPT-4o. Prompts système de persona, fenêtres de contexte et injection de contexte métier — livrés dans SpeachyAI et dans un assistant de qualification de prospects pour M&amp;M Service.",
+                heroTitle: "Ingénieur iOS Senior<br>à Berlin",
+                heroSub: "Quatre applications en ligne sur l'App Store — une plateforme conversationnelle LLM, une carte de bornes de recharge avec CarPlay, un jeu SpriteKit et un scanner dentaire IA avec application Apple Watch. Je prends en charge tout le parcours : architecture, Swift, validation App Store et tout ce qui suit le lancement.",
                 heroScroll: "Découvrir",
-                aboutTitle: "Fondation & Maîtrise",
-                skill1Title: "Spécialiste iOS",
-                skill1Desc: "Expertise en SwiftUI, CoreData et architecture système haute performance. Marier la rigueur de l'ingénierie électrique à la fluidité mobile.",
-                skill2Title: "Synthèse IA",
-                skill2Desc: "Intégration de modèles de langage étendus et traitement vocal en temps réel.",
-                skill3Title: "Systèmes",
-                skill3Desc: "Compréhension approfondie de l'interaction matériel-logiciel et optimisation.",
-                skill4Title: "Performance",
-                skill4Desc: "Timing de trame inférieur à 16ms et gestion efficace de la mémoire.",
+                aboutTitle: "Ce que je fais concrètement",
+                skill1Title: "iOS de bout en bout",
+                skill1Desc: "Quatre applications menées d'un projet Xcode vide jusqu'à la publication sur l'App Store, puis maintenues. Avant cela, deux ans sur une app bancaire mobile grand public dans une équipe de 20 personnes — VIPER, XCTest, plus de 30 sprints.",
+                skill2Title: "IA sur l'appareil",
+                skill2Desc: "Pipelines de capture avec le framework Vision et synthèse vocale en temps réel, livrés dans des apps en production.",
+                skill3Title: "Natif par défaut",
+                skill3Desc: "Swift et SwiftUI d'abord, sans frameworks d'encapsulation. Le cross-platform quand il le mérite — Flutter sur un projet de signaux biomédicaux en temps réel, et un intérêt actif pour Kotlin Multiplatform pour la logique partagée.",
+                skill4Title: "Monétisation",
+                skill4Desc: "Abonnements StoreKit 2, achats intégrés, paywalls et App Store Connect — la boucle complète de la publication au revenu.",
                 skill5Title: "Design Modulaire",
                 skill5Desc: "Modèles MVVM évolutifs et gestion robuste des dépendances.",
                 projectsTitle: "Travaux Sélectionnés",
@@ -1999,6 +2010,7 @@
                 termLine2: "En attente des paramètres d'ingénierie.",
                 monitorTitle: "Livré, pas prototypé",
                 monitorDesc: "Quatre applications en ligne sur l'App Store — conçues, publiées et maintenues de bout en bout.",
+                heroNote: "Titulaire de la Chancenkarte · droit de travail complet en Allemagne, aucun parrainage requis · disponible immédiatement",
                 navCV: "CV",
                 ctaWork: "Voir les travaux",
                 ctaCV: "Télécharger le CV",
@@ -2048,32 +2060,32 @@
                 navServices: "Servicios",
                 navWork: "Proyectos",
                 navContact: "Contacto",
-                workflowTitle: "El Proceso",
-                step1Title: "Descubrimiento",
-                step1Desc: "Análisis técnico profundo y entrega de una Hoja de Ruta PDF completa. Las propuestas formales solo se emiten tras un alineamiento estratégico total.",
-                step2Title: "Ingeniería",
-                step2Desc: "Desarrollo nativo de alto rendimiento e integración de arquitectura IA, ejecutados según la Hoja de Ruta PDF establecida.",
-                step3Title: "Éxito",
-                step3Desc: "Despliegue global, escalabilidad continua y soporte técnico experto para activos construidos para durar.",
-                ethosTitle: "Nuestra Filosofía",
-                ethosText: "Nuestro objetivo va más allá de la simple satisfacción del cliente. Diseñamos activos digitales de los que estamos orgullosos de reclamar como parte de nuestro legado. Cada proyecto es una búsqueda de maestría técnica.",
+                workflowTitle: "Cómo trabajo",
+                step1Title: "Especificación antes que código",
+                step1Desc: "Primero escribo la especificación — modelo de datos, estados, rutas de error. Cuesta un día y evita una reescritura. La arquitectura se deriva de ahí: MVVM, VIPER en la app bancaria, lo que el problema realmente necesite.",
+                step2Title: "La IA como multiplicador",
+                step2Desc: "Claude Code y Cursor forman parte de mi rutina diaria, con habilidades agénticas propias para lo repetitivo. También publico funciones LLM — enrutamiento multiproveedor con respaldo entre Claude, Gemini y GPT-4o.",
+                step3Title: "Publicar y responsabilizarse",
+                step3Desc: "XCTest y XCUITest en las rutas críticas, Instruments cuando se desvía el presupuesto de fotograma, triaje de fallos tras el lanzamiento. En la app bancaria esa disciplina llevó la tasa de fallos casi a cero durante más de 30 sprints.",
+                ethosTitle: "Mi filosofía",
+                ethosText: "Prefiero publicar una app que sobreviva al contacto con usuarios reales antes que diez prototipos pulidos. Todo lo que aparece en esta página pasó por la revisión de la App Store, los informes de fallos y el trabajo poco glamuroso de mantener algo de lo que la gente ya depende. Vengo de Ingeniería Eléctrica y Electrónica — llegué al móvil por las restricciones del hardware y sigo razonando en presupuestos: tiempo de fotograma, memoria, batería y paciencia del usuario.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
                 testi1Text: '"La precisión arquitectónica y el diseño de movimiento cinematográfico elevaron nuestra identidad corporativa a un nivel completamente nuevo. Un verdadero visionario en presencia digital."',
-                chatTitle: "Sistemas Chatbot IA",
-                chatDesc: "Agentes conversacionales impulsados por GPT-4 diseñados para revolucionar la interacción con clientes y los flujos de trabajo internos.",
+                chatTitle: "Funciones LLM en producción",
+                chatDesc: "Enrutamiento multiproveedor con respaldo entre Claude, Gemini y GPT-4o. Prompts de sistema por persona, ventanas de contexto e inyección de contexto de negocio — publicados en SpeachyAI y en un asistente de cualificación de leads para M&amp;M Service.",
                 visitSite: "Visitar mm-leistungen.de",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "Diseñando el futuro de las plataformas nativas de IA. Cerramos la brecha entre la lógica de hardware compleja y las experiencias móviles fluidas con una precisión inquebrantable.",
+                heroTitle: "Ingeniero iOS Senior<br>en Berlín",
+                heroSub: "Cuatro apps activas en la App Store — una plataforma conversacional LLM, un mapa de carga para vehículos eléctricos con CarPlay, un juego en SpriteKit y un escáner dental con IA y app para Apple Watch. Me hago cargo de todo el recorrido: arquitectura, Swift, revisión en la App Store y todo lo que viene después del lanzamiento.",
                 heroScroll: "Descubrir",
-                aboutTitle: "Fundación y Maestría",
-                skill1Title: "Especialista iOS",
-                skill1Desc: "Experiencia en SwiftUI, CoreData y arquitectura de sistemas de alto rendimiento. Uniendo el rigor de la ingeniería eléctrica con la fluidez móvil.",
-                skill2Title: "Síntesis de IA",
-                skill2Desc: "Integración de modelos de lenguaje grandes y procesamiento de voz en tiempo real.",
-                skill3Title: "Sistemas",
-                skill3Desc: "Comprensión profunda de la interacción hardware-software y optimización.",
-                skill4Title: "Rendimiento",
-                skill4Desc: "Sincronización de fotogramas inferior a 16ms y gestión eficiente de la memoria.",
+                aboutTitle: "Lo que hago realmente",
+                skill1Title: "iOS de principio a fin",
+                skill1Desc: "Cuatro apps llevadas desde un proyecto Xcode vacío hasta su publicación en la App Store y mantenidas después. Antes, dos años en una app de banca móvil de consumo dentro de un equipo de 20 personas — VIPER, XCTest, más de 30 sprints.",
+                skill2Title: "IA en el dispositivo",
+                skill2Desc: "Pipelines de captura con el framework Vision y síntesis de voz en tiempo real, publicados en apps en producción.",
+                skill3Title: "Nativo por defecto",
+                skill3Desc: "Swift y SwiftUI primero, sin frameworks envoltorio. Multiplataforma cuando se lo gana — Flutter en un proyecto de señales biomédicas en tiempo real y un interés activo en Kotlin Multiplatform para lógica compartida.",
+                skill4Title: "Monetización",
+                skill4Desc: "Suscripciones con StoreKit 2, compras integradas, paywalls y App Store Connect — el ciclo completo de la publicación al ingreso.",
                 skill5Title: "Diseño Modular",
                 skill5Desc: "Patrones MVVM escalables y gestión robusta de dependencias.",
                 projectsTitle: "Trabajos Seleccionados",
@@ -2099,6 +2111,7 @@
                 termLine2: "Esperando parámetros de ingeniería.",
                 monitorTitle: "Publicado, no prototipado",
                 monitorDesc: "Cuatro apps activas en la App Store — construidas, publicadas y mantenidas de principio a fin.",
+                heroNote: "Titular de la Chancenkarte · pleno derecho a trabajar en Alemania, sin patrocinio · disponible de inmediato",
                 navCV: "CV",
                 ctaWork: "Ver trabajos",
                 ctaCV: "Descargar CV",
@@ -2147,32 +2160,32 @@
                 navServices: "Servizi",
                 navWork: "Progetti",
                 navContact: "Contatti",
-                workflowTitle: "Il Processo",
-                step1Title: "Scoperta",
-                step1Desc: "Analisi tecnica approfondita e consegna di una Roadmap PDF completa. Le proposte formali vengono emesse solo dopo un allineamento strategico totale.",
-                step2Title: "Ingegneria",
-                step2Desc: "Sviluppo nativo ad alte prestazioni e integrazione dell'architettura IA, eseguiti secondo la Roadmap PDF stabilita.",
-                step3Title: "Successo",
-                step3Desc: "Distribuzione globale, scalabilità continua e supporto tecnico esperto per asset costruiti per durare.",
-                ethosTitle: "La Nostra Filosofia",
-                ethosText: "Il nostro obiettivo va oltre la semplice soddisfazione del cliente. Progettiamo asset digitali di cui siamo orgogliosi di rivendicare come parte del nostro patrimonio. Ogni progetto è una ricerca di maestria tecnica.",
+                workflowTitle: "Come lavoro",
+                step1Title: "Specifica prima del codice",
+                step1Desc: "Scrivo prima la specifica — modello dati, stati, percorsi di errore. Costa un giorno e risparmia una riscrittura. L'architettura ne discende: MVVM, VIPER sull'app bancaria, ciò che il problema richiede davvero.",
+                step2Title: "L'IA come moltiplicatore",
+                step2Desc: "Claude Code e Cursor fanno parte della mia routine quotidiana, con skill agentiche personalizzate per le parti ripetitive. Rilascio anche funzionalità LLM — routing multi-provider con fallback tra Claude, Gemini e GPT-4o.",
+                step3Title: "Pubblicare e mantenere",
+                step3Desc: "XCTest e XCUITest sui percorsi critici, Instruments quando il frame budget slitta, triage dei crash dopo il rilascio. Sull'app bancaria questa disciplina ha portato il tasso di crash quasi a zero in oltre 30 sprint.",
+                ethosTitle: "La mia filosofia",
+                ethosText: "Preferisco pubblicare un'app che sopravvive al contatto con utenti reali piuttosto che dieci prototipi rifiniti. Tutto ciò che è in questa pagina è passato dalla revisione App Store, dai report di crash e dal lavoro poco glamour di mantenere qualcosa da cui le persone già dipendono. Vengo da Ingegneria Elettrica ed Elettronica — sono arrivato al mobile attraverso i vincoli hardware e ragiono ancora per budget: frame time, memoria, batteria e pazienza dell'utente.",
                 partner1: "M &amp; M SERVICE UND DIENSTLEISTUNGEN GMBH",
                 testi1Text: '"La precisione architettonica e il motion design cinematografico hanno elevato la nostra identità aziendale a un livello completamente nuovo. Un vero visionario nella presenza digitale."',
-                chatTitle: "Sistemi Chatbot IA",
-                chatDesc: "Agenti conversazionali alimentati da GPT-4 progettati per rivoluzionare l'interazione con i clienti e i flussi di lavoro interni.",
+                chatTitle: "Funzionalità LLM in produzione",
+                chatDesc: "Routing multi-provider con fallback tra Claude, Gemini e GPT-4o. System prompt per persona, finestre di contesto e iniezione di contesto aziendale — rilasciati in SpeachyAI e in un assistente di qualificazione lead per M&amp;M Service.",
                 visitSite: "Visita mm-leistungen.de",
-                heroTitle: "Engineering<br>Digital Craft",
-                heroSub: "Ingegnerizzare il futuro delle piattaforme native AI. Colmiamo il divario tra la complessa logica hardware e le esperienze mobili fluide con una precisione assoluta.",
+                heroTitle: "Senior iOS Engineer<br>a Berlino",
+                heroSub: "Quattro app live sull'App Store — una piattaforma conversazionale LLM, una mappa di ricarica per veicoli elettrici con CarPlay, un gioco SpriteKit e uno scanner dentale IA con app per Apple Watch. Seguo l'intero percorso: architettura, Swift, revisione App Store e tutto ciò che viene dopo il lancio.",
                 heroScroll: "Scopri",
-                aboutTitle: "Fondamenta e Maestria",
-                skill1Title: "Specialista iOS",
-                skill1Desc: "Esperienza in SwiftUI, CoreData e architettura di sistema ad alte prestazioni. Unendo il rigore dell'ingegneria elettrica alla fluidità mobile.",
-                skill2Title: "Sintesi IA",
-                skill2Desc: "Integrazione di modelli linguistici di grandi dimensioni e elaborazione vocale in tempo reale.",
-                skill3Title: "Sistemi",
-                skill3Desc: "Comprensione profonda dell'interazione hardware-software e ottimizzazione.",
-                skill4Title: "Prestazioni",
-                skill4Desc: "Timing dei frame inferiore a 16ms e gestione efficiente della memoria.",
+                aboutTitle: "Cosa faccio davvero",
+                skill1Title: "iOS end to end",
+                skill1Desc: "Quattro app portate da un progetto Xcode vuoto alla pubblicazione sull'App Store e poi mantenute. Prima, due anni su un'app di mobile banking consumer in un team di 20 persone — VIPER, XCTest, oltre 30 sprint.",
+                skill2Title: "IA sul dispositivo",
+                skill2Desc: "Pipeline di acquisizione con il framework Vision e sintesi vocale in tempo reale, rilasciate in app di produzione.",
+                skill3Title: "Nativo per impostazione",
+                skill3Desc: "Prima Swift e SwiftUI, niente framework wrapper. Cross-platform dove se lo merita — Flutter su un progetto di segnali biomedici in tempo reale e un interesse attivo per Kotlin Multiplatform per la logica condivisa.",
+                skill4Title: "Monetizzazione",
+                skill4Desc: "Abbonamenti StoreKit 2, acquisti in-app, paywall e App Store Connect — l'intero percorso dal rilascio al ricavo.",
                 skill5Title: "Design Modulare",
                 skill5Desc: "Modelli MVVM scalabili e gestione robusta delle dipendenze.",
                 projectsTitle: "Lavori Selezionati",
@@ -2198,6 +2211,7 @@
                 termLine2: "In attesa di parametri di ingegneria.",
                 monitorTitle: "Pubblicato, non prototipato",
                 monitorDesc: "Quattro app live sull'App Store — progettate, pubblicate e mantenute end to end.",
+                heroNote: "Titolare della Chancenkarte · pieno diritto di lavorare in Germania, nessuna sponsorizzazione · disponibile subito",
                 navCV: "CV",
                 ctaWork: "Vedi i lavori",
                 ctaCV: "Scarica il CV",
