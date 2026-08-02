@@ -9,7 +9,9 @@
     <meta name="author" content="Furkan Deniz Albaylar">
     <meta name="theme-color" content="#000000">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Furkan Deniz Albaylar">
     <meta property="og:url" content="https://albaylar.github.io/">
@@ -248,6 +250,10 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            /* dokunma hedefi: gorsel yukseklik degismez, tiklama alani buyur */
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
             transition: color 0.3s ease;
         }
 
@@ -288,7 +294,7 @@
             box-shadow: 0 0 15px rgba(41, 151, 255, 0.1);
         }
 
-        .workflow-step h4 {
+        .workflow-step h3 {
             font-family: var(--font-main);
             font-size: 1.5rem;
             margin-bottom: 15px;
@@ -307,13 +313,15 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            /* dvh: mobil tarayici cubugu acilip kapandiginda icerik kirpilmaz */
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 140px 10% 80px;
             position: relative;
         }
 
@@ -349,7 +357,7 @@
             position: absolute;
             bottom: 40px;
             color: var(--text-secondary);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             animation: bounce 2s infinite;
@@ -421,7 +429,7 @@
             margin-bottom: 20px;
         }
 
-        .bento-item h4 {
+        .bento-item h3 {
             font-family: var(--font-main);
             font-size: 1.4rem;
             margin-bottom: 8px;
@@ -449,7 +457,7 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: 16px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--text-secondary);
             transition: all 0.3s ease;
@@ -489,7 +497,7 @@
             border-radius: 48px;
             padding: 60px;
             position: relative;
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
             display: flex;
             flex-direction: column;
             gap: 32px;
@@ -511,10 +519,10 @@
             position: absolute;
             top: 28px; right: 36px;
             font-family: var(--font-main);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.18em;
-            color: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.38);
         }
 
         .project-card:hover {
@@ -604,7 +612,7 @@
             border-radius: 4px;
         }
         .kbd-hint kbd {
-            font-family: var(--font-sub); font-size: 0.7rem;
+            font-family: var(--font-sub); font-size: 0.75rem;
             padding: 2px 6px; border-radius: 4px;
             border: 1px solid rgba(255,255,255,0.15);
             background: rgba(255,255,255,0.05);
@@ -722,7 +730,7 @@
             content: 'FLAGSHIP';
             position: absolute;
             top: 30px; right: 40px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             color: var(--accent);
             font-weight: 800;
@@ -772,8 +780,16 @@
         .social-icons a {
             color: var(--text-secondary);
             font-size: 1.5rem;
-            transition: color 0.3s ease;
+            /* ikon 24px kaliyor, dokunma alani 44x44 */
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.3s ease, background 0.3s ease;
         }
+        .social-icons a:hover { background: rgba(255,255,255,0.06); }
 
         .social-icons a:hover { color: var(--accent); }
 
@@ -827,8 +843,8 @@
             .project-gallery img { height: 220px; }
             .projects-section { padding: 80px 5%; }
             .bento-container { padding: 80px 5%; }
-            .lang-switcher { flex-wrap: wrap; gap: 6px; border-radius: 16px; padding: 6px; }
-            .lang-btn { font-size: 0.65rem; padding: 4px 8px; }
+            .lang-switcher { flex-wrap: wrap; gap: 2px; border-radius: 16px; padding: 4px; }
+            .lang-btn { font-size: 0.75rem; min-width: 44px; min-height: 44px; padding: 0 4px; }
             .nav-links { gap: 10px; }
             .testimonial-card { padding: 28px 20px; }
             .section-title { font-size: 1.8rem; margin-bottom: 40px; }
@@ -851,12 +867,18 @@
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             cursor: pointer;
-            padding: 5px 10px;
+            /* min 44x44 dokunma hedefi (Apple HIG / WCAG 2.5.5) */
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8px;
             border-radius: 100px;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease, background 0.3s ease;
         }
 
         /* Trust & Testimonials */
@@ -1063,7 +1085,7 @@
             gap: 15px;
             margin-top: 20px;
             font-family: 'Menlo', monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
         }
 
         .monitor-stat {
@@ -1111,8 +1133,8 @@
 
         .close-case {
             position: absolute;
-            top: 30px; right: 30px;
-            width: 40px; height: 40px;
+            top: 24px; right: 24px;
+            width: 44px; height: 44px;
             background: rgba(255,255,255,0.1);
             border: none;
             color: var(--text);
@@ -1135,7 +1157,7 @@
             gap: 60px;
         }
 
-        .case-main h4 { color: var(--text); margin-bottom: 15px; font-size: 1.2rem; }
+        .case-main h3 { color: var(--text); margin-bottom: 15px; font-size: 1.2rem; }
         .case-main p { color: var(--text-secondary); margin-bottom: 30px; line-height: 1.7; }
 
         .case-sidebar {
@@ -1146,7 +1168,7 @@
         }
 
         .side-item { margin-bottom: 25px; }
-        .side-item label { display: block; color: #555; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
+        .side-item label { display: block; color: #555; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 5px; }
         .side-item span { color: #fff; font-weight: 600; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
@@ -1286,7 +1308,7 @@
             <div class="bento-item span-2 row-2">
                 <i class="fab fa-swift"></i>
                 <div>
-                    <h4 data-i18n="skill1Title">iOS, end to end</h4>
+                    <h3 class="card-title" data-i18n="skill1Title">iOS, end to end</h3>
                     <p data-i18n="skill1Desc">Four apps taken from empty Xcode project to App Store release and maintained afterwards. Before that, two years on a consumer mobile banking app inside a 20-person team — VIPER, XCTest, 30+ sprints.</p>
 
                     <div class="tech-stack">
@@ -1302,14 +1324,14 @@
             <div class="bento-item">
                 <i class="fas fa-brain"></i>
                 <div>
-                    <h4 data-i18n="skill2Title">On-device AI</h4>
+                    <h3 class="card-title" data-i18n="skill2Title">On-device AI</h3>
                     <p data-i18n="skill2Desc">Vision framework capture pipelines and real-time voice synthesis, shipped in production apps.</p>
                 </div>
             </div>
             <div class="bento-item row-2">
                 <i class="fas fa-microchip"></i>
                 <div>
-                    <h4 data-i18n="skill3Title">Native by default</h4>
+                    <h3 class="card-title" data-i18n="skill3Title">Native by default</h3>
                     <p data-i18n="skill3Desc">Swift and SwiftUI first, no wrapper frameworks. Cross-platform where it earns its place — Flutter on a real-time biomedical signal project, and an active interest in Kotlin Multiplatform for shared logic.</p>
                     <div class="tech-stack" style="grid-template-columns: 1fr; gap: 8px;">
                         <div class="tech-pill"><i class="fab fa-swift"></i><span>Swift / SwiftUI</span></div>
@@ -1321,14 +1343,14 @@
             <div class="bento-item">
                 <i class="fas fa-tachometer-alt"></i>
                 <div>
-                    <h4 data-i18n="skill4Title">Monetisation</h4>
+                    <h3 class="card-title" data-i18n="skill4Title">Monetisation</h3>
                     <p data-i18n="skill4Desc">StoreKit 2 subscriptions, IAP, paywalls and App Store Connect — the full ship-to-revenue loop.</p>
                 </div>
             </div>
             <div class="bento-item span-2">
                 <i class="fas fa-comments"></i>
                 <div>
-                    <h4 data-i18n="chatTitle">LLM Features in Production</h4>
+                    <h3 class="card-title" data-i18n="chatTitle">LLM Features in Production</h3>
                     <p data-i18n="chatDesc">Multi-provider routing with fallback across Claude, Gemini and GPT-4o. Persona system prompts, context windows and business-context injection — shipped in SpeachyAI and in a lead-qualification assistant for M&amp;M Service.</p>
                     <div class="tech-stack" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
                         <div class="tech-pill"><i class="fas fa-robot"></i><span>Provider Routing &amp; Fallback</span></div>
@@ -1339,7 +1361,7 @@
             <div class="bento-item span-2">
                 <i class="fas fa-microscope"></i>
                 <div>
-                    <h4 data-i18n="monitorTitle">Shipped, Not Prototyped</h4>
+                    <h3 class="card-title" data-i18n="monitorTitle">Shipped, Not Prototyped</h3>
                     <p data-i18n="monitorDesc">Four apps live on the App Store — built, shipped and maintained end to end.</p>
                     <div class="monitor-grid">
                         <div class="monitor-stat">
@@ -1398,17 +1420,17 @@
         <div class="workflow-grid">
             <div class="workflow-step">
                 <span class="step-number">01</span>
-                <h4 data-i18n="step1Title">Spec before code</h4>
+                <h3 class="card-title" data-i18n="step1Title">Spec before code</h3>
                 <p data-i18n="step1Desc">I write the spec first — data model, states, failure paths. It costs a day and saves a rewrite. Architecture follows from it: MVVM, VIPER on the banking app, whatever the problem actually needs.</p>
             </div>
             <div class="workflow-step">
                 <span class="step-number">02</span>
-                <h4 data-i18n="step2Title">AI as a multiplier</h4>
+                <h3 class="card-title" data-i18n="step2Title">AI as a multiplier</h3>
                 <p data-i18n="step2Desc">Claude Code and Cursor sit in my daily loop, with custom agentic skills for the repetitive parts. I ship LLM features too — multi-provider routing with fallback across Claude, Gemini and GPT-4o.</p>
             </div>
             <div class="workflow-step">
                 <span class="step-number">03</span>
-                <h4 data-i18n="step3Title">Ship, then own it</h4>
+                <h3 class="card-title" data-i18n="step3Title">Ship, then own it</h3>
                 <p data-i18n="step3Desc">XCTest and XCUITest on the critical paths, Instruments when the frame budget slips, crash triage after release. On the banking app that discipline took the crash rate to near zero across 30+ sprints.</p>
             </div>
         </div>
@@ -1575,9 +1597,9 @@
             </div>
             <div class="case-grid">
                 <div class="case-main">
-                    <h4>Challenge</h4>
+                    <h3>Challenge</h3>
                     <p id="caseChallenge">Description of the technical challenge.</p>
-                    <h4>Solution</h4>
+                    <h3>Solution</h3>
                     <p id="caseSolution">Engineering approach and architectural choices.</p>
                 </div>
                 <div class="case-sidebar">
@@ -1632,7 +1654,7 @@
             <a href="tel:+491634773582" onclick="return gtag_report_conversion('tel:+491634773582')" aria-label="Call +49 163 477 3582"><i class="fas fa-phone" aria-hidden="true"></i></a>
         </nav>
         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 60px;" data-i18n="copyright">© 2026 Furkan Deniz Albaylar. Crafted in Berlin.</p>
-        <p class="kbd-hint" style="color: #6e6e73; font-size: 0.75rem; margin-top: 10px;">Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command palette</p>
+        <p class="kbd-hint" style="color: #8a8a8f; font-size: 0.75rem; margin-top: 10px;">Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command palette</p>
     </footer>
 
     <script>
