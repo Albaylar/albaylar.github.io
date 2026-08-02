@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://albaylar.github.io/sitemap.xml
