@@ -1188,6 +1188,37 @@
             }
         }
 
+        .testi-stars {
+            color: #f5a623;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .testi-avatar {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2997ff, #0055ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #fff;
+        }
+        .testi-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 6px;
+            letter-spacing: 0.04em;
+        }
+
         .testimonial-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
@@ -1222,6 +1253,35 @@
             .logo-strip { gap: 30px; }
             .testimonials-grid { grid-template-columns: 1fr; padding: 60px 8%; }
         }
+
+        /* Footer terminal toggle */
+        .terminal-toggle {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .terminal-toggle > summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .terminal-toggle > summary::-webkit-details-marker { display: none; }
+        .terminal-toggle > summary::before {
+            content: '›';
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .terminal-toggle[open] > summary::before { transform: rotate(90deg); }
+        .terminal-toggle:hover > summary { color: var(--text); }
 
         /* Work section UX enhancements */
         .project-metrics {
@@ -1366,7 +1426,7 @@
             <a href="#about" data-i18n="navServices">Services</a>
             <a href="#projects" data-i18n="navWork">Work</a>
             <a href="assets/cv/FurkanDenizAlbaylar-CV.pdf" target="_blank" rel="noopener" data-i18n="navCV">CV</a>
-            <a href="mailto:furkandenizalbaylar@gmail.com" data-i18n="navContact">Contact</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
             <div class="lang-switcher" role="group" aria-label="Language">
                 <button type="button" class="lang-btn active" onclick="setLanguage('en')" lang="en" aria-label="English">EN</button>
                 <button type="button" class="lang-btn" onclick="setLanguage('de')" lang="de" aria-label="Deutsch">DE</button>
@@ -1492,11 +1552,17 @@
 
         <div class="testimonials-grid" style="grid-template-columns: 1fr; max-width: 760px; margin: 0 auto;">
             <div class="testimonial-card">
+                <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
                 <p data-i18n="testi1Text">"The precision in iOS architecture and the seamless AI integration redefined our digital product standards. A true master of Native development."</p>
                 <div class="testimonial-meta">
+                    <div class="testi-avatar" aria-hidden="true">MÇ</div>
                     <div class="author-info">
                         <div class="author">Meriç Çakırbey</div>
                         <div class="company">CEO, M&amp;M Service GmbH</div>
+                        <span class="testi-verified">
+                            <i class="fas fa-circle-check" aria-hidden="true"></i>
+                            Verified Client
+                        </span>
                     </div>
                 </div>
             </div>
@@ -1770,7 +1836,19 @@
     </div>
 
     <footer>
-        <div class="terminal-contact">
+        <div class="cta-container" style="margin-bottom: 80px;">
+            <h2 data-i18n="footerTitle">Let's build the future.</h2>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px;">
+                <a href="contact.html" class="primary-btn" data-i18n="getInTouch">Get In Touch</a>
+                <a href="assets/cv/FurkanDenizAlbaylar-CV.pdf" target="_blank" rel="noopener"
+                   class="primary-btn" data-i18n="ctaCV"
+                   style="background: transparent; color: var(--text); border: 1px solid var(--border);">Download CV</a>
+            </div>
+        </div>
+
+        <details class="terminal-toggle">
+            <summary data-i18n="termToggleLabel">Or use the project builder terminal</summary>
+            <div class="terminal-contact" style="margin-top: 20px;">
             <div class="terminal-header">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
@@ -1788,13 +1866,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="direct-contact-fallback" style="margin-bottom: 40px;">
-            <p style="font-size: 0.85rem; color: var(--text-secondary);">
-                <span data-i18n="termFallback">Prefer a classic approach?</span> 
-                <a href="contact.html" data-i18n="termFallbackLink" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(41, 151, 255, 0.3); margin-left: 5px;">Click here for the standard form.</a>
-            </p>
-        </div>
+        </details>
         
         <nav class="social-icons" aria-label="Social and contact links">
             <a href="https://github.com/Albaylar" target="_blank" rel="noopener" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -1881,6 +1953,7 @@
                 clientConf: "Client Confidential",
                 footerTitle: "Let's build the future.",
                 getInTouch: "Get In Touch",
+                termToggleLabel: "Or use the project builder terminal",
                 copyright: "© 2026 Furkan Deniz Albaylar. Crafted in Berlin.",
                 monitorTitle: "Shipped, Not Prototyped",
                 monitorDesc: "Four apps live on the App Store — built, shipped and maintained end to end.",
@@ -1980,6 +2053,7 @@
                 clientConf: "Vertraulich",
                 footerTitle: "Lass uns die Zukunft bauen.",
                 getInTouch: "Kontaktieren",
+                termToggleLabel: "Oder den Projekt-Builder-Terminal verwenden",
                 copyright: "© 2026 Furkan Deniz Albaylar. Erstellt in Berlin.",
                 termLine1: "Projekt-Manifest-System v2.6.4... Online.",
                 termLine2: "Warte auf Engineering-Parameter.",
@@ -2079,6 +2153,7 @@
                 clientConf: "Müşteri Gizliliği",
                 footerTitle: "Geleceği birlikte inşa edelim.",
                 getInTouch: "İletişime Geç",
+                termToggleLabel: "Ya da proje oluşturucu terminali kullan",
                 copyright: "© 2026 Furkan Deniz Albaylar. Berlin'de tasarlandı.",
                 termLine1: "Proje Manifest Sistemi v2.6.4... Çevrimiçi.",
                 termLine2: "Mühendislik parametreleri bekleniyor.",
@@ -2176,6 +2251,7 @@
                 clientConf: "Confidentiel Client",
                 footerTitle: "Bâtissons l'avenir ensemble.",
                 getInTouch: "Contactez-nous",
+                termToggleLabel: "Ou utiliser le terminal de création de projet",
                 copyright: "© 2026 Furkan Deniz Albaylar. Créé à Berlin.",
                 termLine1: "Système de Manifeste de Projet v2.6.4... En ligne.",
                 termLine2: "En attente des paramètres d'ingénierie.",
@@ -2277,6 +2353,7 @@
                 clientConf: "Confidencial del Cliente",
                 footerTitle: "Construyamos el futuro juntos.",
                 getInTouch: "Contactar",
+                termToggleLabel: "O usar el terminal de creación de proyectos",
                 copyright: "© 2026 Furkan Deniz Albaylar. Creado en Berlín.",
                 termLine1: "Sistema de Manifiesto de Proyecto v2.6.4... En línea.",
                 termLine2: "Esperando parámetros de ingeniería.",
@@ -2377,6 +2454,7 @@
                 clientConf: "Riservato",
                 footerTitle: "Costruiamo il futuro insieme.",
                 getInTouch: "Contattami",
+                termToggleLabel: "Oppure usa il terminale di creazione progetto",
                 copyright: "© 2026 Furkan Deniz Albaylar. Creato a Berlino.",
                 termLine1: "Sistema di Manifesto del Progetto v2.6.4... Online.",
                 termLine2: "In attesa di parametri di ingegneria.",
