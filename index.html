@@ -279,6 +279,27 @@
             padding: 30px;
         }
 
+        .workflow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 44px;
+            right: -22px;
+            width: 44px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(41,151,255,0.4), rgba(41,151,255,0.1));
+        }
+        @media (max-width: 768px) {
+            .workflow-step:not(:last-child)::after { display: none; }
+        }
+
+        .workflow-icon {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: block;
+            opacity: 0.85;
+        }
+
         .step-number {
             font-family: var(--font-sub);
             font-size: 0.85rem;
@@ -628,6 +649,34 @@
         @media (max-width: 768px) { .kbd-hint { display: none; } }
 
         /* Hero CTA */
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            background: rgba(39, 201, 63, 0.08);
+            border: 1px solid rgba(39, 201, 63, 0.28);
+            color: #27c93f;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #27c93f;
+            flex-shrink: 0;
+            animation: pulse-green 2s ease-in-out infinite;
+        }
+        @keyframes pulse-green {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.45; transform: scale(0.75); }
+        }
+
         .hero-note {
             margin-top: 28px;
             font-size: 0.82rem;
@@ -1439,6 +1488,10 @@
     </nav>
 
     <section class="hero">
+        <div class="availability-badge">
+            <span class="availability-dot"></span>
+            <span data-i18n="availBadge">Available for new projects</span>
+        </div>
         <h1 data-i18n="heroTitle">Senior iOS Engineer<br>in Berlin</h1>
         <p data-i18n="heroSub">Four apps live on the App Store — an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.</p>
         <div class="hero-cta">
@@ -1473,6 +1526,12 @@
                 <div>
                     <h3 class="card-title" data-i18n="skill2Title">On-device AI</h3>
                     <p data-i18n="skill2Desc">Vision framework capture pipelines and real-time voice synthesis, shipped in production apps.</p>
+                    <div class="tech-stack" style="grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px;">
+                        <div class="tech-pill"><i class="fas fa-eye"></i><span>Vision</span></div>
+                        <div class="tech-pill"><i class="fas fa-microchip"></i><span>CoreML</span></div>
+                        <div class="tech-pill"><i class="fas fa-waveform-lines"></i><span>AVFoundation</span></div>
+                        <div class="tech-pill"><i class="fas fa-robot"></i><span>LLM APIs</span></div>
+                    </div>
                 </div>
             </div>
             <div class="bento-item row-2">
@@ -1492,6 +1551,10 @@
                 <div>
                     <h3 class="card-title" data-i18n="skill4Title">Monetisation</h3>
                     <p data-i18n="skill4Desc">StoreKit 2 subscriptions, IAP, paywalls and App Store Connect — the full ship-to-revenue loop.</p>
+                    <div class="tech-stack" style="grid-template-columns: 1fr; gap: 8px; margin-top: 16px;">
+                        <div class="tech-pill"><i class="fas fa-credit-card"></i><span>StoreKit 2</span></div>
+                        <div class="tech-pill"><i class="fas fa-lock"></i><span>Paywalls & IAP</span></div>
+                    </div>
                 </div>
             </div>
             <div class="bento-item span-2">
@@ -1572,16 +1635,19 @@
         <h2 class="section-title" data-i18n="workflowTitle">How I Work</h2>
         <div class="workflow-grid">
             <div class="workflow-step">
+                <i class="fas fa-file-lines workflow-icon" aria-hidden="true"></i>
                 <span class="step-number">01</span>
                 <h3 class="card-title" data-i18n="step1Title">Spec before code</h3>
                 <p data-i18n="step1Desc">I write the spec first — data model, states, failure paths. It costs a day and saves a rewrite. Architecture follows from it: MVVM, VIPER on the banking app, whatever the problem actually needs.</p>
             </div>
             <div class="workflow-step">
+                <i class="fas fa-bolt workflow-icon" aria-hidden="true"></i>
                 <span class="step-number">02</span>
                 <h3 class="card-title" data-i18n="step2Title">AI as a multiplier</h3>
                 <p data-i18n="step2Desc">Claude Code and Cursor sit in my daily loop, with custom agentic skills for the repetitive parts. I ship LLM features too — multi-provider routing with fallback across Claude, Gemini and GPT-4o.</p>
             </div>
             <div class="workflow-step">
+                <i class="fas fa-rocket workflow-icon" aria-hidden="true"></i>
                 <span class="step-number">03</span>
                 <h3 class="card-title" data-i18n="step3Title">Ship, then own it</h3>
                 <p data-i18n="step3Desc">XCTest and XCUITest on the critical paths, Instruments when the frame budget slips, crash triage after release. On the banking app that discipline took the crash rate to near zero across 30+ sprints.</p>
@@ -1914,6 +1980,7 @@
                 step3Desc: "XCTest and XCUITest on the critical paths, Instruments when the frame budget slips, crash triage after release. On the banking app that discipline took the crash rate to near zero across 30+ sprints.",
                 ethosTitle: "Engineering Ethos",
                 ethosText: "I'd rather ship one app that survives contact with real users than ten polished prototypes. Everything on this page went through App Store review, crash reports, and the unglamorous work of maintaining something people already depend on. My background is Electrical &amp; Electronics Engineering — I came to mobile through hardware constraints, and I still think in terms of budgets: frame time, memory, battery, and the user's patience.",
+                availBadge: "Available for new projects",
                 heroTitle: "Senior iOS Engineer<br>in Berlin",
                 heroSub: "Four apps live on the App Store — an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.",
                 heroScroll: "Discover",
@@ -2014,6 +2081,7 @@
                 step3Desc: "XCTest und XCUITest auf den kritischen Pfaden, Instruments wenn das Frame-Budget kippt, Crash-Triage nach dem Release. In der Banking-App brachte diese Disziplin die Crash-Rate über 30+ Sprints auf nahezu null.",
                 ethosTitle: "Engineering Ethos",
                 ethosText: "Mir ist eine App, die dem Kontakt mit echten Nutzern standhält, lieber als zehn polierte Prototypen. Alles auf dieser Seite hat App-Store-Review, Crash-Reports und die unglamouröse Arbeit durchlaufen, etwas zu pflegen, worauf sich Menschen bereits verlassen. Mein Hintergrund ist Elektrotechnik — ich kam über Hardware-Beschränkungen zu Mobile und denke noch immer in Budgets: Frame-Zeit, Speicher, Akku und die Geduld der Nutzer.",
+                availBadge: "Verfügbar für neue Projekte",
                 heroTitle: "Senior iOS Engineer<br>in Berlin",
                 heroSub: "Vier Apps live im App Store — eine LLM-Chatplattform, eine Ladekarte für E-Autos mit CarPlay, ein SpriteKit-Spiel und ein KI-Dentalscanner mit Apple-Watch-App. Ich verantworte den gesamten Weg: Architektur, Swift, App-Store-Review und alles, was nach dem Launch kommt.",
                 heroScroll: "Entdecken",
@@ -2114,6 +2182,7 @@
                 step3Desc: "Kritik yollarda XCTest ve XCUITest, kare bütçesi kaydığında Instruments, yayın sonrası çökme analizi. Bankacılık uygulamasında bu disiplin 30'dan fazla sprint boyunca çökme oranını sıfıra yaklaştırdı.",
                 ethosTitle: "Mühendislik İlkeleri",
                 ethosText: "On cilalı prototip yerine gerçek kullanıcıyla temasa dayanan tek bir uygulama yayınlamayı tercih ederim. Bu sayfadaki her şey App Store incelemesinden, çökme raporlarından ve insanların halihazırda bağlı olduğu bir şeyi sürdürmenin gösterişsiz emeğinden geçti. Altyapım Elektrik-Elektronik Mühendisliği — mobile donanım kısıtlarından geldim ve hâlâ bütçelerle düşünüyorum: kare süresi, bellek, pil ve kullanıcının sabrı.",
+                availBadge: "Yeni projelere açık",
                 heroTitle: "Berlin'de<br>Senior iOS Mühendisi",
                 heroSub: "App Store'da yayında dört uygulama — bir LLM sohbet platformu, CarPlay destekli elektrikli araç şarj haritası, bir SpriteKit oyunu ve Apple Watch uygulamalı bir yapay zekâ diş tarayıcısı. Yolun tamamı bana ait: mimari, Swift, App Store incelemesi ve lansman sonrası gelen her şey.",
                 heroScroll: "Keşfet",
@@ -2219,6 +2288,7 @@
                 testi1Text: '"La précision architecturale et le motion design cinématique ont élevé notre identité d\'entreprise à un tout nouveau niveau. Un véritable visionnaire en présence digitale."',
                 chatTitle: "Fonctionnalités LLM en production",
                 chatDesc: "Routage multi-fournisseurs avec repli entre Claude, Gemini et GPT-4o. Prompts système de persona, fenêtres de contexte et injection de contexte métier — livrés dans SpeachyAI et dans un assistant de qualification de prospects pour M&amp;M Service.",
+                availBadge: "Disponible pour de nouveaux projets",
                 heroTitle: "Ingénieur iOS Senior<br>à Berlin",
                 heroSub: "Quatre applications en ligne sur l'App Store — une plateforme conversationnelle LLM, une carte de bornes de recharge avec CarPlay, un jeu SpriteKit et un scanner dentaire IA avec application Apple Watch. Je prends en charge tout le parcours : architecture, Swift, validation App Store et tout ce qui suit le lancement.",
                 heroScroll: "Découvrir",
@@ -2321,6 +2391,7 @@
                 chatTitle: "Funciones LLM en producción",
                 chatDesc: "Enrutamiento multiproveedor con respaldo entre Claude, Gemini y GPT-4o. Prompts de sistema por persona, ventanas de contexto e inyección de contexto de negocio — publicados en SpeachyAI y en un asistente de cualificación de leads para M&amp;M Service.",
                 visitSite: "Visitar mm-leistungen.de",
+                availBadge: "Disponible para nuevos proyectos",
                 heroTitle: "Ingeniero iOS Senior<br>en Berlín",
                 heroSub: "Cuatro apps activas en la App Store — una plataforma conversacional LLM, un mapa de carga para vehículos eléctricos con CarPlay, un juego en SpriteKit y un escáner dental con IA y app para Apple Watch. Me hago cargo de todo el recorrido: arquitectura, Swift, revisión en la App Store y todo lo que viene después del lanzamiento.",
                 heroScroll: "Descubrir",
@@ -2422,6 +2493,7 @@
                 chatTitle: "Funzionalità LLM in produzione",
                 chatDesc: "Routing multi-provider con fallback tra Claude, Gemini e GPT-4o. System prompt per persona, finestre di contesto e iniezione di contesto aziendale — rilasciati in SpeachyAI e in un assistente di qualificazione lead per M&amp;M Service.",
                 visitSite: "Visita mm-leistungen.de",
+                availBadge: "Disponibile per nuovi progetti",
                 heroTitle: "Senior iOS Engineer<br>a Berlino",
                 heroSub: "Quattro app live sull'App Store — una piattaforma conversazionale LLM, una mappa di ricarica per veicoli elettrici con CarPlay, un gioco SpriteKit e uno scanner dentale IA con app per Apple Watch. Seguo l'intero percorso: architettura, Swift, revisione App Store e tutto ciò che viene dopo il lancio.",
                 heroScroll: "Scopri",
