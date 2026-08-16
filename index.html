@@ -678,6 +678,7 @@
             scrollbar-width: thin;
             scrollbar-color: var(--accent) transparent;
             -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
         }
 
         .project-gallery::-webkit-scrollbar {
@@ -696,6 +697,7 @@
             border: 1px solid var(--border);
             transition: transform 0.3s ease;
             flex-shrink: 0;
+            scroll-snap-align: start;
         }
 
         .project-gallery img:hover {
@@ -831,7 +833,7 @@
             .hero h1 { font-size: 3rem; }
             .project-gallery img { height: 280px; }
             .testimonials-grid { grid-template-columns: 1fr !important; padding: 60px 5% !important; }
-            .flagship::after { display: none; }
+            .flagship::after { top: 16px; right: 20px; font-size: 0.65rem; padding: 3px 8px; }
         }
 
         @media (max-width: 480px) {
@@ -1220,6 +1222,91 @@
             .logo-strip { gap: 30px; }
             .testimonials-grid { grid-template-columns: 1fr; padding: 60px 8%; }
         }
+
+        /* Work section UX enhancements */
+        .project-metrics {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 12px 0 4px;
+        }
+        .metric-stat {
+            font-family: var(--font-sub);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(41, 151, 255, 0.07);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(41, 151, 255, 0.15);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.01em;
+        }
+
+        .card-case-hint {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            pointer-events: none;
+        }
+        .project-card:hover .card-case-hint,
+        .project-card:focus-visible .card-case-hint {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* M&M Service browser mockup */
+        .mm-preview {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0 8px;
+        }
+        .mm-bar {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .mm-dots { display: flex; gap: 5px; }
+        .mm-dots span {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .mm-url {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: var(--font-sub);
+        }
+        .mm-content { padding: 18px; display: flex; flex-direction: column; gap: 9px; }
+        .mm-line {
+            height: 9px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 4px;
+        }
+        .mm-line--title { width: 55%; height: 13px; background: rgba(255, 255, 255, 0.11); }
+        .mm-line--sub { width: 80%; }
+        .mm-line--short { width: 40%; }
+        .mm-cta {
+            width: 90px; height: 26px;
+            background: rgba(255, 255, 255, 0.09);
+            border-radius: 50px;
+            margin-top: 4px;
+        }
     </style>
 
     <!-- Google tag (gtag.js) - Google Ads: AW-18130833656 -->
@@ -1451,7 +1538,12 @@
                     </div>
                     <h3>SpeachyAI</h3>
                     <p data-i18n="speachyDesc">Premium AI vocal intelligence platform. Bridging cognitive LLM logic with high-fidelity emotional synthesis for 500+ unique digital personas.</p>
-                    
+                    <div class="project-metrics">
+                        <span class="metric-stat">500+ Personas</span>
+                        <span class="metric-stat">&lt; 150ms Response</span>
+                        <span class="metric-stat">iOS · iPadOS</span>
+                    </div>
+
                     <div class="project-gallery">
                         <img src="assets/images/speachyai/speachyai_2.jpg" alt="SpeachyAI Character List" loading="lazy" width="473" height="1024">
                         <img src="assets/images/speachyai/speachyai_1.jpg" alt="SpeachyAI Character Creation" loading="lazy" width="473" height="1024">
@@ -1469,6 +1561,11 @@
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSpeachy">Visit speachyai.com</span>
                         </a>
                     </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
 
@@ -1483,7 +1580,12 @@
                     </div>
                     <h3>ChargeEV</h3>
                     <p data-i18n="chargeDesc">Global EV infrastructure aggregator. Real-time synchronization of 100k+ charging points with advanced filtering, CarPlay integration, and intelligent route mapping.</p>
-                    
+                    <div class="project-metrics">
+                        <span class="metric-stat">100k+ Stations</span>
+                        <span class="metric-stat">99.9% Sync</span>
+                        <span class="metric-stat">CarPlay · watchOS</span>
+                    </div>
+
                     <div class="project-gallery">
                         <img src="assets/images/chargeev/chargeev_hero.jpg" alt="ChargeEV Maps" loading="lazy" width="471" height="1024">
                         <img src="assets/images/chargeev/chargeev_1.jpg" alt="ChargeEV Calculator" loading="lazy" width="471" height="1024">
@@ -1499,6 +1601,11 @@
                         </a>
                         <a href="/chargeev" class="web-link" onclick="event.stopPropagation()" style="border-color: rgba(0,212,106,0.3); color: #00d46a;"><i class="fas fa-external-link-alt"></i> <span data-i18n="viewDetails">View Details</span></a>
                     </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
 
@@ -1513,6 +1620,11 @@
                     </div>
                     <h3>Mining Town</h3>
                     <p data-i18n="miningDesc">A sophisticated simulation engine featuring custom physics and ecosystem logic. Engineered for maximum efficiency on Apple Silicon.</p>
+                    <div class="project-metrics">
+                        <span class="metric-stat">200+ Levels</span>
+                        <span class="metric-stat">60fps</span>
+                        <span class="metric-stat">SpriteKit · GameplayKit</span>
+                    </div>
 
                     <div class="project-gallery">
                         <img src="assets/images/miningtown/miningtown_1.jpg" alt="Mining Town – Welcome Screen" loading="lazy" width="900" height="1955">
@@ -1529,6 +1641,11 @@
                         </a>
                         <a href="/miningtown" class="web-link" onclick="event.stopPropagation()" style="border-color: rgba(245,166,35,0.3); color: #f5a623;"><i class="fas fa-external-link-alt"></i> <span data-i18n="viewDetails">View Details</span></a>
                     </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
 
@@ -1543,6 +1660,11 @@
                     </div>
                     <h3>ScanDent</h3>
                     <p data-i18n="scandentDesc">AI dental scanner that turns a guided 3-angle mouth capture into a 0–100 Dental Score. Vision-based analysis of plaque, enamel and gums, a whitening simulation, and a free Apple Watch brushing companion synced over App Groups.</p>
+                    <div class="project-metrics">
+                        <span class="metric-stat">0–100 Dental Score</span>
+                        <span class="metric-stat">3-Angle Vision Scan</span>
+                        <span class="metric-stat">iOS · watchOS</span>
+                    </div>
 
                     <div class="project-gallery">
                         <img src="assets/images/scandent/scandent_1.jpg" alt="ScanDent Dental Score" loading="lazy" width="900" height="1947">
@@ -1560,8 +1682,13 @@
                             <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1753228800" alt="Download on the App Store">
                         </a>
                         <a href="https://albaylar.github.io/scandent-web/" class="web-link" target="_blank" onclick="event.stopPropagation()" style="border-color: rgba(61,204,168,0.35); color: #3dcca8;">
-                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitScandent">Visit scandent-web</span>
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitScandent">Visit Website</span>
                         </a>
+                    </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -1577,10 +1704,32 @@
                     </div>
                     <h3>M & M Service und Dienstleistungen GmbH</h3>
                     <p data-i18n="corporateDesc">Next-gen digital ecosystem for M & M Service. Orchestrating facility management, logistics, and industrial cleaning through a cinematic, high-performance interface.</p>
+                    <div class="project-metrics">
+                        <span class="metric-stat">0.4s LCP</span>
+                        <span class="metric-stat">60fps GSAP</span>
+                        <span class="metric-stat">Industrial B2B</span>
+                    </div>
+                    <div class="mm-preview" aria-hidden="true">
+                        <div class="mm-bar">
+                            <div class="mm-dots"><span></span><span></span><span></span></div>
+                            <span class="mm-url">mm-leistungen.de</span>
+                        </div>
+                        <div class="mm-content">
+                            <div class="mm-line mm-line--title"></div>
+                            <div class="mm-line mm-line--sub"></div>
+                            <div class="mm-line mm-line--short"></div>
+                            <div class="mm-cta"></div>
+                        </div>
+                    </div>
                     <div class="project-links">
-                        <a href="https://mm-leistungen.de/" class="web-link" target="_blank">
+                        <a href="https://mm-leistungen.de/" class="web-link" target="_blank" onclick="event.stopPropagation()">
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSite">Visit mm-leistungen.de</span>
                         </a>
+                    </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -1774,7 +1923,7 @@
                 tagHealth: "Health",
                 tagVision: "AI Vision",
                 scandentDesc: "AI dental scanner that turns a guided 3-angle mouth capture into a 0–100 Dental Score. Vision-based analysis of plaque, enamel and gums, a whitening simulation, and a free Apple Watch brushing companion synced over App Groups.",
-                visitScandent: "Visit scandent-web",
+                visitScandent: "Visit Website",
                 caseScanTag: "Computer Vision Meets Daily Habit Design",
                 caseScanChal: "Turning three uncontrolled selfie angles into a score users trust — while staying strictly outside medical claims and keeping raw photos off any permanent server.",
                 caseScanSol: "Built a guided capture pipeline with on-device compression, a weighted scoring model blending visual AI (70%) with behavioural tracking (30%), and a watchOS companion that shares plan and streak state through App Groups."
@@ -1873,7 +2022,7 @@
                 tagHealth: "Gesundheit",
                 tagVision: "KI-Vision",
                 scandentDesc: "KI-Dentalscanner, der eine geführte 3-Winkel-Aufnahme des Mundes in einen Dental Score von 0–100 verwandelt. Vision-basierte Analyse von Plaque, Zahnschmelz und Zahnfleisch, eine Aufhellungssimulation und eine kostenlose Apple Watch App, synchronisiert über App Groups.",
-                visitScandent: "scandent-web besuchen",
+                visitScandent: "Website besuchen",
                 caseScanTag: "Computer Vision trifft auf tägliches Habit-Design",
                 caseScanChal: "Drei unkontrollierte Selfie-Winkel in einen Score verwandeln, dem Nutzer vertrauen — ohne medizinische Aussagen zu treffen und ohne Rohfotos dauerhaft zu speichern.",
                 caseScanSol: "Geführte Capture-Pipeline mit Komprimierung auf dem Gerät, ein gewichtetes Scoring-Modell aus visueller KI (70%) und Verhaltens-Tracking (30%) sowie eine watchOS-App, die Plan und Streak über App Groups teilt."
@@ -1972,7 +2121,7 @@
                 tagHealth: "Sağlık",
                 tagVision: "Yapay Zekâ Görü",
                 scandentDesc: "Rehberli 3 açılı ağız çekimini 0–100 arası Dental Skor'a dönüştüren yapay zekâ diş tarayıcısı. Plak, mine ve diş eti için görüntü tabanlı analiz, beyazlatma simülasyonu ve App Groups üzerinden senkronize olan ücretsiz Apple Watch uygulaması.",
-                visitScandent: "scandent-web'i ziyaret et",
+                visitScandent: "Web Sitesini Ziyaret Et",
                 caseScanTag: "Bilgisayarlı Görü ile Günlük Alışkanlık Tasarımı",
                 caseScanChal: "Kontrolsüz üç selfie açısını kullanıcının güvendiği bir skora dönüştürmek — tıbbi iddiaların tamamen dışında kalarak ve ham fotoğrafları kalıcı olarak saklamadan.",
                 caseScanSol: "Cihaz üzerinde sıkıştırma yapan rehberli bir çekim hattı, görsel yapay zekâyı (%70) davranışsal takiple (%30) harmanlayan ağırlıklı bir skorlama modeli ve plan ile seriyi App Groups üzerinden paylaşan bir watchOS uygulaması geliştirildi."
@@ -2072,7 +2221,7 @@
                 tagHealth: "Santé",
                 tagVision: "Vision IA",
                 scandentDesc: "Scanner dentaire IA qui transforme une capture guidée sous 3 angles en un Dental Score de 0 à 100. Analyse par vision de la plaque, de l'émail et des gencives, simulation de blanchiment et application Apple Watch gratuite synchronisée via App Groups.",
-                visitScandent: "Visiter scandent-web",
+                visitScandent: "Visiter le site",
                 caseScanTag: "La Vision par Ordinateur au Service des Habitudes",
                 caseScanChal: "Transformer trois angles de selfie non contrôlés en un score fiable — tout en restant strictement en dehors des allégations médicales et sans conserver les photos brutes.",
                 caseScanSol: "Pipeline de capture guidée avec compression sur l'appareil, modèle de scoring pondéré combinant vision IA (70%) et suivi comportemental (30%), et application watchOS partageant plan et série via App Groups."
@@ -2172,7 +2321,7 @@
                 tagHealth: "Salud",
                 tagVision: "Visión IA",
                 scandentDesc: "Escáner dental con IA que convierte una captura guiada de 3 ángulos en un Dental Score de 0 a 100. Análisis por visión de placa, esmalte y encías, simulación de blanqueamiento y app gratuita para Apple Watch sincronizada mediante App Groups.",
-                visitScandent: "Visitar scandent-web",
+                visitScandent: "Visitar el sitio",
                 caseScanTag: "Visión por Computador y Diseño de Hábitos Diarios",
                 caseScanChal: "Convertir tres ángulos de selfie no controlados en una puntuación fiable — sin realizar afirmaciones médicas y sin almacenar las fotos originales de forma permanente.",
                 caseScanSol: "Pipeline de captura guiada con compresión en el dispositivo, modelo de puntuación ponderado que combina visión IA (70%) y seguimiento conductual (30%), y app watchOS que comparte plan y racha vía App Groups."
@@ -2272,7 +2421,7 @@
                 tagHealth: "Salute",
                 tagVision: "Visione IA",
                 scandentDesc: "Scanner dentale IA che trasforma una cattura guidata a 3 angolazioni in un Dental Score da 0 a 100. Analisi visiva di placca, smalto e gengive, simulazione dello sbiancamento e app Apple Watch gratuita sincronizzata tramite App Groups.",
-                visitScandent: "Visita scandent-web",
+                visitScandent: "Visita il sito",
                 caseScanTag: "Computer Vision e Design delle Abitudini Quotidiane",
                 caseScanChal: "Trasformare tre angolazioni di selfie non controllate in un punteggio affidabile — restando rigorosamente al di fuori di affermazioni mediche e senza conservare le foto originali.",
                 caseScanSol: "Pipeline di acquisizione guidata con compressione sul dispositivo, modello di scoring ponderato che combina visione IA (70%) e tracciamento comportamentale (30%), e app watchOS che condivide piano e streak tramite App Groups."
