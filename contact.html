@@ -60,6 +60,53 @@
         h1 { font-family: var(--font-main); font-size: 2.5rem; margin-bottom: 10px; }
         p { color: var(--text-secondary); margin-bottom: 40px; }
 
+        .response-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(39, 201, 63, 0.08);
+            border: 1px solid rgba(39, 201, 63, 0.25);
+            color: #27c93f;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .response-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #27c93f;
+            animation: pulse-g 2s ease-in-out infinite;
+        }
+        @keyframes pulse-g {
+            0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .contact-social a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            width: 44px; height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.3s, background 0.3s;
+        }
+        .contact-social a:hover {
+            color: var(--accent);
+            background: rgba(41,151,255,0.08);
+        }
+
         .form-group { text-align: left; margin-bottom: 25px; }
         label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
         
@@ -170,6 +217,10 @@
     </div>
 
     <div class="contact-container">
+        <div class="response-badge">
+            <span class="response-dot"></span>
+            <span data-i18n="responseTime">Responds within 24h</span>
+        </div>
         <h1 data-i18n="contactTitle">Direct Inquiry</h1>
         <p data-i18n="contactSub">Fill out the form below and I'll get back to you shortly.</p>
         
@@ -201,11 +252,18 @@
         </a>
 
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="btnBack">Back to Home</span></a>
+
+        <nav class="contact-social" aria-label="Social links">
+            <a href="https://github.com/Albaylar" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/furkandenizalbaylar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://apps.apple.com/us/developer/furkan-deniz-albaylar/id1755148100" target="_blank" rel="noopener noreferrer" aria-label="App Store profile"><i class="fab fa-app-store-ios"></i></a>
+        </nav>
     </div>
 
     <script>
         const translations = {
             en: {
+                responseTime: "Responds within 24h",
                 contactTitle: "Direct Inquiry",
                 contactSub: "Fill out the form below and I'll get back to you shortly.",
                 labelName: "Your Name",
@@ -217,6 +275,7 @@
                 btnCall: "Call Directly"
             },
             de: {
+                responseTime: "Antwortet innerhalb von 24h",
                 contactTitle: "Direktanfrage",
                 contactSub: "Füllen Sie das Formular aus und ich melde mich in Kürze bei Ihnen.",
                 labelName: "Ihr Name",
@@ -228,6 +287,7 @@
                 btnCall: "Direkt anrufen"
             },
             tr: {
+                responseTime: "24 saat içinde yanıt verir",
                 contactTitle: "Doğrudan Talep",
                 contactSub: "Aşağıdaki formu doldurun, en kısa sürede size dönüş yapacağım.",
                 labelName: "Adınız",
@@ -239,6 +299,7 @@
                 btnCall: "Doğrudan Ara"
             },
             fr: {
+                responseTime: "Répond en moins de 24h",
                 contactTitle: "Demande Directe",
                 contactSub: "Remplissez le formulaire ci-dessous et je vous recontacterai sous peu.",
                 labelName: "Votre Nom",
@@ -250,6 +311,7 @@
                 btnCall: "Appeler directement"
             },
             es: {
+                responseTime: "Responde en menos de 24h",
                 contactTitle: "Consulta Directa",
                 contactSub: "Completa el formulario a continuación y me pondré en contacto contigo pronto.",
                 labelName: "Tu Nombre",
@@ -261,6 +323,7 @@
                 btnCall: "Llamar directamente"
             },
             it: {
+                responseTime: "Risponde entro 24h",
                 contactTitle: "Richiesta Diretta",
                 contactSub: "Compila il modulo sottostante e ti ricontatterò al più presto.",
                 labelName: "Il Tuo Nome",

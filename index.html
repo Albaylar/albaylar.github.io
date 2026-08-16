@@ -1303,6 +1303,39 @@
             .testimonials-grid { grid-template-columns: 1fr; padding: 60px 8%; }
         }
 
+        /* Ethos section */
+        .ethos-section {
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .ethos-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 8%;
+        }
+        .ethos-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .ethos-title {
+            font-family: var(--font-main);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.04em;
+        }
+        .ethos-text {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
         /* Footer terminal toggle */
         .terminal-toggle {
             max-width: 800px;
@@ -1529,7 +1562,7 @@
                     <div class="tech-stack" style="grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 16px;">
                         <div class="tech-pill"><i class="fas fa-eye"></i><span>Vision</span></div>
                         <div class="tech-pill"><i class="fas fa-microchip"></i><span>CoreML</span></div>
-                        <div class="tech-pill"><i class="fas fa-waveform-lines"></i><span>AVFoundation</span></div>
+                        <div class="tech-pill"><i class="fas fa-microphone"></i><span>AVFoundation</span></div>
                         <div class="tech-pill"><i class="fas fa-robot"></i><span>LLM APIs</span></div>
                     </div>
                 </div>
@@ -1597,11 +1630,11 @@
     </div>
 
     <!-- Ethos Section -->
-    <section class="ethos-section" style="padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 8%;">
-            <div class="ethos-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <h2 data-i18n="ethosTitle" style="font-family: var(--font-main); font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.04em;">Engineering Ethos</h2>
-                <p data-i18n="ethosText" style="font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; color: var(--text-secondary); font-weight: 300; font-style: italic; opacity: 0.9;">
+    <section class="ethos-section">
+        <div class="ethos-inner">
+            <div class="ethos-content">
+                <h2 class="ethos-title" data-i18n="ethosTitle">Engineering Ethos</h2>
+                <p class="ethos-text" data-i18n="ethosText">
                     I'd rather ship one app that survives contact with real users than ten polished prototypes. Everything on this page went through App Store review, crash reports, and the unglamorous work of maintaining something people already depend on. My background is Electrical &amp; Electronics Engineering — I came to mobile through hardware constraints, and I still think in terms of budgets: frame time, memory, battery, and the user's patience.
                 </p>
             </div>
