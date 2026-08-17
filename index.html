@@ -649,34 +649,6 @@
         @media (max-width: 768px) { .kbd-hint { display: none; } }
 
         /* Hero CTA */
-        .availability-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 8px 20px;
-            border-radius: 100px;
-            background: rgba(39, 201, 63, 0.08);
-            border: 1px solid rgba(39, 201, 63, 0.28);
-            color: #27c93f;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            margin-bottom: 36px;
-        }
-        .availability-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #27c93f;
-            flex-shrink: 0;
-            animation: pulse-green 2s ease-in-out infinite;
-        }
-        @keyframes pulse-green {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50%       { opacity: 0.45; transform: scale(0.75); }
-        }
-
         .hero-note {
             margin-top: 28px;
             font-size: 0.82rem;
@@ -1521,10 +1493,6 @@
     </nav>
 
     <section class="hero">
-        <div class="availability-badge">
-            <span class="availability-dot"></span>
-            <span data-i18n="availBadge">Available for new projects</span>
-        </div>
         <h1 data-i18n="heroTitle">Senior iOS Engineer<br>in Berlin</h1>
         <p data-i18n="heroSub">Four apps live on the App Store — an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.</p>
         <div class="hero-cta">
