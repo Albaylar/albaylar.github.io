@@ -582,16 +582,24 @@
         }
 
         .app-store-btn {
-            display: inline-block;
-            height: 44px;
-            border-radius: 14px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: var(--font-sub);
+            transition: all 0.3s ease;
         }
-        .app-store-btn img { border-radius: 14px; display: block; }
 
         .app-store-btn:hover {
-            transform: scale(1.05);
+            background: var(--text);
+            color: var(--bg);
         }
 
         .web-link {
@@ -1650,8 +1658,8 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/speachyai/id6742565399" class="app-store-btn" target="_blank">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1718841600" alt="Download on the App Store">
+                        <a href="https://apps.apple.com/us/app/speachyai/id6742565399" class="app-store-btn" target="_blank" rel="noopener">
+                            <i class="fab fa-apple" aria-hidden="true"></i> App Store
                         </a>
                         <a href="https://speachyai.com" class="web-link" target="_blank">
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSpeachy">Visit speachyai.com</span>
@@ -1692,8 +1700,8 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/chargeev/id6505103671" class="app-store-btn" target="_blank" onclick="event.stopPropagation()">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1675209600" alt="Download on the App Store">
+                        <a href="https://apps.apple.com/us/app/chargeev/id6505103671" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                            <i class="fab fa-apple" aria-hidden="true"></i> App Store
                         </a>
                         <a href="/chargeev" class="web-link" onclick="event.stopPropagation()" style="border-color: rgba(0,212,106,0.3); color: #00d46a;"><i class="fas fa-external-link-alt"></i> <span data-i18n="viewDetails">View Details</span></a>
                     </div>
@@ -1732,8 +1740,8 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/mining-town/id6760492654" class="app-store-btn" target="_blank" onclick="event.stopPropagation()">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1718841600" alt="Download on the App Store">
+                        <a href="https://apps.apple.com/us/app/mining-town/id6760492654" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                            <i class="fab fa-apple" aria-hidden="true"></i> App Store
                         </a>
                         <a href="/miningtown" class="web-link" onclick="event.stopPropagation()" style="border-color: rgba(245,166,35,0.3); color: #f5a623;"><i class="fas fa-external-link-alt"></i> <span data-i18n="viewDetails">View Details</span></a>
                     </div>
@@ -1774,8 +1782,8 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/scandent-ai-dental-scanner/id6792388868" class="app-store-btn" target="_blank" onclick="event.stopPropagation()">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1753228800" alt="Download on the App Store">
+                        <a href="https://apps.apple.com/us/app/scandent-ai-dental-scanner/id6792388868" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                            <i class="fab fa-apple" aria-hidden="true"></i> App Store
                         </a>
                         <a href="https://albaylar.github.io/scandent-web/" class="web-link" target="_blank" onclick="event.stopPropagation()" style="border-color: rgba(61,204,168,0.35); color: #3dcca8;">
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitScandent">Visit Website</span>
