@@ -682,6 +682,16 @@
             color: var(--text);
             box-shadow: 0 12px 40px rgba(41,151,255,0.35);
         }
+        .cv-text-link {
+            display: block;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .cv-text-link:hover { opacity: 1; }
 
         /* Project Image Gallery */
         .project-gallery {
@@ -1450,8 +1460,9 @@
         <p data-i18n="heroSub">Four apps live on the App Store: an LLM conversational platform, an EV charging map with CarPlay, a SpriteKit game, and an AI dental scanner with an Apple Watch companion. I own the whole path: architecture, Swift, App Store review, and everything that comes after launch.</p>
         <div class="hero-cta">
             <a href="#projects" class="hero-btn primary" data-i18n="ctaWork">View Selected Works</a>
-            <a href="assets/cv/FurkanDenizAlbaylar-CV.pdf" target="_blank" rel="noopener" class="hero-btn" data-i18n="ctaCV">Download CV</a>
+            <a href="contact.html" class="hero-btn" data-i18n="getInTouch">Get In Touch</a>
         </div>
+        <a href="assets/cv/FurkanDenizAlbaylar-CV.pdf" target="_blank" rel="noopener" class="cv-text-link" data-i18n="ctaCV">Download CV</a>
         <a href="#about" class="scroll-indicator" data-i18n="heroScroll" style="text-decoration:none;">Discover</a>
     </section>
 
