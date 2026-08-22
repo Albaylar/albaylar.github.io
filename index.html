@@ -548,10 +548,27 @@
         }
 
         .project-card:hover {
-            transform: scale(1.02);
+            transform: scale(1.015) translateY(-6px);
             background: #161617;
-            border-color: rgba(41, 151, 255, 0.3);
-            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            border-color: var(--card-accent);
+            box-shadow: 0 60px 120px rgba(0,0,0,0.85);
+        }
+
+        @keyframes cardShimmer {
+            0%   { transform: translateX(-120%) skewX(-12deg); }
+            100% { transform: translateX(220%)  skewX(-12deg); }
+        }
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 40%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: translateX(-120%) skewX(-12deg);
+            pointer-events: none;
+        }
+        .project-card:hover::after {
+            animation: cardShimmer 0.65s ease forwards;
         }
 
         .project-header {
@@ -1392,6 +1409,57 @@
             transform: translateX(0);
         }
 
+        /* Browser mockup preview */
+        .web-browser-mock {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .browser-chrome {
+            background: rgba(255,255,255,0.05);
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .b-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            flex-shrink: 0;
+        }
+        .browser-url {
+            margin-left: 8px;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: rgba(255,255,255,0.04);
+            padding: 2px 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.06);
+            letter-spacing: 0.02em;
+        }
+        .browser-body {
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .browser-body i { font-size: 2.2rem; }
+        .browser-site-title {
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .browser-site-sub {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
         /* Experience Section */
         .experience-section {
             padding: 120px 0;
@@ -2066,8 +2134,8 @@
                 </div>
             </div>
 
-            <!-- Corporate -->
-            <div class="project-card" style="--card-accent: rgba(255,255,255,0.3);">
+            <!-- M&M Corporate Site -->
+            <div class="project-card" style="--card-accent: rgba(255,255,255,0.5);">
                 <span class="project-num">05</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2078,19 +2146,60 @@
                     <h3>M & M Service und Dienstleistungen GmbH</h3>
                     <p data-i18n="corporateDesc">Full-stack marketing site built from scratch for a Berlin B2B service company. Next.js 15 + React 19, Google Gemini AI assistant, Firebase lead management with admin panel, 3-language (DE/EN/TR), and GDPR-compliant.</p>
                     <div class="project-metrics">
-                        <span class="metric-stat">Next.js 15</span>
-                        <span class="metric-stat">Gemini AI</span>
+                        <span class="metric-stat">Gemini AI Chat</span>
+                        <span class="metric-stat">Firebase Leads</span>
                         <span class="metric-stat">DE / EN / TR</span>
                     </div>
                     <div class="project-gallery" style="margin: 20px 0 8px; border-radius: 12px; overflow: hidden;">
-                        <img src="assets/images/mmservice/mm_launch.jpg" alt="M&M Service neue Website Launch" loading="lazy" width="1806" height="1808" style="height: 320px; object-fit: cover; object-position: top; scroll-snap-align: start; flex-shrink: 0; width: 100%;">
+                        <img src="assets/images/mmservice/mm_launch.jpg" alt="M&M Service neue Website Launch" loading="lazy" width="1806" height="1808" style="height: 300px; object-fit: cover; object-position: top; scroll-snap-align: start; flex-shrink: 0; width: 100%;">
                     </div>
                     <div class="project-links">
-                        <a href="https://www.xn--mm-schlsseldienst-82b.de/de" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-                            <i class="fas fa-external-link-alt"></i> <span>mm-schlüsseldienst.de</span>
+                        <a href="https://mm-leistungen.de/" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="border-color: rgba(255,255,255,0.2); color: #fff;">
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSite">Visit mm-leistungen.de</span>
                         </a>
-                        <a href="https://mm-leistungen.de/" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-                            <i class="fas fa-external-link-alt"></i> <span>mm-leistungen.de</span>
+                    </div>
+                    <div class="card-case-hint">
+                        <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        <span>Case Study</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MM Schlüsseldienst Berlin -->
+            <div class="project-card" style="--card-accent: #e63946;">
+                <span class="project-num">06</span>
+                <div class="project-info">
+                    <div class="tags">
+                        <span class="tag">Local SEO</span>
+                        <span class="tag">Geo-targeting</span>
+                        <span class="tag">Next.js 15</span>
+                    </div>
+                    <h3>MM Schlüsseldienst Berlin</h3>
+                    <p data-i18n="schluesselDesc">Emergency locksmith web presence built with local SEO from the ground up — geo-targeted landing pages for all 23 Berlin districts, LocalBusiness structured data, and emergency-intent conversion paths.</p>
+                    <div class="project-metrics">
+                        <span class="metric-stat">23 Berliner Bezirke</span>
+                        <span class="metric-stat">LocalBusiness Schema</span>
+                        <span class="metric-stat">Geo-SEO</span>
+                    </div>
+                    <div class="web-browser-mock">
+                        <div class="browser-chrome">
+                            <span class="b-dot"></span>
+                            <span class="b-dot"></span>
+                            <span class="b-dot"></span>
+                            <div class="browser-url">mm-schlüsseldienst.de</div>
+                        </div>
+                        <div class="browser-body" style="background: rgba(230,57,70,0.05);">
+                            <i class="fas fa-key" style="color: #e63946;" aria-hidden="true"></i>
+                            <div>
+                                <div class="browser-site-title">Schlüsseldienst Berlin — 24/7</div>
+                                <div class="browser-site-sub">Alle Berliner Bezirke · LocalBusiness Schema · Geo-targeted SEO</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.xn--mm-schlsseldienst-82b.de/de" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="border-color: rgba(230,57,70,0.35); color: #e63946;">
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSchluessel">Visit mm-schlüsseldienst.de</span>
                         </a>
                     </div>
                     <div class="card-case-hint">
@@ -2310,7 +2419,12 @@
                 expRole3: "iOS Developer",
                 expPeriod3: "2 years · 20-person team",
                 expCompany3: "Consumer Mobile Banking App",
-                expDesc3: "Shipped 30+ production sprints on a live banking app used by real customers. VIPER architecture, XCTest and XCUITest on critical paths, Instruments profiling when frame budgets slipped, and crash triage after every release. Crash rate reduced to near zero."
+                expDesc3: "Shipped 30+ production sprints on a live banking app used by real customers. VIPER architecture, XCTest and XCUITest on critical paths, Instruments profiling when frame budgets slipped, and crash triage after every release. Crash rate reduced to near zero.",
+                schluesselDesc: "Emergency locksmith web presence built with local SEO from the ground up — geo-targeted landing pages for all 23 Berlin districts, LocalBusiness structured data, and emergency-intent conversion paths.",
+                visitSchluessel: "Visit mm-schlüsseldienst.de",
+                caseSchluesselTag: "Local SEO · Geo-targeting · 23 Berlin Districts",
+                caseSchluesselChal: "Rank for high-intent emergency locksmith searches across all 23 Berlin districts, against established local competitors, with a brand-new domain and no existing authority.",
+                caseSchluesselSol: "Built geo-targeted landing pages for every Berlin district with localised copy and structured data. Implemented LocalBusiness and Service schema markup for rich results. Optimised page speed and Core Web Vitals for mobile-first emergency searches. Internal linking structure connects district pages to reinforce topical authority."
             },
             de: {
                 navAbout: "Über mich",
@@ -2422,7 +2536,12 @@
                 expRole3: "iOS-Entwickler",
                 expPeriod3: "2 Jahre · 20-köpfiges Team",
                 expCompany3: "Mobile Banking-App (Verbraucher)",
-                expDesc3: "Über 30 Produktions-Sprints an einer Live-Banking-App ausgeliefert. VIPER-Architektur, XCTest und XCUITest auf kritischen Pfaden, Instruments-Profiling und Crash-Triage nach jedem Release. Crash-Rate auf nahezu null gesenkt."
+                expDesc3: "Über 30 Produktions-Sprints an einer Live-Banking-App ausgeliefert. VIPER-Architektur, XCTest und XCUITest auf kritischen Pfaden, Instruments-Profiling und Crash-Triage nach jedem Release. Crash-Rate auf nahezu null gesenkt.",
+                schluesselDesc: "Schlüsseldienst-Webpräsenz mit lokalem SEO von Grund auf gebaut — geo-zielgerichtete Landingpages für alle 23 Berliner Bezirke, LocalBusiness-Strukturdaten und Conversion-Pfade für Notfallanfragen.",
+                visitSchluessel: "mm-schlüsseldienst.de besuchen",
+                caseSchluesselTag: "Local SEO · Geo-Targeting · 23 Berliner Bezirke",
+                caseSchluesselChal: "Für hochintentionale Notfall-Schlüsseldienst-Suchanfragen in allen 23 Berliner Bezirken zu ranken — gegen etablierte lokale Mitbewerber mit einer neuen Domain ohne bestehende Autorität.",
+                caseSchluesselSol: "Geo-zielgerichtete Landingpages für jeden Berliner Bezirk mit lokalisierten Texten und strukturierten Daten erstellt. LocalBusiness- und Service-Schema-Markup für Rich Results implementiert. Ladegeschwindigkeit und Core Web Vitals für mobile Notfallsuchen optimiert. Interne Verlinkungsstruktur verbindet Bezirksseiten zur Stärkung der thematischen Autorität."
             },
             tr: {
                 navAbout: "Hakkımda",
@@ -2534,7 +2653,12 @@
                 expRole3: "iOS Geliştirici",
                 expPeriod3: "2 yıl · 20 kişilik ekip",
                 expCompany3: "Tüketici Mobil Bankacılık Uygulaması",
-                expDesc3: "Gerçek müşterilerin kullandığı canlı bir bankacılık uygulamasında 30'dan fazla üretim sprint'i teslim edildi. VIPER mimarisi, kritik yollarda XCTest ve XCUITest, kare bütçesi sorunda Instruments profiling ve her sürüm sonrası çökme analizi. Çökme oranı sıfıra yaklaştırıldı."
+                expDesc3: "Gerçek müşterilerin kullandığı canlı bir bankacılık uygulamasında 30'dan fazla üretim sprint'i teslim edildi. VIPER mimarisi, kritik yollarda XCTest ve XCUITest, kare bütçesi sorunda Instruments profiling ve her sürüm sonrası çökme analizi. Çökme oranı sıfıra yaklaştırıldı.",
+                schluesselDesc: "Tüm 23 Berlin ilçesi için geo-hedefli açılış sayfaları, LocalBusiness yapısal verileri ve acil durum aramalarına yönelik dönüşüm yolları ile sıfırdan yerel SEO altyapısı kurulmuş bir Schlüsseldienst web sitesi.",
+                visitSchluessel: "mm-schlüsseldienst.de'yi ziyaret et",
+                caseSchluesselTag: "Yerel SEO · Geo-targeting · 23 Berlin İlçesi",
+                caseSchluesselChal: "Yeni bir alan adı ve mevcut otorite olmadan, yerleşik yerel rakiplere karşı tüm 23 Berlin ilçesinde yüksek niyetli acil Schlüsseldienst aramalarında üst sıralara çıkmak.",
+                caseSchluesselSol: "Her Berlin ilçesi için yerelleştirilmiş içerik ve yapısal verilerle geo-hedefli açılış sayfaları oluşturuldu. Zengin sonuçlar için LocalBusiness ve Service schema markup uygulandı. Mobil öncelikli acil aramalar için sayfa hızı ve Core Web Vitals optimize edildi. İç bağlantı yapısı, konu otoritesini güçlendirmek için ilçe sayfalarını birbirine bağlıyor."
             },
             fr: {
                 navAbout: "À propos",
@@ -2646,7 +2770,12 @@
                 expRole3: "Développeur iOS",
                 expPeriod3: "2 ans · Équipe de 20",
                 expCompany3: "App bancaire mobile grand public",
-                expDesc3: "Plus de 30 sprints de production livrés sur une app bancaire en production. Architecture VIPER, XCTest et XCUITest sur les chemins critiques, profiling Instruments et triage des crashs après chaque release. Taux de crash réduit à quasi zéro."
+                expDesc3: "Plus de 30 sprints de production livrés sur une app bancaire en production. Architecture VIPER, XCTest et XCUITest sur les chemins critiques, profiling Instruments et triage des crashs après chaque release. Taux de crash réduit à quasi zéro.",
+                schluesselDesc: "Site de serrurier d'urgence construit avec une infrastructure SEO locale complète — pages géo-ciblées pour les 23 arrondissements de Berlin, données structurées LocalBusiness et tunnels de conversion pour recherches d'urgence.",
+                visitSchluessel: "Visiter mm-schlüsseldienst.de",
+                caseSchluesselTag: "SEO Local · Geo-ciblage · 23 Arrondissements de Berlin",
+                caseSchluesselChal: "Se positionner sur les recherches urgentes de serrurier dans les 23 arrondissements de Berlin, face à des concurrents établis, avec un nouveau domaine sans autorité existante.",
+                caseSchluesselSol: "Pages géo-ciblées créées pour chaque arrondissement avec du contenu localisé et des données structurées. Balisage LocalBusiness et Service Schema pour les résultats enrichis. Vitesse de page et Core Web Vitals optimisés pour les recherches mobiles d'urgence. Structure de liens internes reliant les pages d'arrondissements pour renforcer l'autorité thématique."
             },
             es: {
                 navAbout: "Sobre mí",
@@ -2758,7 +2887,12 @@
                 expRole3: "Desarrollador iOS",
                 expPeriod3: "2 años · Equipo de 20",
                 expCompany3: "App de banca móvil de consumo",
-                expDesc3: "Más de 30 sprints de producción entregados en una app bancaria en vivo. Arquitectura VIPER, XCTest y XCUITest en rutas críticas, profiling con Instruments y triage de fallos tras cada lanzamiento. Tasa de fallos reducida a casi cero."
+                expDesc3: "Más de 30 sprints de producción entregados en una app bancaria en vivo. Arquitectura VIPER, XCTest y XCUITest en rutas críticas, profiling con Instruments y triage de fallos tras cada lanzamiento. Tasa de fallos reducida a casi cero.",
+                schluesselDesc: "Presencia web de cerrajería de emergencia construida con infraestructura SEO local completa — páginas geo-dirigidas para los 23 distritos de Berlín, datos estructurados LocalBusiness y rutas de conversión para búsquedas de emergencia.",
+                visitSchluessel: "Visitar mm-schlüsseldienst.de",
+                caseSchluesselTag: "SEO Local · Geo-targeting · 23 Distritos de Berlín",
+                caseSchluesselChal: "Posicionarse en búsquedas de alta intención de cerrajería de emergencia en los 23 distritos de Berlín, contra competidores locales establecidos, con un dominio nuevo sin autoridad existente.",
+                caseSchluesselSol: "Páginas geo-dirigidas para cada distrito de Berlín con contenido localizado y datos estructurados. Marcado LocalBusiness y Service Schema para resultados enriquecidos. Velocidad de página y Core Web Vitals optimizados para búsquedas móviles de emergencia. Estructura de enlaces internos conectando páginas de distritos para reforzar la autoridad temática."
             },
             it: {
                 navAbout: "Su di me",
@@ -2870,7 +3004,12 @@
                 expRole3: "Sviluppatore iOS",
                 expPeriod3: "2 anni · Team di 20",
                 expCompany3: "App bancaria mobile consumer",
-                expDesc3: "Oltre 30 sprint di produzione consegnati su un'app bancaria in produzione. Architettura VIPER, XCTest e XCUITest sui percorsi critici, profiling con Instruments e triage dei crash dopo ogni release. Tasso di crash ridotto a quasi zero."
+                expDesc3: "Oltre 30 sprint di produzione consegnati su un'app bancaria in produzione. Architettura VIPER, XCTest e XCUITest sui percorsi critici, profiling con Instruments e triage dei crash dopo ogni release. Tasso di crash ridotto a quasi zero.",
+                schluesselDesc: "Sito web di fabbro d'emergenza costruito con un'infrastruttura SEO locale completa — pagine geo-targetizzate per tutti i 23 quartieri di Berlino, dati strutturati LocalBusiness e percorsi di conversione per ricerche di emergenza.",
+                visitSchluessel: "Visita mm-schlüsseldienst.de",
+                caseSchluesselTag: "SEO Locale · Geo-targeting · 23 Quartieri di Berlino",
+                caseSchluesselChal: "Posizionarsi nelle ricerche ad alta intensità di fabbro d'emergenza in tutti i 23 quartieri di Berlino, contro concorrenti locali affermati, con un nuovo dominio senza autorità esistente.",
+                caseSchluesselSol: "Pagine geo-targetizzate create per ogni quartiere di Berlino con contenuti localizzati e dati strutturati. Markup LocalBusiness e Service Schema per risultati arricchiti. Velocità di pagina e Core Web Vitals ottimizzati per ricerche mobile di emergenza. Struttura di link interni che collega le pagine dei quartieri per rafforzare l'autorità tematica."
             }
         };
 
@@ -2993,7 +3132,7 @@
         }, "-=0.5");
 
         // Reveal Animations
-        gsap.utils.toArray(".bento-item, .project-card, .exp-card, .section-title").forEach((el) => {
+        gsap.utils.toArray(".bento-item, .exp-card, .section-title").forEach((el) => {
             gsap.from(el, {
                 scrollTrigger: {
                     trigger: el,
@@ -3004,6 +3143,23 @@
                 opacity: 0,
                 y: 50,
                 ease: "power4.out"
+            });
+        });
+
+        // Project cards: staggered entrance per visible group
+        gsap.utils.toArray(".project-card").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 88%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1.1,
+                opacity: 0,
+                y: 70,
+                scale: 0.97,
+                ease: "expo.out",
+                delay: (i % 2) * 0.12
             });
         });
 
@@ -3194,6 +3350,14 @@
                     arch: 'Next.js 15 / React 19 / SSR',
                     stack: 'Next.js, React, Gemini AI, Firebase, next-intl, reCAPTCHA',
                     perf: 'SSR · DE/EN/TR · GDPR'
+                },
+                'MM Schlüsseldienst Berlin': {
+                    tagline: t.caseSchluesselTag,
+                    challenge: t.caseSchluesselChal,
+                    solution: t.caseSchluesselSol,
+                    arch: 'Next.js 15 / SSR / Local SEO',
+                    stack: 'Next.js, TypeScript, Structured Data, Geo-targeting, next-intl',
+                    perf: '23 Bezirke · LocalBusiness Schema'
                 }
             };
 
