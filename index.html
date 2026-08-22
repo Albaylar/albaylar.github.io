@@ -1392,6 +1392,177 @@
             transform: translateX(0);
         }
 
+        /* Experience Section */
+        .experience-section {
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .exp-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 8%;
+        }
+        .exp-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 60px;
+        }
+        .exp-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 36px 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--accent-gradient);
+            border-radius: 3px 0 0 3px;
+        }
+        .exp-card:hover {
+            border-color: rgba(41, 151, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .exp-role-tag {
+            font-family: var(--font-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: rgba(41, 151, 255, 0.1);
+            border: 1px solid rgba(41, 151, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .exp-period {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.04em;
+        }
+        .exp-company {
+            font-family: var(--font-main);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+        .exp-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 720px;
+        }
+        .exp-apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .exp-app-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+            min-height: 44px;
+        }
+        .exp-app-pill:hover {
+            border-color: rgba(41, 151, 255, 0.4);
+            background: rgba(41, 151, 255, 0.08);
+            color: var(--accent);
+        }
+        .exp-app-pill i { font-size: 0.85rem; color: var(--accent); }
+        .exp-sites-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .exp-site-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+            min-height: 44px;
+        }
+        .exp-site-card:hover {
+            border-color: rgba(41, 151, 255, 0.4);
+            background: rgba(41, 151, 255, 0.08);
+        }
+        .exp-site-card i { color: var(--accent); font-size: 0.8rem; }
+        .exp-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .exp-stack-pill {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.02em;
+        }
+        .exp-nda-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #f5a623;
+            background: rgba(245, 166, 35, 0.1);
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-family: var(--font-sub);
+        }
+        @media (max-width: 768px) {
+            .exp-card { padding: 24px 20px; }
+            .exp-company { font-size: 1.15rem; }
+            .exp-header { flex-direction: column; align-items: flex-start; }
+        }
+
     </style>
 
     <!-- Google tag (gtag.js) - Google Ads: AW-18130833656 -->
@@ -1567,6 +1738,104 @@
             </div>
         </div>
     </div>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+        <div class="exp-inner">
+            <h2 class="section-title" data-i18n="expTitle">Experience</h2>
+            <div class="exp-timeline">
+
+                <!-- iOS Apps -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role-tag" data-i18n="expRole1">iOS Engineer</span>
+                        <span class="exp-period" data-i18n="expPeriod1">2023 — Present</span>
+                    </div>
+                    <h3 class="exp-company" data-i18n="expCompany1">Independent — App Store</h3>
+                    <p class="exp-desc" data-i18n="expDesc1">Four iOS applications designed, architected, and shipped end to end. Every aspect owned: Swift, SwiftUI, App Store review, and post-launch maintenance across iOS, watchOS, and CarPlay.</p>
+                    <div class="exp-apps-grid">
+                        <a href="https://apps.apple.com/us/app/speachyai/id6742565399" target="_blank" rel="noopener" class="exp-app-pill">
+                            <i class="fab fa-apple" aria-hidden="true"></i> SpeachyAI
+                        </a>
+                        <a href="https://apps.apple.com/us/app/chargeev/id6505103671" target="_blank" rel="noopener" class="exp-app-pill">
+                            <i class="fab fa-apple" aria-hidden="true"></i> ChargeEV
+                        </a>
+                        <a href="https://apps.apple.com/us/app/mining-town/id6760492654" target="_blank" rel="noopener" class="exp-app-pill">
+                            <i class="fab fa-apple" aria-hidden="true"></i> Mining Town
+                        </a>
+                        <a href="https://apps.apple.com/us/app/scandent-ai-dental-scanner/id6792388868" target="_blank" rel="noopener" class="exp-app-pill">
+                            <i class="fab fa-apple" aria-hidden="true"></i> ScanDent
+                        </a>
+                    </div>
+                    <div class="exp-stack">
+                        <span class="exp-stack-pill">Swift</span>
+                        <span class="exp-stack-pill">SwiftUI</span>
+                        <span class="exp-stack-pill">CoreML</span>
+                        <span class="exp-stack-pill">AVFoundation</span>
+                        <span class="exp-stack-pill">MapKit</span>
+                        <span class="exp-stack-pill">SpriteKit</span>
+                        <span class="exp-stack-pill">StoreKit 2</span>
+                        <span class="exp-stack-pill">CarPlay</span>
+                        <span class="exp-stack-pill">watchOS</span>
+                        <span class="exp-stack-pill">ElevenLabs</span>
+                    </div>
+                </div>
+
+                <!-- M&M Websites -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role-tag" data-i18n="expRole2">Full-Stack Developer</span>
+                        <span class="exp-period" data-i18n="expPeriod2">2025</span>
+                    </div>
+                    <h3 class="exp-company">M &amp; M Service und Dienstleistungen GmbH</h3>
+                    <p class="exp-desc" data-i18n="expDesc2">Two web platforms built from scratch for a Berlin-based B2B service company. The main corporate site features a Gemini AI assistant, Firebase lead management with admin panel, and three-language localisation. The Schlüsseldienst site was built with a full SEO infrastructure, geo-targeting, and structured data to rank locally across Berlin districts.</p>
+                    <div class="exp-sites-grid">
+                        <a href="https://mm-leistungen.de/" target="_blank" rel="noopener noreferrer" class="exp-site-card">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                            mm-leistungen.de
+                        </a>
+                        <a href="https://www.xn--mm-schlsseldienst-82b.de/de" target="_blank" rel="noopener noreferrer" class="exp-site-card">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                            mm-schlüsseldienst.de
+                        </a>
+                    </div>
+                    <div class="exp-stack">
+                        <span class="exp-stack-pill">Next.js 15</span>
+                        <span class="exp-stack-pill">React 19</span>
+                        <span class="exp-stack-pill">TypeScript</span>
+                        <span class="exp-stack-pill">Gemini AI</span>
+                        <span class="exp-stack-pill">Firebase</span>
+                        <span class="exp-stack-pill">next-intl</span>
+                        <span class="exp-stack-pill">SEO / Geo-targeting</span>
+                        <span class="exp-stack-pill">GDPR</span>
+                    </div>
+                </div>
+
+                <!-- Banking App -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role-tag" data-i18n="expRole3">iOS Developer</span>
+                        <span class="exp-period" data-i18n="expPeriod3">2 years · 20-person team</span>
+                    </div>
+                    <h3 class="exp-company">
+                        <span data-i18n="expCompany3">Consumer Mobile Banking App</span>
+                        <span class="exp-nda-badge"><i class="fas fa-lock" aria-hidden="true"></i> NDA</span>
+                    </h3>
+                    <p class="exp-desc" data-i18n="expDesc3">Shipped 30+ production sprints on a live banking app used by real customers. VIPER architecture, XCTest and XCUITest on critical paths, Instruments profiling when frame budgets slipped, and crash triage after every release. Crash rate reduced to near zero.</p>
+                    <div class="exp-stack">
+                        <span class="exp-stack-pill">Swift</span>
+                        <span class="exp-stack-pill">UIKit</span>
+                        <span class="exp-stack-pill">VIPER</span>
+                        <span class="exp-stack-pill">XCTest</span>
+                        <span class="exp-stack-pill">XCUITest</span>
+                        <span class="exp-stack-pill">Core Data</span>
+                        <span class="exp-stack-pill">Instruments</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Ethos Section -->
     <section class="ethos-section">
@@ -2029,7 +2298,19 @@
                 visitScandent: "Visit Website",
                 caseScanTag: "Computer Vision Meets Daily Habit Design",
                 caseScanChal: "Turning three uncontrolled selfie angles into a score users trust, while staying strictly outside medical claims and keeping raw photos off any permanent server.",
-                caseScanSol: "Built a guided capture pipeline with on-device compression, a weighted scoring model blending visual AI (70%) with behavioural tracking (30%), and a watchOS companion that shares plan and streak state through App Groups."
+                caseScanSol: "Built a guided capture pipeline with on-device compression, a weighted scoring model blending visual AI (70%) with behavioural tracking (30%), and a watchOS companion that shares plan and streak state through App Groups.",
+                expTitle: "Experience",
+                expRole1: "iOS Engineer",
+                expPeriod1: "2023 — Present",
+                expCompany1: "Independent — App Store",
+                expDesc1: "Four iOS applications designed, architected, and shipped end to end. Every aspect owned: Swift, SwiftUI, App Store review, and post-launch maintenance across iOS, watchOS, and CarPlay.",
+                expRole2: "Full-Stack Developer",
+                expPeriod2: "2025",
+                expDesc2: "Two web platforms built from scratch for a Berlin-based B2B service company. The main corporate site features a Gemini AI assistant, Firebase lead management with admin panel, and three-language localisation. The Schlüsseldienst site was built with a full SEO infrastructure, geo-targeting, and structured data to rank locally across Berlin districts.",
+                expRole3: "iOS Developer",
+                expPeriod3: "2 years · 20-person team",
+                expCompany3: "Consumer Mobile Banking App",
+                expDesc3: "Shipped 30+ production sprints on a live banking app used by real customers. VIPER architecture, XCTest and XCUITest on critical paths, Instruments profiling when frame budgets slipped, and crash triage after every release. Crash rate reduced to near zero."
             },
             de: {
                 navAbout: "Über mich",
@@ -2129,7 +2410,19 @@
                 visitScandent: "Website besuchen",
                 caseScanTag: "Computer Vision trifft auf tägliches Habit-Design",
                 caseScanChal: "Drei unkontrollierte Selfie-Winkel in einen Score verwandeln, dem Nutzer vertrauen, ohne medizinische Aussagen zu treffen und ohne Rohfotos dauerhaft zu speichern.",
-                caseScanSol: "Geführte Capture-Pipeline mit Komprimierung auf dem Gerät, ein gewichtetes Scoring-Modell aus visueller KI (70%) und Verhaltens-Tracking (30%) sowie eine watchOS-App, die Plan und Streak über App Groups teilt."
+                caseScanSol: "Geführte Capture-Pipeline mit Komprimierung auf dem Gerät, ein gewichtetes Scoring-Modell aus visueller KI (70%) und Verhaltens-Tracking (30%) sowie eine watchOS-App, die Plan und Streak über App Groups teilt.",
+                expTitle: "Erfahrung",
+                expRole1: "iOS-Entwickler",
+                expPeriod1: "2023 — Heute",
+                expCompany1: "Eigenständig — App Store",
+                expDesc1: "Vier iOS-Anwendungen eigenständig konzipiert, architekturiert und veröffentlicht. Alle Phasen in eigener Hand: Swift, SwiftUI, App-Store-Review und Wartung für iOS, watchOS und CarPlay.",
+                expRole2: "Full-Stack-Entwickler",
+                expPeriod2: "2025",
+                expDesc2: "Zwei Web-Plattformen von Grund auf für ein Berliner B2B-Unternehmen entwickelt. Die Haupt-Corporate-Site enthält einen Gemini-KI-Assistenten, Firebase-Lead-Management mit Admin-Panel und dreisprachige Lokalisierung. Die Schlüsseldienst-Site wurde mit vollständiger SEO-Infrastruktur, Geo-Targeting und strukturierten Daten aufgebaut, um lokal in Berliner Bezirken zu ranken.",
+                expRole3: "iOS-Entwickler",
+                expPeriod3: "2 Jahre · 20-köpfiges Team",
+                expCompany3: "Mobile Banking-App (Verbraucher)",
+                expDesc3: "Über 30 Produktions-Sprints an einer Live-Banking-App ausgeliefert. VIPER-Architektur, XCTest und XCUITest auf kritischen Pfaden, Instruments-Profiling und Crash-Triage nach jedem Release. Crash-Rate auf nahezu null gesenkt."
             },
             tr: {
                 navAbout: "Hakkımda",
@@ -2229,7 +2522,19 @@
                 visitScandent: "Web Sitesini Ziyaret Et",
                 caseScanTag: "Bilgisayarlı Görü ile Günlük Alışkanlık Tasarımı",
                 caseScanChal: "Kontrolsüz üç selfie açısını kullanıcının güvendiği bir skora dönüştürmek, tıbbi iddiaların tamamen dışında kalarak ve ham fotoğrafları kalıcı olarak saklamadan.",
-                caseScanSol: "Cihaz üzerinde sıkıştırma yapan rehberli bir çekim hattı, görsel yapay zekâyı (%70) davranışsal takiple (%30) harmanlayan ağırlıklı bir skorlama modeli ve plan ile seriyi App Groups üzerinden paylaşan bir watchOS uygulaması geliştirildi."
+                caseScanSol: "Cihaz üzerinde sıkıştırma yapan rehberli bir çekim hattı, görsel yapay zekâyı (%70) davranışsal takiple (%30) harmanlayan ağırlıklı bir skorlama modeli ve plan ile seriyi App Groups üzerinden paylaşan bir watchOS uygulaması geliştirildi.",
+                expTitle: "Deneyim",
+                expRole1: "iOS Mühendisi",
+                expPeriod1: "2023 — Günümüz",
+                expCompany1: "Bağımsız — App Store",
+                expDesc1: "Dört iOS uygulaması baştan sona tasarlandı, mimarisi kuruldu ve yayınlandı. Her aşama bağımsız olarak yönetildi: Swift, SwiftUI, App Store incelemesi ve iOS, watchOS ile CarPlay üzerinde lansman sonrası bakım.",
+                expRole2: "Full-Stack Geliştirici",
+                expPeriod2: "2025",
+                expDesc2: "Berlin merkezli bir B2B hizmet şirketi için iki web platformu sıfırdan geliştirildi. Ana kurumsal site; Gemini yapay zekâ asistanı, admin panelli Firebase müşteri adayı yönetimi ve üç dilli yerelleştirme içeriyor. Schlüsseldienst sitesi ise tam SEO altyapısı, geo-targeting ve Berlin ilçelerinde yerel sıralamayı hedefleyen yapısal verilerle inşa edildi.",
+                expRole3: "iOS Geliştirici",
+                expPeriod3: "2 yıl · 20 kişilik ekip",
+                expCompany3: "Tüketici Mobil Bankacılık Uygulaması",
+                expDesc3: "Gerçek müşterilerin kullandığı canlı bir bankacılık uygulamasında 30'dan fazla üretim sprint'i teslim edildi. VIPER mimarisi, kritik yollarda XCTest ve XCUITest, kare bütçesi sorunda Instruments profiling ve her sürüm sonrası çökme analizi. Çökme oranı sıfıra yaklaştırıldı."
             },
             fr: {
                 navAbout: "À propos",
@@ -2329,7 +2634,19 @@
                 visitScandent: "Visiter le site",
                 caseScanTag: "La Vision par Ordinateur au Service des Habitudes",
                 caseScanChal: "Transformer trois angles de selfie non contrôlés en un score fiable, tout en restant strictement en dehors des allégations médicales et sans conserver les photos brutes.",
-                caseScanSol: "Pipeline de capture guidée avec compression sur l'appareil, modèle de scoring pondéré combinant vision IA (70%) et suivi comportemental (30%), et application watchOS partageant plan et série via App Groups."
+                caseScanSol: "Pipeline de capture guidée avec compression sur l'appareil, modèle de scoring pondéré combinant vision IA (70%) et suivi comportemental (30%), et application watchOS partageant plan et série via App Groups.",
+                expTitle: "Expérience",
+                expRole1: "Ingénieur iOS",
+                expPeriod1: "2023 — Présent",
+                expCompany1: "Indépendant — App Store",
+                expDesc1: "Quatre applications iOS conçues, architecturées et publiées de A à Z. Chaque aspect maîtrisé: Swift, SwiftUI, validation App Store et maintenance post-lancement sur iOS, watchOS et CarPlay.",
+                expRole2: "Développeur Full-Stack",
+                expPeriod2: "2025",
+                expDesc2: "Deux plateformes web construites de zéro pour une entreprise B2B berlinoise. Le site corporate principal intègre un assistant IA Gemini, la gestion de leads Firebase avec panel admin et une localisation en trois langues. Le site Schlüsseldienst a été construit avec une infrastructure SEO complète, du geo-targeting et des données structurées pour ranker localement dans les quartiers de Berlin.",
+                expRole3: "Développeur iOS",
+                expPeriod3: "2 ans · Équipe de 20",
+                expCompany3: "App bancaire mobile grand public",
+                expDesc3: "Plus de 30 sprints de production livrés sur une app bancaire en production. Architecture VIPER, XCTest et XCUITest sur les chemins critiques, profiling Instruments et triage des crashs après chaque release. Taux de crash réduit à quasi zéro."
             },
             es: {
                 navAbout: "Sobre mí",
@@ -2429,7 +2746,19 @@
                 visitScandent: "Visitar el sitio",
                 caseScanTag: "Visión por Computador y Diseño de Hábitos Diarios",
                 caseScanChal: "Convertir tres ángulos de selfie no controlados en una puntuación fiable, sin realizar afirmaciones médicas y sin almacenar las fotos originales de forma permanente.",
-                caseScanSol: "Pipeline de captura guiada con compresión en el dispositivo, modelo de puntuación ponderado que combina visión IA (70%) y seguimiento conductual (30%), y app watchOS que comparte plan y racha vía App Groups."
+                caseScanSol: "Pipeline de captura guiada con compresión en el dispositivo, modelo de puntuación ponderado que combina visión IA (70%) y seguimiento conductual (30%), y app watchOS que comparte plan y racha vía App Groups.",
+                expTitle: "Experiencia",
+                expRole1: "Ingeniero iOS",
+                expPeriod1: "2023 — Presente",
+                expCompany1: "Independiente — App Store",
+                expDesc1: "Cuatro aplicaciones iOS diseñadas, arquitecturadas y publicadas de principio a fin. Cada aspecto controlado: Swift, SwiftUI, revisión App Store y mantenimiento post-lanzamiento en iOS, watchOS y CarPlay.",
+                expRole2: "Desarrollador Full-Stack",
+                expPeriod2: "2025",
+                expDesc2: "Dos plataformas web construidas desde cero para una empresa B2B berlinesa. El sitio corporativo principal incluye un asistente IA Gemini, gestión de leads con Firebase y panel admin, y localización en tres idiomas. El sitio Schlüsseldienst fue construido con infraestructura SEO completa, geo-targeting y datos estructurados para posicionarse localmente en los distritos de Berlín.",
+                expRole3: "Desarrollador iOS",
+                expPeriod3: "2 años · Equipo de 20",
+                expCompany3: "App de banca móvil de consumo",
+                expDesc3: "Más de 30 sprints de producción entregados en una app bancaria en vivo. Arquitectura VIPER, XCTest y XCUITest en rutas críticas, profiling con Instruments y triage de fallos tras cada lanzamiento. Tasa de fallos reducida a casi cero."
             },
             it: {
                 navAbout: "Su di me",
@@ -2529,7 +2858,19 @@
                 visitScandent: "Visita il sito",
                 caseScanTag: "Computer Vision e Design delle Abitudini Quotidiane",
                 caseScanChal: "Trasformare tre angolazioni di selfie non controllate in un punteggio affidabile, restando rigorosamente al di fuori di affermazioni mediche e senza conservare le foto originali.",
-                caseScanSol: "Pipeline di acquisizione guidata con compressione sul dispositivo, modello di scoring ponderato che combina visione IA (70%) e tracciamento comportamentale (30%), e app watchOS che condivide piano e streak tramite App Groups."
+                caseScanSol: "Pipeline di acquisizione guidata con compressione sul dispositivo, modello di scoring ponderato che combina visione IA (70%) e tracciamento comportamentale (30%), e app watchOS che condivide piano e streak tramite App Groups.",
+                expTitle: "Esperienza",
+                expRole1: "Ingegnere iOS",
+                expPeriod1: "2023 — Presente",
+                expCompany1: "Indipendente — App Store",
+                expDesc1: "Quattro applicazioni iOS progettate, architettate e pubblicate dall'inizio alla fine. Ogni aspetto gestito in proprio: Swift, SwiftUI, revisione App Store e manutenzione post-lancio su iOS, watchOS e CarPlay.",
+                expRole2: "Sviluppatore Full-Stack",
+                expPeriod2: "2025",
+                expDesc2: "Due piattaforme web costruite da zero per un'azienda B2B berlinese. Il sito corporate principale include un assistente IA Gemini, gestione lead Firebase con pannello admin e localizzazione in tre lingue. Il sito Schlüsseldienst è stato realizzato con un'infrastruttura SEO completa, geo-targeting e dati strutturati per posizionarsi localmente nei quartieri di Berlino.",
+                expRole3: "Sviluppatore iOS",
+                expPeriod3: "2 anni · Team di 20",
+                expCompany3: "App bancaria mobile consumer",
+                expDesc3: "Oltre 30 sprint di produzione consegnati su un'app bancaria in produzione. Architettura VIPER, XCTest e XCUITest sui percorsi critici, profiling con Instruments e triage dei crash dopo ogni release. Tasso di crash ridotto a quasi zero."
             }
         };
 
@@ -2652,7 +2993,7 @@
         }, "-=0.5");
 
         // Reveal Animations
-        gsap.utils.toArray(".bento-item, .project-card, .section-title").forEach((el) => {
+        gsap.utils.toArray(".bento-item, .project-card, .exp-card, .section-title").forEach((el) => {
             gsap.from(el, {
                 scrollTrigger: {
                     trigger: el,
