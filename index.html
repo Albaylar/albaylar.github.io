@@ -1632,6 +1632,175 @@
             .exp-header { flex-direction: column; align-items: flex-start; }
         }
 
+        /* ─── iPhone mockup ─── */
+        .project-card.has-mockup {
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+        .project-card.has-mockup .project-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .project-mockup {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0;
+        }
+        .phone-frame {
+            position: relative;
+            width: 170px;
+            background: linear-gradient(145deg, #2d2d2f, #1c1c1e);
+            border-radius: 44px;
+            padding: 18px 8px 24px;
+            box-shadow:
+                inset 0 0 0 1.5px rgba(255,255,255,0.1),
+                0 0 0 1.5px #000,
+                0 40px 100px rgba(0,0,0,0.75),
+                0 10px 30px rgba(0,0,0,0.45);
+        }
+        /* Dynamic Island */
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 18px; left: 50%;
+            transform: translateX(-50%);
+            width: 34%; height: 14px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 1;
+        }
+        /* Home indicator */
+        .phone-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 10px; left: 50%;
+            transform: translateX(-50%);
+            width: 30%; height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+        .phone-screen {
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 9 / 19.5;
+        }
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .project-card.flagship .phone-frame {
+            width: 190px;
+        }
+
+        /* Browser mockup with real screenshot */
+        .browser-mock-wrap {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .browser-mock-chrome {
+            background: rgba(255,255,255,0.05);
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .browser-mock-chrome .b-dot { background: rgba(255,255,255,0.12); }
+        .browser-mock-url {
+            margin-left: 8px;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: rgba(255,255,255,0.04);
+            padding: 2px 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .browser-mock-screen {
+            overflow: hidden;
+            height: 200px;
+            background: #fff;
+        }
+        .browser-mock-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .project-card.has-mockup {
+                flex-direction: column;
+            }
+            .project-mockup { padding: 0; }
+            .phone-frame { width: 140px; border-radius: 38px; }
+            .project-card.flagship .phone-frame { width: 155px; }
+            .phone-frame::before { height: 12px; }
+            .phone-screen { border-radius: 27px; }
+        }
+
+        /* Side browser mockup for web project cards */
+        .browser-side-mock {
+            width: 240px;
+            flex-shrink: 0;
+        }
+        .bsm-chrome {
+            background: #252528;
+            border-radius: 10px 10px 0 0;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-bottom: none;
+        }
+        .bsm-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            flex-shrink: 0;
+        }
+        .bsm-url {
+            flex: 1;
+            margin-left: 6px;
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.3);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: rgba(255,255,255,0.04);
+            padding: 2px 7px;
+            border-radius: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .bsm-screen {
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: #fff;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 10px 30px rgba(0,0,0,0.45);
+        }
+        .bsm-screen img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .browser-side-mock { width: 100%; max-width: 260px; }
+        }
+
     </style>
 
     <!-- Google tag (gtag.js) - Google Ads: AW-18130833656 -->
@@ -1970,7 +2139,7 @@
         <div class="projects-grid">
             
             <!-- SpeachyAI -->
-            <div class="project-card flagship" style="--card-accent: #2997ff;">
+            <div class="project-card flagship has-mockup" style="--card-accent: #2997ff;">
                 <span class="project-num">01</span>
                 <div class="project-info">
                     <div class="tags">
@@ -1985,16 +2154,6 @@
                         <span class="metric-stat">&lt; 150ms Response</span>
                         <span class="metric-stat">iOS · iPadOS</span>
                     </div>
-
-                    <div class="project-gallery">
-                        <img src="assets/images/speachyai/speachyai_2.jpg" alt="SpeachyAI Character List" loading="lazy" width="473" height="1024">
-                        <img src="assets/images/speachyai/speachyai_1.jpg" alt="SpeachyAI Character Creation" loading="lazy" width="473" height="1024">
-                        <img src="assets/images/speachyai/speachyai_3.jpg" alt="SpeachyAI Interface" loading="lazy" width="368" height="800">
-                        <img src="assets/images/speachyai/speachyai_4.jpg" alt="SpeachyAI Overview" loading="lazy" width="368" height="800">
-                        <img src="assets/images/speachyai/speachyai_5.jpg" alt="SpeachyAI Limitless Chats" loading="lazy" width="368" height="800">
-                        <img src="assets/images/speachyai/speachyai_6.jpg" alt="SpeachyAI Real-time Chat" loading="lazy" width="368" height="800">
-                    </div>
-
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/speachyai/id6742565399" class="app-store-btn" target="_blank" rel="noopener">
                             <i class="fab fa-apple" aria-hidden="true"></i> App Store
@@ -2009,10 +2168,17 @@
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
+                <div class="project-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/speachyai/speachyai_2.jpg" alt="SpeachyAI Character List" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ChargeEV -->
-            <div class="project-card" style="--card-accent: #00d46a;">
+            <div class="project-card has-mockup" style="--card-accent: #00d46a;">
                 <span class="project-num">02</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2027,16 +2193,6 @@
                         <span class="metric-stat">99.9% Sync</span>
                         <span class="metric-stat">CarPlay · watchOS</span>
                     </div>
-
-                    <div class="project-gallery">
-                        <img src="assets/images/chargeev/chargeev_hero.jpg" alt="ChargeEV Maps" loading="lazy" width="471" height="1024">
-                        <img src="assets/images/chargeev/chargeev_1.jpg" alt="ChargeEV Calculator" loading="lazy" width="471" height="1024">
-                        <img src="assets/images/chargeev/chargeev_2.jpg" alt="ChargeEV History" loading="lazy" width="471" height="1024">
-                        <img src="assets/images/chargeev/chargeev_3.jpg" alt="ChargeEV Trip Planner" loading="lazy" width="471" height="1024">
-                        <img src="assets/images/chargeev/chargeev_4.jpg" alt="ChargeEV Point Details" loading="lazy" width="471" height="1024">
-                        <img src="assets/images/chargeev/chargeev_5.jpg" alt="ChargeEV Map View" loading="lazy" width="471" height="1024">
-                    </div>
-
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/chargeev/id6505103671" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-apple" aria-hidden="true"></i> App Store
@@ -2049,10 +2205,17 @@
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
+                <div class="project-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/chargeev/chargeev_hero.jpg" alt="ChargeEV Map View" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Mining Town -->
-            <div class="project-card" style="--card-accent: #f5a623;">
+            <div class="project-card has-mockup" style="--card-accent: #f5a623;">
                 <span class="project-num">03</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2067,16 +2230,6 @@
                         <span class="metric-stat">60fps</span>
                         <span class="metric-stat">SpriteKit · GameplayKit</span>
                     </div>
-
-                    <div class="project-gallery">
-                        <img src="assets/images/miningtown/miningtown_1.jpg" alt="Mining Town – Welcome Screen" loading="lazy" width="900" height="1955">
-                        <img src="assets/images/miningtown/miningtown_2.jpg" alt="Mining Town – Explore Vast Maps" loading="lazy" width="900" height="1955">
-                        <img src="assets/images/miningtown/miningtown_4.jpg" alt="Mining Town – Extract Rare Treasures" loading="lazy" width="900" height="1955">
-                        <img src="assets/images/miningtown/miningtown_3.jpg" alt="Mining Town – Dangerous Depths" loading="lazy" width="900" height="1955">
-                        <img src="assets/images/miningtown/miningtown_5.jpg" alt="Mining Town – Unlock New Themes" loading="lazy" width="900" height="1955">
-                        <img src="assets/images/miningtown/miningtown_6.jpg" alt="Mining Town – Gameplay" loading="lazy" width="900" height="1955">
-                    </div>
-
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/mining-town/id6760492654" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-apple" aria-hidden="true"></i> App Store
@@ -2089,10 +2242,17 @@
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
+                <div class="project-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/miningtown/miningtown_1.jpg" alt="Mining Town Welcome Screen" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ScanDent -->
-            <div class="project-card" style="--card-accent: #3dcca8;">
+            <div class="project-card has-mockup" style="--card-accent: #3dcca8;">
                 <span class="project-num">04</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2107,18 +2267,6 @@
                         <span class="metric-stat">3-Angle Vision Scan</span>
                         <span class="metric-stat">iOS · watchOS</span>
                     </div>
-
-                    <div class="project-gallery">
-                        <img src="assets/images/scandent/scandent_1.jpg" alt="ScanDent Dental Score" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_2.jpg" alt="ScanDent Home & 3-Angle Deep Scan" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_3.jpg" alt="ScanDent Whitening Simulation" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_4.jpg" alt="ScanDent Metric Breakdown" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_6.jpg" alt="ScanDent Food Impact Analyzer" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_7.jpg" alt="ScanDent Progress Tracking" loading="lazy" width="900" height="1947">
-                        <img src="assets/images/scandent/scandent_watch_1.jpg" alt="ScanDent Apple Watch Today View" loading="lazy" width="416" height="496">
-                        <img src="assets/images/scandent/scandent_watch_2.jpg" alt="ScanDent Apple Watch Brush Timer" loading="lazy" width="416" height="496">
-                    </div>
-
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/scandent-ai-dental-scanner/id6792388868" class="app-store-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                             <i class="fab fa-apple" aria-hidden="true"></i> App Store
@@ -2133,10 +2281,17 @@
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
+                <div class="project-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <img src="assets/images/scandent/scandent_1.jpg" alt="ScanDent Dental Score" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- M&M Corporate Site -->
-            <div class="project-card" style="--card-accent: rgba(255,255,255,0.5);">
+            <div class="project-card has-mockup" style="--card-accent: rgba(255,255,255,0.5);">
                 <span class="project-num">05</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2151,9 +2306,6 @@
                         <span class="metric-stat">Firebase Leads</span>
                         <span class="metric-stat">DE / EN / TR</span>
                     </div>
-                    <div class="project-gallery" style="margin: 20px 0 8px; border-radius: 12px; overflow: hidden;">
-                        <img src="assets/images/mmservice/mm_launch.jpg" alt="M&M Service neue Website Launch" loading="lazy" width="1806" height="1808" style="height: 300px; object-fit: cover; object-position: top; scroll-snap-align: start; flex-shrink: 0; width: 100%;">
-                    </div>
                     <div class="project-links">
                         <a href="https://mm-leistungen.de/" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="border-color: rgba(255,255,255,0.2); color: #fff;">
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSite">Visit mm-leistungen.de</span>
@@ -2165,10 +2317,23 @@
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                 </div>
+                <div class="project-mockup">
+                    <div class="browser-side-mock">
+                        <div class="bsm-chrome">
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-url">mm-leistungen.de</span>
+                        </div>
+                        <div class="bsm-screen">
+                            <img src="https://image.thum.io/get/width/800/crop/600/https://www.mm-leistungen.de/de" alt="M&M Service Website" loading="lazy">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- MM Schlüsseldienst Berlin -->
-            <div class="project-card" style="--card-accent: #e63946;">
+            <div class="project-card has-mockup" style="--card-accent: #e63946;">
                 <span class="project-num">06</span>
                 <div class="project-info">
                     <div class="tags">
@@ -2183,21 +2348,6 @@
                         <span class="metric-stat">LocalBusiness Schema</span>
                         <span class="metric-stat">Geo-SEO</span>
                     </div>
-                    <div class="web-browser-mock">
-                        <div class="browser-chrome">
-                            <span class="b-dot"></span>
-                            <span class="b-dot"></span>
-                            <span class="b-dot"></span>
-                            <div class="browser-url">mm-schlüsseldienst.de</div>
-                        </div>
-                        <div class="browser-body" style="background: rgba(230,57,70,0.05);">
-                            <i class="fas fa-key" style="color: #e63946;" aria-hidden="true"></i>
-                            <div>
-                                <div class="browser-site-title">Schlüsseldienst Berlin — 24/7</div>
-                                <div class="browser-site-sub">Alle Berliner Bezirke · LocalBusiness Schema · Geo-targeted SEO</div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="project-links">
                         <a href="https://www.xn--mm-schlsseldienst-82b.de/de" class="web-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="border-color: rgba(230,57,70,0.35); color: #e63946;">
                             <i class="fas fa-external-link-alt"></i> <span data-i18n="visitSchluessel">Visit mm-schlüsseldienst.de</span>
@@ -2207,6 +2357,19 @@
                         <i class="fas fa-layer-group" aria-hidden="true"></i>
                         <span>Case Study</span>
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="project-mockup">
+                    <div class="browser-side-mock">
+                        <div class="bsm-chrome">
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-dot"></span>
+                            <span class="bsm-url">mm-schlüsseldienst.de</span>
+                        </div>
+                        <div class="bsm-screen">
+                            <img src="https://image.thum.io/get/width/800/crop/600/https://www.xn--mm-schlsseldienst-82b.de/de" alt="MM Schlüsseldienst Berlin Website" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </div>
